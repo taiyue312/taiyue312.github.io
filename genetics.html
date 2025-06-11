@@ -1,0 +1,1673 @@
+<!DOCTYPE html><html><head>
+      <title>genetics</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+.markdown-preview.markdown-preview {
+  /* 全局字体设置 */
+  font-size: 12px;
+  font-family: "kai", "Times New Roman", serif;
+  line-height: 1.3;
+  color: #333;
+  max-width: 8000px;
+  margin: 0 auto;
+  padding: 20px;
+  /* 标题样式 */
+  /* 链接样式 */
+  /* 列表样式 */
+  /* 代码样式 */
+  /* 引用样式 */
+  /* 表格样式 */
+  /* 图片样式 */
+  /* 水平线 */
+  /* 任务列表样式 */
+  /* 脚注样式 */
+  /* 自定义 pdf 导出样式 */
+  /* 自定义 prince pdf 导出样式 */
+  /* 自定义 presentation 样式 */
+  /* 自定义第一个幻灯片样式 */
+}
+.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  font-weight: bold;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #010e59;
+}
+.markdown-preview.markdown-preview h1 {
+  font-size: 2em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview h2 {
+  font-size: 1.5em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.3em;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 1.25em;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1em;
+}
+.markdown-preview.markdown-preview h5 {
+  font-size: 0.875em;
+}
+.markdown-preview.markdown-preview h6 {
+  font-size: 0.85em;
+  color: #777;
+}
+.markdown-preview.markdown-preview a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a:hover {
+  text-decoration: underline;
+}
+.markdown-preview.markdown-preview ul,
+.markdown-preview.markdown-preview ol {
+  padding-left: 2em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.markdown-preview.markdown-preview ul ul,
+.markdown-preview.markdown-preview ol ul,
+.markdown-preview.markdown-preview ul ol,
+.markdown-preview.markdown-preview ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.markdown-preview.markdown-preview code {
+  font-family: Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  margin: 0;
+  background-color: #f5f5f5;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 0.9em;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  overflow: auto;
+}
+.markdown-preview.markdown-preview pre code {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+.markdown-preview.markdown-preview blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #777;
+  border-left: 0.25em solid #e0e0e0;
+}
+.markdown-preview.markdown-preview table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  display: block;
+  overflow: auto;
+}
+.markdown-preview.markdown-preview table th,
+.markdown-preview.markdown-preview table td {
+  padding: 0.6em 1em;
+  border: 1px solid #ddd;
+}
+.markdown-preview.markdown-preview table th {
+  font-weight: bold;
+  background-color: #f8f8f8;
+}
+.markdown-preview.markdown-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+  border-radius: 3px;
+}
+.markdown-preview.markdown-preview hr {
+  height: 0;
+  margin: 1em 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+.markdown-preview.markdown-preview .task-list-item {
+  list-style-type: none;
+}
+.markdown-preview.markdown-preview .task-list-item input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+.markdown-preview.markdown-preview .footnote {
+  font-size: 0.9em;
+  color: #777;
+}
+@media print {
+  .markdown-preview.markdown-preview body {
+    font-size: 14px;
+  }
+  .markdown-preview.markdown-preview a {
+    text-decoration: underline;
+  }
+  .markdown-preview.markdown-preview pre,
+  .markdown-preview.markdown-preview blockquote {
+    page-break-inside: avoid;
+  }
+  .markdown-preview.markdown-preview h1,
+  .markdown-preview.markdown-preview h2,
+  .markdown-preview.markdown-preview h3,
+  .markdown-preview.markdown-preview h4,
+  .markdown-preview.markdown-preview h5,
+  .markdown-preview.markdown-preview h6 {
+    page-break-after: avoid;
+  }
+}
+.markdown-preview.markdown-preview.prince {
+  /* 为PrinceXML渲染的PDF添加特殊样式 */
+}
+.markdown-preview.markdown-preview .reveal .slides {
+  /* 修改所有幻灯片 */
+  font-size: 24px;
+}
+.markdown-preview.markdown-preview .slides > section:nth-child(1) {
+  /* 修改第一个幻灯片 */
+  text-align: center;
+}
+.md-sidebar-toc.md-sidebar-toc {
+  /* 边栏目录样式 */
+  font-size: 0.9em;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-left: 1px solid #eee;
+}
+.md-sidebar-toc.md-sidebar-toc a {
+  color: #333;
+  text-decoration: none;
+}
+.md-sidebar-toc.md-sidebar-toc a:hover {
+  color: #1e88e5;
+}
+.md-sidebar-toc.md-sidebar-toc ul {
+  list-style-type: none;
+  padding-left: 1em;
+}
+.md-sidebar-toc.md-sidebar-toc .current-active-header {
+  color: #1e88e5;
+  font-weight: bold;
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h3 id="第一章-孟德尔定律及延伸">第一章 孟德尔定律及延伸 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 3 Mendelian Genetics</strong> 和 <strong>Chapter 4 Extensions of Mendelian Genetics</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Expressivity (表现度)</strong>
+<ul>
+<li><strong>定义：</strong> 指特定基因型在个体中表达出同一表型特征的程度或强度。即使拥有相同的基因型，不同个体之间表型的具体表现形式（如疾病的严重程度、症状的多少）也可能有所不同。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.13 Genetic Background and the Environment May Alter Phenotypic Expression ( specifically, "Penetrance and Expressivity")。</li>
+</ul>
+</li>
+<li><strong>Penetrance (外显率)</strong>
+<ul>
+<li><strong>定义：</strong> 指特定基因型在群体中表达出相应表型的个体的比例。如果一个基因型总是导致相应的表型，那么它的外显率是100%（完全外显）；如果只有部分个体表现出表型，则是非完全外显。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.13 Genetic Background and the Environment May Alter Phenotypic Expression ( specifically, "Penetrance and Expressivity")。</li>
+</ul>
+</li>
+<li><strong>Complete dominance (完全显性)</strong>
+<ul>
+<li><strong>定义：</strong> 指杂合子（含有显性等位基因和隐性等位基因）的表型与纯合显性个体的表型完全相同，隐性等位基因的效应完全被显性等位基因所掩盖。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.3 Neither Allele Is Dominant in Incomplete, or Partial, Dominance (通过对比来理解)。</li>
+</ul>
+</li>
+<li><strong>Incomplete dominance (不完全显性)</strong>
+<ul>
+<li><strong>定义：</strong> 指杂合子的表型是两个纯合亲本表型的中间状态，即显性等位基因不能完全掩盖隐性等位基因的效应。例如，红花和白花杂交产生粉红花。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.3 Neither Allele Is Dominant in Incomplete, or Partial, Dominance。</li>
+</ul>
+</li>
+<li><strong>Codominance (共显性)</strong>
+<ul>
+<li><strong>定义：</strong> 指杂合子同时表现出两个等位基因各自的表型，而不是中间状态。两个等位基因的产物都能在杂合子中独立且清晰地表达出来。例如，ABO血型中的AB型。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.4 In Codominance, the Influence of Both Alleles in a Heterozygote Is Clearly Evident。</li>
+</ul>
+</li>
+<li><strong>Multiple alleles (复等位基因)</strong>
+<ul>
+<li><strong>定义：</strong> 指在一个群体中，某个基因在同一个基因座上存在三个或更多等位基因的情况。尽管在一个二倍体个体中，某个基因座上最多只能有两个等位基因，但在群体水平上，该基因可以有多个等位基因形式。例如，人类的ABO血型系统。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.5 Multiple Alleles of a Gene May Exist in a Population。</li>
+</ul>
+</li>
+<li><strong>Epistasis (上位效应)</strong>
+<ul>
+<li><strong>定义：</strong> 指一个基因座上的等位基因（上位基因）能够掩盖或改变另一个基因座上等位基因（下位基因）的表达，从而影响性状的最终表型。它导致经典的孟德尔双基因分离比发生改变。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.8 Phenotypes Are Often Affected by More Than One Gene ( specifically, "Epistasis")。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>实验数据的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>分析 (Chi-Square Analysis of Experimental Data)</strong>
+<ul>
+<li><strong>解释：</strong> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>（卡方）检验是一种统计学方法，用于评估观察到的实验结果（如后代分离比）与基于特定遗传假说（如孟德尔定律）的预期结果之间的符合程度。它帮助科学家判断观察到的偏差是由于随机抽样误差，还是由于假说本身不成立。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 3 Mendelian Genetics, Section 3.8 Chi-Square Analysis Evaluates the Influence of Chance on Genetic Data。</li>
+</ul>
+</li>
+<li><strong>看懂家系图 (Understanding Pedigrees)</strong>
+<ul>
+<li><strong>解释：</strong> 家系图（Pedigree）是记录一个家族中特定性状或疾病世代遗传模式的图解。通过分析家系图中个体之间的亲缘关系、性状表现和传递模式，可以推断出该性状的遗传方式（如常染色体显性/隐性、X连锁显性/隐性）。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 3 Mendelian Genetics, Section 3.9 Pedigrees Reveal Patterns of Inheritance of Human Traits。</li>
+</ul>
+</li>
+<li><strong>正交和反交、测交、回交，每种杂交方式在遗传规律分析中的作用，能说明什么问题 (Reciprocal Cross, Test Cross, Backcross, and their roles in Genetic Analysis)</strong>
+<ul>
+<li><strong>正交 (Reciprocal Cross)：</strong> 雌雄亲本的基因型互换的杂交。
+<ul>
+<li><strong>作用：</strong> 用于判断性状遗传是否与性别相关（如伴性遗传或母系遗传）。如果正反交结果相同，说明与性别无关；如果不同，则可能与性别有关。</li>
+</ul>
+</li>
+<li><strong>测交 (Test Cross)：</strong> F1代个体与一个隐性纯合亲本的杂交。
+<ul>
+<li><strong>作用：</strong> 用于确定F1代（或其他待测个体）的基因型，特别是判断其是否为杂合子，以及分析连锁基因的重组率。</li>
+</ul>
+</li>
+<li><strong>回交 (Backcross)：</strong> F1代个体与其任何一个亲本的杂交。测交是回交的一种特殊形式（回交到隐性亲本）。
+<ul>
+<li><strong>作用：</strong> 在育种中用于将F1代的优良性状（或特定基因）回交到亲本品种中，以改良亲本。在遗传分析中，如果回交到隐性亲本，则具备测交的功能。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 3 Mendelian Genetics (e.g., "The Testcross: One Character", "The Testcross: Two Characters")。</li>
+</ul>
+</li>
+<li><strong>孟德尔定律延伸——两个基因如何相互影响决定一个性状，结合代谢通路理解基因互作的不同方式 (Extensions of Mendelian Laws - How two genes interact to determine a trait, understood with metabolic pathways)</strong>
+<ul>
+<li><strong>解释：</strong> 孟德尔定律描述了单个基因或非连锁基因的遗传模式。但实际上，许多性状的表达是由两个或多个基因的产物相互作用决定的。结合代谢通路，可以理解上位效应、互补作用、累加作用等。例如，在一条生化合成途径中，一个基因的突变可能阻断途径，影响另一个基因的最终产物。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Sections 4.8 Phenotypes Are Often Affected by More Than One Gene (discusses Epistasis, Novel Phenotypes, etc.)。</li>
+</ul>
+</li>
+<li><strong>互补实验(Complementation test)的原理、条件及应用 (Principle, Conditions, and Application of Complementation Test)</strong>
+<ul>
+<li><strong>原理：</strong> 当两个独立的纯合隐性突变体杂交时，如果后代（F1）表现出野生型表型，说明这两个突变发生在不同的基因上（基因间互补）；如果后代仍表现出突变表型，说明这两个突变发生在同一基因的不同部位（基因内不互补）。</li>
+<li><strong>条件：</strong> 突变必须是隐性的。</li>
+<li><strong>应用：</strong> 用于判断引起相似表型的两个突变是否是同一基因的等位基因，或者是否是不同基因的突变。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.9 Complementation Analysis Can Determine if Two Mutations Causing a Similar Phenotype Are Alleles of the Same Gene。</li>
+</ul>
+</li>
+<li><strong>基因型与表型的关系？为什么相同的基因型产生的表型不一样？ (Relationship between Genotype and Phenotype? Why the same genotype can produce different phenotypes?)</strong>
+<ul>
+<li><strong>解释：</strong> 基因型是生物体所携带的基因集合，表型是基因型与环境相互作用后所表现出的可观察性状。</li>
+<li><strong>相同基因型产生不同表型的原因：</strong>
+<ol>
+<li><strong>环境因素：</strong> 外部环境（如温度、光照、营养、湿度）可以显著影响基因的表达和表型的形成（如喜马拉雅兔的毛色）。</li>
+<li><strong>基因背景效应 (Genetic Background)：</strong> 其他基因座上的基因可能修饰或抑制目标基因的表达。</li>
+<li><strong>外显率和表现度 (Penetrance and Expressivity)：</strong> 基因型可能不是完全外显的（并非所有携带该基因型的个体都表现出表型），或者其表现程度在不同个体间有差异。</li>
+<li><strong>随机事件：</strong> 在发育过程中，一些随机的分子事件也可能导致表型差异。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.13 Genetic Background and the Environment May Alter Phenotypic Expression。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第二章-连锁分析与遗传学作图">第二章 连锁分析与遗传学作图 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 7 Chromosome Mapping in Eukaryotes</strong> 和部分 <strong>Chapter 5 Sex Determination and Sex Chromosomes</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Sex-limited inheritance (限性遗传)</strong>
+<ul>
+<li><strong>定义：</strong> 指性状只在一种性别中表现，但在两种性别中都存在相应的基因。这些基因可能位于常染色体或性染色体上，其表达受性别特定激素或生理环境的限制。例如，雄性秃头症在男性中表现，但在女性中携带基因可能不表现或表现很弱。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.12 In Sex-Limited and Sex-Influenced Inheritance, an Individual’s Sex Influences the Phenotype。</li>
+</ul>
+</li>
+<li><strong>Sex-influenced inheritance (从性遗传)</strong>
+<ul>
+<li><strong>定义：</strong> 指性状在两种性别中都会表现，但其表达频率或程度在不同性别中有所差异，通常与激素水平有关。例如，男性秃头症在男性中表现为显性，在女性中表现为隐性。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.12 In Sex-Limited and Sex-Influenced Inheritance, an Individual’s Sex Influences the Phenotype。</li>
+</ul>
+</li>
+<li><strong>Interference (干涉)</strong>
+<ul>
+<li><strong>定义：</strong> 指在一个染色体区域内发生一次交换（重组）会影响该区域附近发生另一次交换的概率的现象。通常，一次交换的发生会抑制其附近区域的另一次交换，导致观察到的双交换频率低于预期（即双交换频率的乘积）。干涉度可以用“符合系数”来衡量。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryotes, Section 7.4 As the Distance between Two Genes Increases, Mapping Estimates Become More Inaccurate ( specifically, "Interference and the Coefficient of Coincidence")。</li>
+</ul>
+</li>
+<li><strong>Gene Conversion (基因转变)</strong>
+<ul>
+<li><strong>定义：</strong> 指在减数分裂或有丝分裂中，在一个杂合基因座上，一个等位基因的序列被另一个同源染色体上的等位基因的序列所“转换”或“复制”，导致出现异常的（非孟德尔式的）分离比（如4:4变成3:1或1:3）。这通常是DNA修复过程中，特别是异源双链DNA修复的结果。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Gene Conversion”作为子标题，但通常会在DNA重组或DNA修复相关章节中讨论（如Chapter 11 DNA Replication and Recombination, Section 11.8 Recombination Is Essential for Genetic Exchange and DNA Repair）。</li>
+</ul>
+</li>
+<li><strong>Genetic map (遗传图)</strong>
+<ul>
+<li><strong>定义：</strong> 也称连锁图，是展示基因在染色体上的相对位置（基因座）及其之间距离的图谱。距离通常以图距单位（cM或m.u.，表示1%的重组频率）衡量，反映了基因之间发生重组的概率。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryotes (整个章节的主题)。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>伴性遗传的基本特征？在遗传分析时如何推测、证实伴性遗传？ (Basic features of sex-linked inheritance? How to infer and confirm sex-linked inheritance in genetic analysis?)</strong>
+<ul>
+<li><strong>特征：</strong>
+<ol>
+<li><strong>交叉遗传：</strong> 雄性会将X染色体上的性状传给女儿，女儿再传给孙子（如男性患病，其女儿可能为携带者，其外孙可能患病）。</li>
+<li><strong>发病率差异：</strong> 某些性状在男性中发病率高于女性（对X连锁隐性疾病而言）。</li>
+<li><strong>父子不相传：</strong> 父亲不能将X连锁性状直接传给儿子。</li>
+<li><strong>女性携带者：</strong> 女性可以是X连锁隐性性状的携带者而不表现出表型。</li>
+</ol>
+</li>
+<li><strong>推测与证实：</strong>
+<ul>
+<li><strong>推测：</strong> 观察家系图，若性状表现出上述特征，尤其是有交叉遗传、父子不相传现象时。</li>
+<li><strong>证实：</strong> 进行正反交实验，如果正反交结果不同，且表现出与X染色体遗传相符的模式，则可证实。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 4 Extensions of Mendelian Genetics, Section 4.11 X-Linkage Describes Genes on the X Chromosome; Chapter 5 Sex Determination and Sex Chromosomes。</li>
+</ul>
+</li>
+<li><strong>X染色体的剂量补偿效应？X染色体数目异常的表型预测、X染色体失活与失活逃逸 (X-chromosome dosage compensation? Phenotype prediction for X-chromosome number abnormalities, X-inactivation and escape from inactivation)</strong>
+<ul>
+<li><strong>剂量补偿效应 (Dosage Compensation)：</strong> 指生物体通过某种机制，使雄性（只有一个X染色体）和雌性（有两个X染色体）的X连锁基因表达水平达到平衡，避免因X染色体数量差异导致的基因产物剂量不平衡。</li>
+<li><strong>X染色体失活 (X-inactivation)：</strong> 在哺乳动物中，雌性个体的两条X染色体中的一条随机失活，并浓缩形成巴氏小体 (Barr Body)。</li>
+<li><strong>失活逃逸 (Escape from Inactivation)：</strong> 少数X染色体上的基因在失活的X染色体上也能保持表达，不完全失活。</li>
+<li><strong>X染色体数目异常表型预测：</strong>
+<ul>
+<li>Klinefelter Syndrome (XXY): 男性，有女性化特征，不育。</li>
+<li>Turner Syndrome (XO): 女性，身材矮小，性腺发育不全，不育。</li>
+<li>Triple-X Syndrome (XXX): 女性，通常表型正常或有轻微发育问题。</li>
+<li><strong>预测基础：</strong> 主要取决于异常染色体数量对基因表达剂量的影响，以及剂量补偿机制是否能完全补偿。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 5 Sex Determination and Sex Chromosomes, Section 5.4 Dosage Compensation Prevents Excessive Expression of X-Linked Genes in Humans and Other Mammals (discusses Barr Bodies, Lyon Hypothesis, Mechanism of Inactivation); Sections 5.2 Klinefelter and Turner Syndromes, 47,XXX Syndrome, 47,XYY Condition。</li>
+</ul>
+</li>
+<li><strong>交换率、重组率、图距的关系？ (Relationship between Crossing-over Rate, Recombination Rate, and Map Distance?)</strong>
+<ul>
+<li><strong>交换率 (Crossing-over Rate)：</strong> 指减数分裂过程中，同源染色体之间发生物理交换（染色体片段的互换）的频率。</li>
+<li><strong>重组率 (Recombination Rate)：</strong> 指配子中出现亲本基因型以外的组合（即重组型配子）的频率。在基因距离较短时，重组率近似等于交换率的一半。</li>
+<li><strong>图距 (Map Distance)：</strong> 以厘摩(cM)或图距单位(m.u.)表示，1 cM 定义为1%的重组频率。</li>
+<li><strong>关系：</strong> 当基因距离较近时（小于20 cM），重组率与图距近似呈线性关系；当基因距离较远时，由于双交换或多重交换的发生，重组率会低估实际的交换率，因此图距（通过累加短距离）比重组率更能准确反映真实距离。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryotes, Sections 7.2 Crossing Over Serves as the Basis for Determining the Distance between Genes in Chromosome Mapping (discusses Single Crossovers, Sturtevant and Mapping), 7.4 As the Distance between Two Genes Increases, Mapping Estimates Become More Inaccurate。</li>
+</ul>
+</li>
+<li><strong>两点测交、三点测交绘制遗传连锁图的基本方法，为什么要用测交实验？ (Basic methods of two-point and three-point test crosses for constructing genetic linkage maps, and why test crosses are used?)</strong>
+<ul>
+<li><strong>两点测交：</strong>
+<ul>
+<li><strong>方法：</strong> 让双杂合子（AaBb）与双隐性纯合子（aabb）杂交，统计后代四种表型的比例。</li>
+<li><strong>目的：</strong> 计算两个基因之间的重组率，从而确定它们的相对距离。</li>
+</ul>
+</li>
+<li><strong>三点测交：</strong>
+<ul>
+<li><strong>方法：</strong> 让三杂合子（AaBbCc）与三隐性纯合子（aabbcc）杂交，统计后代八种表型的比例。</li>
+<li><strong>目的：</strong> 确定三个连锁基因的顺序和它们之间的相对距离，同时可以计算干涉度。</li>
+</ul>
+</li>
+<li><strong>为什么要用测交实验？</strong>
+<ol>
+<li><strong>直接反映配子类型：</strong> 隐性纯合亲本只产生一种配子类型，因此后代的表型直接反映了杂合亲本产生的配子类型及其比例。</li>
+<li><strong>简化分析：</strong> 避免了显性基因之间相互作用对表型分析的干扰，使得重组事件更容易识别和量化。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryates, Sections 7.2 Crossing Over Serves as the Basis for Determining the Distance between Genes in Chromosome Mapping, 7.3 Determining the Gene Sequence during Mapping Requires the Analysis of Multiple Crossovers (discusses Three-Point Mapping)。</li>
+</ul>
+</li>
+<li><strong>粗糙脉胞菌顺序四分子进行遗传分析的基本原理 (Basic principle of genetic analysis using ordered tetrads in Neurospora crassa)</strong>
+<ul>
+<li><strong>原理：</strong> 粗糙脉胞菌（一种子囊菌）在减数分裂后，其子囊孢子在子囊中按减数分裂的顺序排列（形成顺序四分子）。通过观察子囊中不同基因型的孢子排列顺序，可以直接区分第一分裂分离和第二分裂分离，从而计算基因与着丝粒的距离，以及基因之间的重组率。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Neurospora”作为作图方法，但其在Chapter 14 Translation and Proteins, Section 14.6 Studies of Neurospora Led to the One-Gene:One-Enzyme Hypothesis中有所提及。通常更高级的遗传学教材会在重组和作图章节讨论这种独特的真菌遗传分析方法。</li>
+</ul>
+</li>
+<li><strong>在DNA分子水平理解交换的过程 (Understanding the process of crossing-over at the DNA molecular level)</strong>
+<ul>
+<li><strong>解释：</strong> DNA分子水平的交换（同源重组）涉及DNA双链的断裂、重组和连接。一般认为遵循 Holliday 模型或双链断裂修复模型。核心步骤包括：同源染色体DNA双链断裂、末端切除形成3'单链突出、单链侵入同源DNA、D-loop形成、DNA合成修复缺口、Holliday结（联会）的形成和迁移，最终通过切开Holliday结（剪切）完成DNA链的交换和连接，产生重组或非重组产物。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryotes, Section 7.8 Crossing Over Involves a Physical Exchange between Chromatids; Chapter 11 DNA Replication and Recombination, Section 11.8 Recombination Is Essential for Genetic Exchange and DNA Repair (discusses Models of Homologous Recombination)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第三章-细菌和噬菌体的遗传分析">第三章 细菌和噬菌体的遗传分析 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Conjugation (细菌接合)</strong>
+<ul>
+<li><strong>定义：</strong> 细菌之间通过物理接触（形成接合桥）直接转移遗传物质（通常是质粒，有时也包括部分染色体DNA）的过程。F因子（F Plasmid）是介导接合的典型例子。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Section 8.2 Genetic Recombination Occurs in Bacteria (specifically, "Conjugation in Bacteria: The Discovery of F+ and F– Strains")。</li>
+</ul>
+</li>
+<li><strong>High frequency recombination strain (高频重组菌株, Hfr)</strong>
+<ul>
+<li><strong>定义：</strong> 一种特殊的F+细菌株，其F因子（质粒）已整合到细菌的染色体上。在接合过程中，Hfr菌株能够以高频率将自身的染色体DNA（连同整合的F因子）转移到F-受体菌中。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Section 8.2 Genetic Recombination Occurs in Bacteria (specifically, "Hfr Bacteria and Chromosome Mapping")。</li>
+</ul>
+</li>
+<li><strong>Generalized transduction (普遍性转导)</strong>
+<ul>
+<li><strong>定义：</strong> 细菌DNA通过噬菌体作为载体从一个细菌转移到另一个细菌的过程，且任何细菌基因片段都可能被转导。在噬菌体裂解感染宿主细胞时，宿主染色体随机断裂，部分细菌DNA片段可能被错误地包装到新形成的噬菌体颗粒中，这些噬菌体随后感染其他细菌并转移DNA。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Section 8.6 Transduction Is Virus-Mediated Bacterial DNA Transfer (讨论转导，但未明确区分"普遍性"和"局限性"作为子标题，通常在转导概念下讨论)。</li>
+</ul>
+</li>
+<li><strong>Specialized transduction (局限性转导)</strong>
+<ul>
+<li><strong>定义：</strong> 细菌DNA通过溶源性噬菌体作为载体从一个细菌转移到另一个细菌的过程，但只能转导紧邻噬菌体整合位点的特定细菌基因片段。当溶源性噬菌体从宿主染色体上切离时，有时会错误地将邻近的细菌基因片段一同切下并包装到噬菌体颗粒中。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 同上，通常在转导概念下讨论。</li>
+</ul>
+</li>
+<li><strong>Horizontal Gene Transfer (水平基因转移)</strong>
+<ul>
+<li><strong>定义：</strong> 遗传物质在不同生物体之间（而非垂直从亲代到子代）进行转移的过程。细菌中的接合、转化和转导都是水平基因转移的例子。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 虽然没有单独的章节标题，但接合、转化、转导都是水平基因转移的具体方式，在Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages 中有详细描述。</li>
+</ul>
+</li>
+<li><strong>Genomic islands (基因组岛)</strong>
+<ul>
+<li><strong>定义：</strong> 细菌基因组中一段或几段大的DNA区域，通常具有与宿主基因组不同的GC含量或密码子使用偏好，并且常常包含参与特定功能（如致病性、抗生素抗性、代谢途径）的基因。它们被认为是水平基因转移的产物。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Genomic islands”作为子标题，但在讨论细菌基因组组织或水平基因转移的影响时会提及。</li>
+</ul>
+</li>
+<li><strong>Plaque (噬菌斑)</strong>
+<ul>
+<li><strong>定义：</strong> 在细菌培养皿上，噬菌体感染并裂解细菌后形成的圆形清澈区域。每个噬菌斑通常由单个噬菌体颗粒感染并增殖形成。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Section 8.5 Bacteriophages Are Bacterial Viruses (specifically, "The Plaque Assay")。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>细菌遗传物质交换的三种方式？交换遗传物质对细菌有何意义？ (Three ways of bacterial genetic material exchange? What is the significance of exchanging genetic material for bacteria?)</strong>
+<ul>
+<li><strong>三种方式：</strong>
+<ol>
+<li><strong>接合 (Conjugation)：</strong> 通过细胞间直接接触和质粒转移。</li>
+<li><strong>转化 (Transformation)：</strong> 细菌从环境中直接摄取并整合游离DNA片段。</li>
+<li><strong>转导 (Transduction)：</strong> 噬菌体作为载体介导细菌DNA的转移。</li>
+</ol>
+</li>
+<li><strong>意义：</strong>
+<ol>
+<li><strong>增加遗传多样性：</strong> 促进基因重组，使细菌获得新的基因组合，从而增强其对环境变化的适应能力。</li>
+<li><strong>抗生素抗性传播：</strong> 快速传播抗性基因，是耐药菌产生和扩散的重要途径。</li>
+<li><strong>适应新环境：</strong> 获得新的代谢途径基因，帮助细菌利用新的营养源或降解污染物。</li>
+<li><strong>毒力因子传播：</strong> 获得致病基因，增强细菌的致病性。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Sections 8.2 Genetic Recombination Occurs in Bacteria, 8.4 Transformation Is a Second Process Leading to Genetic Recombination in Bacteria, 8.6 Transduction Is Virus-Mediated Bacterial DNA Transfer。</li>
+</ul>
+</li>
+<li><strong>细菌的同源重组和真核生物的同源重组有何异同？ (Similarities and differences between homologous recombination in bacteria and eukaryotes?)</strong>
+<ul>
+<li><strong>相同点：</strong>
+<ul>
+<li>都需要同源DNA序列。</li>
+<li>都涉及DNA双链断裂和链交换。</li>
+<li>都由RecA（细菌）或Rad51（真核生物）等重组酶介导。</li>
+<li>都用于DNA修复和增加遗传多样性。</li>
+</ul>
+</li>
+<li><strong>不同点：</strong>
+<ul>
+<li><strong>发生条件：</strong> 细菌同源重组通常发生在接合、转化、转导等水平基因转移过程中，以及DNA损伤修复时；真核生物同源重组主要发生在减数分裂中产生配子（交叉互换），也发生在有丝分裂中进行DNA损伤修复。</li>
+<li><strong>结构复杂性：</strong> 真核生物的DNA包装在核小体和更复杂的染色质结构中，重组过程受染色质开放程度和多种蛋白因子调控；细菌DNA裸露，相对简单。</li>
+<li><strong>目的：</strong> 细菌更侧重于适应环境和DNA修复；真核生物更侧重于产生配子的多样性和DNA修复。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages ( for bacterial recombination); Chapter 11 DNA Replication and Recombination, Section 11.8 Recombination Is Essential for Genetic Exchange and DNA Repair (for general and eukaryotic recombination)。</li>
+</ul>
+</li>
+<li><strong>细菌中断杂交作图和重组作图的区别 (Difference between bacterial interrupted mating mapping and recombination mapping)</strong>
+<ul>
+<li><strong>中断杂交作图 (Interrupted Mating Mapping)：</strong>
+<ul>
+<li><strong>原理：</strong> 基于Hfr和F-菌株的接合，通过在不同时间点中断接合来测量不同基因进入F-受体菌的时间，从而确定基因在染色体上的相对顺序和距离（以分钟为单位）。</li>
+<li><strong>特点：</strong> 用于构建细菌染色体的线性图谱，距离单位是时间。</li>
+</ul>
+</li>
+<li><strong>重组作图 (Recombination Mapping)：</strong>
+<ul>
+<li><strong>原理：</strong> 基于转化或转导实验，通过统计多个基因同时转移并整合到受体菌中的频率（共转化或共转导频率）来确定基因之间的距离。共转移频率越高，基因距离越近。</li>
+<li><strong>特点：</strong> 用于构建较小区域内基因的精细图谱，距离单位通常是重组频率。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Section 8.2 Hfr Bacteria and Chromosome Mapping (for interrupted mating); Sections 8.4 Transformation and Linked Genes, 8.6 Transduction and Mapping (for recombination mapping)。</li>
+</ul>
+</li>
+<li><strong>细菌水平基因转移的方式及意义 (Ways and significance of bacterial horizontal gene transfer)</strong>
+<ul>
+<li><strong>方式：</strong> 已在前面“三种方式”中详细说明（接合、转化、转导）。</li>
+<li><strong>意义：</strong> 是细菌适应环境、快速进化、传播抗生素抗性和毒力因子的主要机制，对细菌的生存和人类健康（如耐药菌问题）具有深远影响。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages (各部分详述了这些方式)。</li>
+</ul>
+</li>
+<li><strong>T4噬菌体rII突变体的互补实验和重组实验对基因精细结构研究的意义？ (Significance of complementation and recombination experiments of T4 bacteriophage rII mutants for fine structure gene studies?)</strong>
+<ul>
+<li><strong>意义：</strong> Seymour Benzer通过T4噬菌体rII基因的互补实验和重组实验，首次证明了基因并非一个不可分割的单位，而是可以由更小的功能单位（顺反子cistron）、突变单位（muton）和重组单位（recon）组成。
+<ul>
+<li><strong>互补实验：</strong> 揭示了rII基因由两个不同的顺反子（rIIA和rIIB）组成，突变发生在不同顺反子上的噬菌体可以互补，恢复野生型表型。</li>
+<li><strong>重组实验：</strong> 揭示了基因内部可以发生重组，突变点可以像连锁基因一样进行作图，精确到单个核苷酸对，从而证实了基因的线性结构和可变性。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages, Section 8.8 Intragenic Recombination Occurs in Phage T4 (discusses The rII Locus of Phage T4, Complementation by rII Mutations, Recombinational Analysis, Deletion Testing of the rII Locus, The rII Gene Map)。</li>
+</ul>
+</li>
+<li><strong>抗药性细菌是如何产生的？敏感细菌如何快速获得抗药性？采取什么措施对待超级耐药菌？ (How do antibiotic-resistant bacteria arise? How do sensitive bacteria rapidly acquire antibiotic resistance? What measures can be taken to combat superbugs?)</strong>
+<ul>
+<li><strong>抗药性细菌的产生：</strong>
+<ol>
+<li><strong>突变：</strong> 细菌基因组中发生随机突变，使细菌获得对某种抗生素的抗性（如改变药物靶点、产生降解酶）。</li>
+<li><strong>自然选择：</strong> 在抗生素存在的环境下，敏感细菌被杀死，而带有抗性突变的细菌得以存活和繁殖，将抗性基因传递给后代。</li>
+</ol>
+</li>
+<li><strong>敏感细菌快速获得抗药性：</strong>
+<ol>
+<li><strong>水平基因转移：</strong> 通过接合（最主要途径，如R质粒的转移）、转化和转导，从抗性细菌那里获得抗性基因。</li>
+</ol>
+</li>
+<li><strong>对待超级耐药菌的措施：</strong>
+<ol>
+<li><strong>合理使用抗生素：</strong> 避免滥用和过度使用抗生素，严格遵守处方。</li>
+<li><strong>研发新型抗生素：</strong> 寻找新的抗菌药物或治疗策略。</li>
+<li><strong>加强感染控制：</strong> 医院和社区中采取严格的卫生措施，防止耐药菌传播。</li>
+<li><strong>监测与预警：</strong> 建立全球耐药菌监测网络，及时发现和应对耐药菌流行。</li>
+<li><strong>噬菌体疗法：</strong> 作为一种替代抗生素的治疗手段，利用噬菌体特异性裂解细菌。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages ( discusses plasmid transfer, leading to antibiotic resistance); Special Topic 2 DNA Forensics, Box 1 The Pitchfork Case: The First Criminal Conviction Using DNA Profiling ( mentions drug-resistant bacteria context in a boxed feature, not a main section)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第四章-遗传物质的变异及修复机制">第四章 遗传物质的变异及修复机制 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement</strong> 和 <strong>Chapter 15 Gene Mutation, DNA Repair, and Transposition</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Polytene chromosome (多线染色体)</strong>
+<ul>
+<li><strong>定义：</strong> 一种在特定组织（如果蝇唾液腺）中发现的特化染色体，由DNA复制但不进行细胞分裂（内复制）导致染色体多重复制并并列在一起形成。它们巨大且具有独特的横纹模式，是早期遗传学作图和基因定位的重要工具。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 12 DNA Organization in Chromosomes, Section 12.3 Specialized Chromosomes Reveal Variations in the Organization of DNA (specifically, "Polytene Chromosomes")。</li>
+</ul>
+</li>
+<li><strong>Balanced lethal stock (平衡致死系)</strong>
+<ul>
+<li><strong>定义：</strong> 一种经过人工选择或自然形成的遗传系，其中携带一对或多对连锁的致死基因（通常位于不同的同源染色体上）。这些致死基因在纯合状态下导致个体死亡，但在杂合状态下个体可以存活。这种平衡系统可以稳定地维持杂合子基因型，防止重组产生致死纯合子，常用于遗传研究。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Balanced lethal stock”作为子标题，但在讨论连锁、致死基因或遗传实验设计时可能提及。</li>
+</ul>
+</li>
+<li><strong>Robertsonian translocation (罗伯逊式易位)</strong>
+<ul>
+<li><strong>定义：</strong> 一种特殊类型的染色体易位，涉及两条近端着丝粒染色体（如人类的13、14、15、21、22号染色体）在着丝粒附近断裂，然后它们的较长臂融合形成一条新的、较大的融合染色体，而它们的较短臂丢失。这可能导致携带者表型正常，但其后代可能出现染色体数目异常（如家族性唐氏综合征）。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement, Section 6.8 Translocations Alter the Location of Chromosomal Segments in the Genome (specifically, "Translocations in Humans: Familial Down Syndrome")。</li>
+</ul>
+</li>
+<li><strong>Chromosome set (染色体组)</strong>
+<ul>
+<li><strong>定义：</strong> 一个物种所具有的非同源染色体的完整组合。在二倍体生物中，一个细胞通常含有两个染色体组（2n）；单倍体生物含有一个染色体组（n）。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement (整个章节讨论染色体数目变异)。</li>
+</ul>
+</li>
+<li><strong>Autopolyploid (同源多倍体)</strong>
+<ul>
+<li><strong>定义：</strong> 由同一物种的染色体组倍增而形成的多倍体。例如，二倍体（2n）植物经染色体加倍形成四倍体（4n）。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement, Section 6.3 Polyploidy, in Which More Than Two Haploid Sets of Chromosomes Are Present, Is Prevalent in Plants (specifically, "Autopolyploidy")。</li>
+</ul>
+</li>
+<li><strong>Allopolyploid (异源多倍体)</strong>
+<ul>
+<li><strong>定义：</strong> 由两个或多个不同物种的染色体组杂交并倍增而形成的多倍体。例如，由两个不同二倍体物种（AA和BB）杂交产生的杂种（AB），再经染色体加倍形成可育的异源四倍体（AABB）。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement, Section 6.3 Polyploidy, in Which More Than Two Haploid Sets of Chromosomes Are Present, Is Prevalent in Plants (specifically, "Allopolyploidy")。</li>
+</ul>
+</li>
+<li><strong>Dynamic mutation (动态突变)</strong>
+<ul>
+<li><strong>定义：</strong> 指某些基因座上的三核苷酸重复序列（或更长的重复序列）的拷贝数在世代间或在个体发育过程中发生不稳定扩增或收缩的现象。当重复序列超过一定阈值时，通常会导致疾病发生或表型异常。例如，脆性X综合征和亨廷顿病。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Section 15.5 Single-Gene Mutations Cause a Wide Range of Human Diseases (specifically, "Mutations Caused by Expandable DNA Repeats")。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>染色体结构变异、数目变异的基本类型？如何进行检测？相应的遗传学效应是什么？对于个体、进化等产生什么影响？ (Basic types of chromosomal structural and numerical variations? How are they detected? What are their genetic effects? What impacts do they have on individuals and evolution?)</strong>
+<ul>
+<li><strong>结构变异类型：</strong>
+<ol>
+<li><strong>缺失 (Deletion)：</strong> 染色体片段的丢失。</li>
+<li><strong>重复 (Duplication)：</strong> 染色体片段的复制，出现多份。</li>
+<li><strong>倒位 (Inversion)：</strong> 染色体片段在同一染色体上颠倒方向。</li>
+<li><strong>易位 (Translocation)：</strong> 染色体片段转移到非同源染色体上或在同一染色体内部移动。</li>
+</ol>
+</li>
+<li><strong>数目变异类型：</strong>
+<ol>
+<li><strong>非整倍体 (Aneuploidy)：</strong> 染色体数目发生一条或几条增减（如单体2n-1，三体2n+1）。</li>
+<li><strong>多倍体 (Polyploidy)：</strong> 染色体组数目整体倍增（如三倍体3n，四倍体4n）。</li>
+</ol>
+</li>
+<li><strong>检测方法：</strong>
+<ul>
+<li><strong>核型分析 (Karyotyping)：</strong> 光学显微镜下观察染色体的形态、数目和结构。</li>
+<li><strong>荧光原位杂交 (FISH)：</strong> 利用荧光标记的DNA探针检测特定染色体区域或基因。</li>
+<li><strong>比较基因组杂交 (CGH)：</strong> 检测基因组拷贝数变异。</li>
+<li><strong>全基因组测序 (Whole-genome sequencing)：</strong> 精确检测所有类型的变异。</li>
+</ul>
+</li>
+<li><strong>遗传学效应与影响：</strong>
+<ul>
+<li><strong>个体：</strong> 大多数染色体变异对个体有害，可导致发育异常、疾病（如唐氏综合征）、不育甚至致死。</li>
+<li><strong>进化：</strong>
+<ul>
+<li><strong>重复：</strong> 是新基因和基因家族进化的重要来源，为功能分化提供了基础。</li>
+<li><strong>倒位、易位：</strong> 可以抑制基因重组，维持特定基因组合，从而影响物种分化。</li>
+<li><strong>多倍体：</strong> 在植物中常见，可导致新物种形成，增加适应性。</li>
+<li><strong>缺失：</strong> 通常有害，但在某些情况下，小的缺失可能去除有害基因或调控元件，有利进化。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement (整个章节详细讨论了这些变异类型、影响和例子)。</li>
+</ul>
+</li>
+<li><strong>基因突变有哪些重要的特点？ (What are the important characteristics of gene mutations?)</strong>
+<ul>
+<li><strong>解释：</strong> 基因突变是DNA序列的改变，包括点突变（碱基替换）、插入和缺失。</li>
+<li><strong>特点：</strong>
+<ol>
+<li><strong>普遍性：</strong> 突变是生命普遍存在的现象，随时随地都可能发生。</li>
+<li><strong>随机性：</strong> 突变的发生是随机的，不针对性地为了适应环境而发生（自然选择是定向的，但突变是无方向的）。</li>
+<li><strong>低频率性：</strong> 单个基因在每次细胞分裂或每代中的突变率很低。</li>
+<li><strong>可逆性：</strong> 突变可以逆转，从突变型恢复到野生型。</li>
+<li><strong>有害性为主：</strong> 大多数突变对生物体是有害的或中性的。</li>
+<li><strong>遗传性：</strong> 如果发生在生殖细胞中，突变可以遗传给后代。</li>
+<li><strong>诱发性：</strong> 某些物理（如辐射）、化学（如诱变剂）因素可以提高突变率。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Sections 15.1 Gene Mutations Are Classified in Various Ways, 15.2 Mutations Occur Spontaneously and Randomly, 15.3 Spontaneous Mutations Arise from Replication Errors and Base Modifications, 15.4 Induced Mutations Arise from DNA Damage Caused by Chemicals and Radiation。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第五章-动态基因组转座因子">第五章 动态基因组：转座因子 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 15 Gene Mutation, DNA Repair, and Transposition</strong> (specifically, the Transposition part)。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>DNA transposons (DNA转座子)</strong>
+<ul>
+<li><strong>定义：</strong> 一类通过“剪切-粘贴”机制在基因组中移动的转座因子。它们编码转座酶，该酶能够识别转座子两端的末端重复序列，将转座子从原位切下并插入到基因组的新位置。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Section 15.8 Transposable Elements Move within the Genome and May Create Mutations (specifically, "DNA Transposons")。</li>
+</ul>
+</li>
+<li><strong>Retroposons (逆转座子)</strong>
+<ul>
+<li><strong>定义：</strong> 一类通过“复制-粘贴”机制在基因组中移动的转座因子。它们首先通过逆转录酶将自身的RNA转录成DNA，然后将这份DNA拷贝插入到基因组的新位置。逆转座子在哺乳动物基因组中含量丰富。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Section 15.8 Transposable Elements Move within the Genome and May Create Mutations (specifically, "Retrotransposons")。</li>
+</ul>
+</li>
+<li><strong>Insertion sequences (插入序列, IS)</strong>
+<ul>
+<li><strong>定义：</strong> 最简单的细菌转座因子，通常只包含一个编码转座酶的基因，两端是短的反向重复序列。它们不编码其他基因，只负责自身的转座。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Insertion sequences”作为子标题，但在讨论细菌转座子时会提及。</li>
+</ul>
+</li>
+<li><strong>Composite Transposons (复合转座子)</strong>
+<ul>
+<li><strong>定义：</strong> 由两个IS元件（通常是反向重复排列）包围一个或多个非转座子基因（如抗生素抗性基因）组成。这两个IS元件为整个复合转座子的转座提供转座酶和末端重复序列。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Composite Transposons”作为子标题，但在讨论细菌转座子时会提及。</li>
+</ul>
+</li>
+<li><strong>LINEs (long interspersed elements) (长散布元件)</strong>
+<ul>
+<li><strong>定义：</strong> 一类非LTR逆转座子，长度较长（几千bp），编码逆转录酶和核酸内切酶，通过RNA中间体转座。它们在哺乳动物基因组中含量很高，如人类基因组中的L1元件。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 12 DNA Organization in Chromosomes, Section 12.6 Eukaryotic Genomes Demonstrate Complex Sequence Organization Characterized by Repetitive DNA (specifically, "Repetitive Transposed Sequences: SINEs and LINEs")。</li>
+</ul>
+</li>
+<li><strong>SINEs (short interspersed elements) (短散布元件)</strong>
+<ul>
+<li><strong>定义：</strong> 一类非LTR逆转座子，长度较短（几百bp），不编码自身的转座酶，而是依赖LINEs编码的酶进行转座。它们也通过RNA中间体转座。人类基因组中的Alu元件是典型的SINEs。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 12 DNA Organization in Chromosomes, Section 12.6 Eukaryotic Genomes Demonstrate Complex Sequence Organization Characterized by Repetitive DNA (specifically, "Repetitive Transposed Sequences: SINEs and LINEs")。</li>
+</ul>
+</li>
+<li><strong>Hybrid dysgenesis (杂种劣育)</strong>
+<ul>
+<li><strong>定义：</strong> 在某些特定杂交组合（通常是父本带有P转座子而母本不带P转座子的果蝇杂交）中，F1代杂种表现出高频率突变、染色体畸变、不育等异常现象。这是由于转座子在不受宿主抑制的情况下活跃转座造成的。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Hybrid dysgenesis”作为子标题，但在讨论转座子在果蝇中的例子时可能会提及。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>DNA转座子和逆转座子进行转座的区别？不同类型的转座子在基因组中的组成情况？ (Distinction between transposition of DNA transposons and retrotransposons? Composition of different types of transposons in the genome?)</strong>
+<ul>
+<li><strong>转座机制的区别：</strong>
+<ul>
+<li><strong>DNA转座子：</strong> “剪切-粘贴”机制，通过DNA中间体，不增加拷贝数（除非在复制过程中发生）。</li>
+<li><strong>逆转座子：</strong> “复制-粘贴”机制，通过RNA中间体和逆转录酶，通常会增加基因组中的拷贝数。</li>
+</ul>
+</li>
+<li><strong>基因组组成：</strong>
+<ul>
+<li><strong>DNA转座子：</strong> 在细菌和真核生物中都存在，但在哺乳动物基因组中占比较小。</li>
+<li><strong>逆转座子：</strong> 在真核生物基因组中含量非常丰富，尤其是在哺乳动物中，如人类基因组约40%由逆转座子（LINEs和SINEs）组成。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Section 15.8 Transposable Elements Move within the Genome and May Create Mutations (specifically, "DNA Transposons", "Retrotransposons"); Chapter 12 DNA Organization in Chromosomes, Section 12.6 Eukaryotic Genomes Demonstrate Complex Sequence Organization Characterized by Repetitive DNA (specifically, "Repetitive Transposed Sequences: SINEs and LINEs")。</li>
+</ul>
+</li>
+<li><strong>细菌转座因子如何影响细菌抗药性的传播？ (How do bacterial transposons affect the spread of antibiotic resistance?)</strong>
+<ul>
+<li><strong>解释：</strong> 细菌转座因子（特别是复合转座子）经常携带抗生素抗性基因。当这些转座子插入到质粒（特别是R质粒）上时，这些质粒可以通过接合作用在不同细菌之间快速传播。一旦抗性基因通过转座子整合到质粒上，它就能随着质粒的复制和水平转移，迅速扩散到广泛的细菌群体中，导致抗药性细菌的产生和传播。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 8 Genetic Analysis and Mapping in Bacteria and Bacteriophages (discusses plasmid transfer, which is facilitated by transposons carrying resistance genes)。</li>
+</ul>
+</li>
+<li><strong>转座的遗传学效应？转座因子对于进化、对于个体发育及适应环境有何意义？ (Genetic effects of transposition? Significance of transposable elements for evolution, individual development, and environmental adaptation?)</strong>
+<ul>
+<li><strong>遗传学效应：</strong>
+<ol>
+<li><strong>插入突变：</strong> 插入到基因编码区或调控区，可能导致基因功能失活、异常表达或产生截短蛋白。</li>
+<li><strong>染色体结构变异：</strong> 转座子之间的重组可能导致染色体缺失、倒位、重复或易位。</li>
+<li><strong>基因拷贝数增加：</strong> 特别是逆转座子，会增加基因组大小和基因拷贝数。</li>
+<li><strong>基因组重排：</strong> 促进基因组的动态性和可塑性。</li>
+</ol>
+</li>
+<li><strong>意义：</strong>
+<ul>
+<li><strong>进化：</strong>
+<ul>
+<li><strong>创造新基因：</strong> 通过转座子的插入和重排，可能产生新的基因或基因融合，为基因功能创新提供素材。</li>
+<li><strong>基因表达调控：</strong> 转座子中包含的启动子、增强子等调控元件可能影响附近基因的表达。</li>
+<li><strong>促进物种形成：</strong> 基因组重排可能导致生殖隔离。</li>
+<li><strong>增加遗传多样性：</strong> 提供丰富的遗传变异源。</li>
+</ul>
+</li>
+<li><strong>个体发育：</strong> 少数转座子在特定组织或发育阶段被激活，可能参与基因表达调控，甚至影响表观遗传状态。</li>
+<li><strong>适应环境：</strong> 基因组的动态性使其更容易通过重排和基因获得来适应新的环境压力，例如细菌通过转座子获得抗药性。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Section 15.8 Transposable Elements Move within the Genome and May Create Mutations (discusses Transposon-Mediated Mutations Reveal Genes Involved in Colorectal Cancer, Transposable Elements, Mutations, and Evolution)。</li>
+</ul>
+</li>
+<li><strong>宿主如何调控转座因子的转座在适度的范围？ (How does the host regulate transposition of transposable elements within a moderate range?)</strong>
+<ul>
+<li><strong>解释：</strong> 宿主生物体进化出多种机制来抑制转座因子的过度活跃，以维持基因组的稳定性。
+<ol>
+<li><strong>DNA甲基化：</strong> 在转座子区域（特别是富含CpG的区域）进行DNA甲基化，抑制其转录和转座。</li>
+<li><strong>组蛋白修饰：</strong> 通过对组蛋白的乙酰化、甲基化等修饰，使转座子区域的染色质处于致密状态（异染色质），限制其转录活性。</li>
+<li><strong>RNA干扰 (RNAi) 途径：</strong> 宿主产生小RNA分子（如piRNA、siRNA），它们与转座子RNA结合，并通过RNA诱导沉默复合体（RISC）介导降解转座子RNA，或诱导染色质异染色质化，从而抑制转座。</li>
+<li><strong>蛋白质因子：</strong> 宿主编码一些蛋白质，可以直接结合转座子元件或转座酶，抑制其活性。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 15 Gene Mutation, DNA Repair, and Transposition, Section 15.8 (笼统提及Host Control); Chapter 19 Epigenetic Regulation of Gene Expression (discusses DNA Methylation, Histone Modification and Chromatin Remodeling); Chapter 18 Posttranscriptional Regulation in Eukaryotes, Section 18.3 Noncoding RNAs Play Diverse Roles in Posttranscriptional Regulation (discusses Mechanisms of RNA Interference)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第六章-核外遗传">第六章 核外遗传 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 9 Extranuclear Inheritance</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Maternal inheritance (母系遗传)</strong>
+<ul>
+<li><strong>定义：</strong> 一种非孟德尔式的遗传模式，性状的遗传只通过母本传递给所有后代，与父本无关。这通常是由于细胞质中的遗传物质（如线粒体DNA或叶绿体DNA）通过卵细胞传递给子代，精子则几乎不提供细胞质。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance (整个章节的主题, 多个子部分都在讨论)。</li>
+</ul>
+</li>
+<li><strong>Maternal effect (母性影响)</strong>
+<ul>
+<li><strong>定义：</strong> 指子代的表型由母本的基因型决定，而不是由子代自身的基因型决定。这是因为母本在卵细胞发育过程中，将基因产物（如mRNA或蛋白质）储存在卵细胞细胞质中，这些产物在早期胚胎发育中起作用，影响子代的表型。一旦母本基因产物耗尽，子代自身的基因型才开始发挥作用。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Section 9.4 In Maternal Effect, the Maternal Genotype Has a Strong Influence during Early Development。</li>
+</ul>
+</li>
+<li><strong>Cytoplasmic Male Sterility (细胞质雄性不育, CMS)</strong>
+<ul>
+<li><strong>定义：</strong> 一种由线粒体基因组（少数情况下是叶绿体基因组）的异常引起的植物雄性生殖缺陷，导致花粉不育。这种不育性通过母系遗传，并常被细胞核中的“恢复基因”所抑制。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“CMS”作为子标题，但在讨论植物线粒体遗传时会提及。</li>
+</ul>
+</li>
+<li><strong>Endosymbiotic Theory (内共生起源理论)</strong>
+<ul>
+<li><strong>定义：</strong> 解释线粒体和叶绿体起源的理论，认为它们是由古老的细菌（或蓝细菌）被真核宿主细胞吞噬后，建立互利共生关系，并最终演化为细胞器。该理论得到了线粒体和叶绿体拥有自身环状DNA、核糖体、类似细菌的膜结构和复制方式等证据的支持。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Section 9.2 Knowledge of Mitochondrial and Chloroplast DNA Helps Explain Organelle Heredity (specifically, "Organelle DNA and the Endosymbiotic Theory")。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>叶绿体和线粒体DNA分别具有哪些特征？与核DNA的区别？遗传方式有何特点？ (Characteristics of chloroplast and mitochondrial DNA? Differences from nuclear DNA? Peculiarities of their inheritance patterns?)</strong>
+<ul>
+<li><strong>特征：</strong>
+<ul>
+<li><strong>DNA结构：</strong> 通常为环状双链DNA分子，无组蛋白包装（类似细菌）。</li>
+<li><strong>基因组大小：</strong> 相对较小，基因数量有限，编码主要与自身功能相关的少量基因。</li>
+<li><strong>基因间区：</strong> 基因排列紧密，基因间区短或没有。</li>
+<li><strong>密码子使用：</strong> 有些密码子与核基因组有所不同（如线粒体密码子）。</li>
+</ul>
+</li>
+<li><strong>与核DNA的区别：</strong>
+<ol>
+<li><strong>位置：</strong> 线粒体和叶绿体DNA位于细胞质中，核DNA位于细胞核中。</li>
+<li><strong>结构：</strong> 通常环状 vs. 线性，无组蛋白 vs. 有组蛋白包装。</li>
+<li><strong>数量：</strong> 每个细胞通常有多个线粒体/叶绿体，每个细胞器内有多份DNA拷贝。核DNA通常是固定拷贝数（二倍体为2份）。</li>
+<li><strong>遗传方式：</strong> 通常为母系遗传 vs. 孟德尔式遗传。</li>
+<li><strong>基因来源：</strong> 自身编码少量基因，大部分蛋白质由核基因组编码导入 vs. 编码所有细胞所需大部分基因。</li>
+</ol>
+</li>
+<li><strong>遗传方式特点：</strong>
+<ul>
+<li><strong>母系遗传 (Maternal Inheritance)：</strong> 绝大多数情况下，子代只从母本获得细胞质DNA。</li>
+<li><strong>非孟德尔式分离：</strong> 不遵循孟德尔的独立分离定律。</li>
+<li><strong>异质性 (Heteroplasmy)：</strong> 一个细胞或个体可能同时含有正常和突变的细胞器DNA分子。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Sections 9.1 Organelle Heredity Involves DNA in Chloroplasts and Mitochondria, 9.2 Knowledge of Mitochondrial and Chloroplast DNA Helps Explain Organelle Heredity (specifically, "Molecular Organization and Gene Products of Chloroplast DNA", "Molecular Organization and Gene Products of Mitochondrial DNA")。</li>
+</ul>
+</li>
+<li><strong>线粒体疾病的遗传控制方式、疾病特征？ (Genetic control and characteristics of mitochondrial diseases?)</strong>
+<ul>
+<li><strong>遗传控制方式：</strong>
+<ol>
+<li><strong>母系遗传：</strong> 如果疾病由线粒体DNA突变引起，则遵循母系遗传模式，所有子女都可能从患病母亲那里继承疾病。</li>
+<li><strong>常染色体遗传：</strong> 许多线粒体功能相关的蛋白质由核基因组编码，所以这些疾病遵循孟德尔的常染色体遗传模式。</li>
+</ol>
+</li>
+<li><strong>疾病特征：</strong>
+<ol>
+<li><strong>多系统受累：</strong> 线粒体是细胞能量生产的中心，其功能障碍可影响全身多个高耗能组织和器官，如大脑、肌肉、心脏、肝脏、肾脏等。</li>
+<li><strong>异质性：</strong> 同一突变在不同个体中或同一组织的不同细胞中，由于线粒体DNA突变拷贝数比例（异质性水平）的差异，可能表现出不同的疾病严重程度和发病年龄。</li>
+<li><strong>阈值效应：</strong> 只有当突变线粒体DNA的比例超过一定阈值时，疾病才会表现出来。</li>
+<li><strong>进行性：</strong> 症状通常随时间推移而恶化。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Section 9.3 Mutations in Mitochondrial DNA Cause Human Disorders (discusses Mitochondria, Human Health, and Aging, Future Prevention of the Transmission of mtDNA-Based Disorders)。</li>
+</ul>
+</li>
+<li><strong>线粒体DNA的特点，在遗传分析中有哪些应用？ (Characteristics of mitochondrial DNA and its applications in genetic analysis?)</strong>
+<ul>
+<li><strong>特点：</strong>
+<ol>
+<li><strong>母系遗传：</strong> 几乎只通过母系传递。</li>
+<li><strong>无重组：</strong> 极少发生重组（与核DNA不同），使得其序列突变能够忠实地沿母系谱系传递。</li>
+<li><strong>高突变率：</strong> 相对于核DNA，线粒体DNA的突变率较高。</li>
+<li><strong>拷贝数多：</strong> 每个细胞中含有大量线粒体，每个线粒体中含有多个mtDNA拷贝。</li>
+</ol>
+</li>
+<li><strong>应用：</strong>
+<ol>
+<li><strong>人类起源和迁移研究：</strong> 由于mtDNA的母系遗传和无重组特性，其序列变异可用于追溯人类的母系祖先，研究人类的起源和迁徙路径（如“非洲夏娃”假说）。</li>
+<li><strong>法医鉴定：</strong> 在DNA样本微量或降解严重时（如毛发、骨骼），mtDNA因拷贝数多和相对稳定而成为重要的身份鉴定和亲缘关系鉴定工具。</li>
+<li><strong>谱系分析：</strong> 用于构建母系家族谱系，追溯母系血缘关系。</li>
+<li><strong>物种鉴定和亲缘关系研究：</strong> 用于构建物种的系统发育树，评估物种间的亲缘关系。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Section 9.3 Mutations in Mitochondrial DNA Cause Human Disorders; Special Topic 2 DNA Forensics, Section "Mitochondrial DNA Profiling"。</li>
+</ul>
+</li>
+<li><strong>三系杂交水稻的工作原理 (Working principle of three-line hybrid rice)</strong>
+<ul>
+<li><strong>原理：</strong> 三系杂交水稻利用细胞质雄性不育（CMS）来实现杂种优势。它包括三个系：
+<ol>
+<li><strong>雄性不育系（A系）：</strong> 细胞质基因导致雄性不育，细胞核没有恢复基因。</li>
+<li><strong>保持系（B系）：</strong> 细胞质和细胞核基因都正常，但其细胞核基因型能保持A系的雄性不育（即不含恢复基因）。A系通过与B系杂交繁殖自身。</li>
+<li><strong>恢复系（R系）：</strong> 细胞质正常，但细胞核含有能恢复A系雄性不育的“恢复基因”。当A系与R系杂交时，产生的F1代（商品稻）恢复育性，并且表现出杂种优势（产量高、抗逆性强）。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“three-line hybrid rice”作为子标题，但在讨论细胞质雄性不育时（如在Chapter 9 Extranuclear Inheritance中）会涉及相关原理。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第七章-基因组学">第七章 基因组学 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 21 Genomic Analysis</strong> 和部分 <strong>Special Topics</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>C值悖理(C value paradox)</strong>
+<ul>
+<li><strong>定义：</strong> 指真核生物的基因组大小（以DNA含量C值衡量）与其生物体的复杂性或进化地位之间缺乏明确的线性关系。例如，某些两栖动物的基因组比人类大得多，而基因数量却不一定更多。这表明基因组中含有大量非编码DNA。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“C value paradox”作为子标题，但在讨论基因组大小、基因组组成或重复序列时（如Chapter 12 DNA Organization in Chromosomes, Section 12.7 The Vast Majority of a Eukaryotic Genome Does Not Encode Functional Genes）可能会提及。</li>
+</ul>
+</li>
+<li><strong>基因超家族（Gene Superfamily）</strong>
+<ul>
+<li><strong>定义：</strong> 一组在进化上相关的基因，它们共享共同的祖先，但可能经历了显著的序列分化和功能多样化。这些基因可能分布在不同的染色体上，或以基因簇形式存在。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Gene Superfamily”作为子标题，但在讨论基因重复、基因家族进化或比较基因组学时可能会提及。</li>
+</ul>
+</li>
+<li><strong>基因家族（Gene family）</strong>
+<ul>
+<li><strong>定义：</strong> 一组在进化上相关的基因，它们通常由单个祖先基因通过基因复制事件产生，并在基因组中彼此相邻或分散。家族成员可能具有相似或部分重叠的功能，或通过分化获得新的功能。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 6 Chromosomal Mutations: Variation in Number and Arrangement, Section 6.6 A Duplication Is a Repeated Segment of a Chromosome (discusses "The Role of Gene Duplication in Evolution"); Chapter 12 DNA Organization in Chromosomes, Section 12.6 Eukaryotic Genomes Demonstrate Complex Sequence Organization Characterized by Repetitive DNA (specifically, "Middle Repetitive Multiple-Copy Genes")。</li>
+</ul>
+</li>
+<li><strong>基因簇 （Gene cluster ）</strong>
+<ul>
+<li><strong>定义：</strong> 基因组中一段物理上紧密排列的基因区域，这些基因通常具有相关的功能或在协同调控下表达。基因簇可以是基因家族的一部分，也可以是参与同一代谢途径或信号通路的非同源基因。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Gene cluster”作为子标题，但在讨论基因组组织或基因家族时可能会提及。</li>
+</ul>
+</li>
+<li><strong>假基因（Pseudogene）</strong>
+<ul>
+<li><strong>定义：</strong> 基因组中与功能性基因相似的DNA序列，但由于突变（如移码突变、提前终止密码子、缺乏启动子）而失去了编码功能蛋白质的能力。它们通常是基因复制和随后功能失活的产物。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Pseudogene”作为子标题，但在讨论基因组组成或非编码DNA时会提及。</li>
+</ul>
+</li>
+<li><strong>DNA分子标记 （DNA molecular marker ）</strong>
+<ul>
+<li><strong>定义：</strong> 基因组中可遗传的、位置已知且可以区分不同个体或品系（多态性）的DNA序列变异。它们不一定是基因本身，但可以作为遗传连锁分析和基因定位的“路标”。常见的有RFLP、SSR（微卫星）、SNP等。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryotes, Section 7.7 Chromosome Mapping Is Currently Performed Using DNA Markers and Annotated Computer Databases; Chapter 21 Genomic Analysis (整个章节都依赖DNA分子标记)。</li>
+</ul>
+</li>
+<li><strong>单核苷酸多态性（Single Nucleotide Polymorphism, SNP ）</strong>
+<ul>
+<li><strong>定义：</strong> 指在群体中，某个特定位置上的单个核苷酸存在两种或多种不同碱基的情况。SNP是基因组中最常见的遗传变异类型，广泛存在于人类基因组中，可作为强大的遗传标记用于疾病关联研究、个体识别和群体遗传学分析。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 21 Genomic Analysis, Section 21.5 Individual Variations in the Human Genome (其中提到了SNP作为变异类型); Special Topic 2 DNA Forensics, Section "Single-Nucleotide Polymorphism Profiling"。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>基因组的遗传图和物理图的区别？ (Differences between genetic map and physical map of the genome?)</strong>
+<ul>
+<li><strong>遗传图 (Genetic Map/Linkage Map)：</strong>
+<ul>
+<li><strong>基础：</strong> 基于基因间的重组频率。</li>
+<li><strong>单位：</strong> 厘摩（cM），表示重组频率，不直接对应物理距离。</li>
+<li><strong>特点：</strong> 反映基因的相对顺序和重组距离，重组热点区域可能使物理距离较短的基因在遗传图上显得较远。</li>
+</ul>
+</li>
+<li><strong>物理图 (Physical Map)：</strong>
+<ul>
+<li><strong>基础：</strong> 基于DNA序列的物理距离（碱基对数量）。</li>
+<li><strong>单位：</strong> 碱基对（bp）、千碱基对（kb）、兆碱基对（Mb）。</li>
+<li><strong>特点：</strong> 反映基因在染色体上的真实物理位置和绝对距离。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 7 Chromosome Mapping in Eukaryotes (主要讨论遗传图); Chapter 21 Genomic Analysis (主要讨论物理图，如全基因组测序)。</li>
+</ul>
+</li>
+<li><strong>全基因组测序的基本策略及原理。 (Basic strategies and principles of whole-genome sequencing (WGS).)</strong>
+<ul>
+<li><strong>策略：</strong>
+<ol>
+<li><strong>Sanger测序（早期）：</strong> 逐个片段测序，然后拼接。</li>
+<li><strong>全基因组鸟枪法测序 (Whole-Genome Shotgun Sequencing)：</strong>
+<ul>
+<li><strong>原理：</strong> 将整个基因组随机打断成大量小片段。</li>
+<li><strong>测序：</strong> 对每个小片段进行测序。</li>
+<li><strong>组装：</strong> 利用计算机程序寻找重叠序列，将这些小片段重新组装成较长的连续序列（contigs），最终组装成染色体或基因组。</li>
+</ul>
+</li>
+<li><strong>克隆骨架法 (Clone-by-Clone Sequencing)：</strong>
+<ul>
+<li><strong>原理：</strong> 先构建基因组的物理图谱（如BAC文库），然后对每个已知位置的大克隆片段进行测序和组装。</li>
+<li><strong>特点：</strong> 组装难度相对较低，但耗时耗力，成本高。</li>
+</ul>
+</li>
+<li><strong>二代/三代测序 (Next-Generation/Third-Generation Sequencing)：</strong>
+<ul>
+<li><strong>原理：</strong> 大规模平行测序，一次性获得数百万到数十亿个短读长（二代）或长读长（三代）序列。</li>
+<li><strong>组装：</strong> 依赖强大的生物信息学算法进行组装。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 21 Genomic Analysis, Sections 21.2 Whole-Genome Sequencing Is Widely Used for Sequencing and Assembling Entire Genomes (discusses High-Throughput Sequencing, The Clone-by-Clone Approach, Draft Sequences and Reference Genomes)。</li>
+</ul>
+</li>
+<li><strong>什么是全基因组关联分析（GWAS）?如何看待理解所找到的关联（association）? (What is Genome-Wide Association Study (GWAS)? How to interpret the associations found?)</strong>
+<ul>
+<li><strong>GWAS定义：</strong> 一种在全基因组范围内，通过比较大量疾病患者和健康对照者的基因组变异（主要是SNP），来寻找与疾病发生风险相关的遗传变异（基因座）的方法。</li>
+<li><strong>看待和理解关联：</strong>
+<ol>
+<li><strong>关联不等于因果：</strong> GWAS找到的是统计学上的关联（association），而非直接的因果关系。这意味着某个SNP与疾病相关，但它本身可能不是致病突变，而是与真正的致病基因紧密连锁。</li>
+<li><strong>连锁不平衡：</strong> 关联的SNP可能与致病基因处于连锁不平衡（LD）状态，即它们倾向于在群体中一起遗传。</li>
+<li><strong>多基因和环境影响：</strong> 大多数通过GWAS发现的复杂疾病，其遗传度是多基因和环境因素共同作用的结果，单个SNP的效应往往很小。</li>
+<li><strong>需要后续功能验证：</strong> 发现的关联位点需要通过进一步的分子生物学、细胞生物学、动物模型等实验进行功能验证，以确定真正的致病基因和机制。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 22 Applications of Genetic Engineering and Biotechnology, Section 22.7 Genome-Wide Association Studies Identify Genome Variations That Contribute to Disease。</li>
+</ul>
+</li>
+<li><strong>思考：基因组学的研究进展如何影响及改变了遗传学的研究范式、技术手段和应用范围？ (Reflection: How has the progress in genomics research influenced and changed the paradigms, technical means, and application scope of genetics?)</strong>
+<ul>
+<li><strong>研究范式：</strong>
+<ul>
+<li><strong>从“基因到表型”到“全基因组到系统生物学”：</strong> 传统遗传学多关注单个基因或少数基因对性状的影响。基因组学实现了从宏观（全基因组）角度研究生命活动，强调基因组的整体性、复杂性、相互作用，推动了系统生物学和网络生物学的发展。</li>
+<li><strong>从“假设驱动”到“数据驱动”：</strong> 大规模基因组数据使得研究可以从收集大量数据开始，再通过数据分析发现新的生物学规律，而非仅依赖预设假说。</li>
+</ul>
+</li>
+<li><strong>技术手段：</strong>
+<ul>
+<li><strong>高通量测序：</strong> 使得获取全基因组序列成为可能，成本大幅降低，效率显著提高。</li>
+<li><strong>生物信息学：</strong> 成为基因组学不可或缺的工具，处理、分析和解释海量测序数据。</li>
+<li><strong>基因编辑技术 (CRISPR-Cas)：</strong> 基因组学提供的大量序列信息，结合基因编辑，实现了对基因组的精确操作，加速了基因功能研究和疾病模型构建。</li>
+</ul>
+</li>
+<li><strong>应用范围：</strong>
+<ul>
+<li><strong>医学：</strong> 精准医学、个性化医疗（药物基因组学、肿瘤基因组学、罕见病诊断）、产前诊断、遗传咨询。</li>
+<li><strong>农业：</strong> 分子育种（基因组选择、QTL定位）、作物改良、畜牧养殖。</li>
+<li><strong>生物技术：</strong> 合成生物学（设计合成基因组）、生物能源、生物修复。</li>
+<li><strong>进化生物学和生态学：</strong> 物种起源、亲缘关系、群体遗传结构、适应性进化。</li>
+<li><strong>法医学：</strong> DNA指纹图谱、个体识别、亲子鉴定。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Part Four GENETIC TECHNOLOGY AND GENOMICS (Chapters 20-22), Special Topics in Modern Genetics (CRISPR-Cas, DNA Forensics, Genomics and Precision Medicine, Gene Therapy)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第八章-分子遗传分析">第八章 分子遗传分析 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 20 Recombinant DNA Technology</strong> 和部分 <strong>Chapter 22 Applications of Genetic Engineering and Biotechnology</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>基因组文库（Genomic library ）</strong>
+<ul>
+<li><strong>定义：</strong> 包含一个生物体所有基因组DNA片段的集合，这些片段被克隆到适当的载体中，并存储在大肠杆菌或其他宿主细胞群体中。理论上，一个完整的基因组文库应包含该生物体的所有基因序列。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 20 Recombinant DNA Technology, Section 20.2 DNA Libraries Are Collections of Cloned Sequences (specifically, "Genomic Libraries")。</li>
+</ul>
+</li>
+<li><strong>cDNA文库（cDNA library ）</strong>
+<ul>
+<li><strong>定义：：</strong> 包含一个生物体在特定细胞类型、组织或发育阶段所有表达基因（mRNA）的DNA拷贝（cDNA）的集合。cDNA是通过mRNA逆转录合成的，因此不包含内含子。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 20 Recombinant DNA Technology, Section 20.2 DNA Libraries Are Collections of Cloned Sequences (specifically, "Complementary DNA (cDNA) Libraries")。</li>
+</ul>
+</li>
+<li><strong>基因敲除（gene knock-out）</strong>
+<ul>
+<li><strong>定义：</strong> 一种基因工程技术，通过同源重组或其他基因编辑方法，使特定基因在生物体基因组中完全失活或删除。目的通常是为了研究该基因的功能丧失对生物体表型的影响。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 20 Recombinant DNA Technology, Section 20.6 Creating Knockout and Transgenic Organisms for Studying Gene Function (specifically, "Gene Targeting and Knockout Animal Models")。</li>
+</ul>
+</li>
+<li><strong>基因敲降（gene knock-down）</strong>
+<ul>
+<li><strong>定义：：</strong> 一种基因工程技术，通过RNA干扰（RNAi）或其他方法，在不改变基因组DNA序列的情况下，降低特定基因的mRNA或蛋白质水平，从而部分抑制其功能。目的通常是为了研究基因功能减弱对生物体表型的影响，常用于功能筛选或当完全敲除致死时。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 18 Posttranscriptional Regulation in Eukaryotes, Section 18.3 Noncoding RNAs Play Diverse Roles in Posttranscriptional Regulation (discusses "RNA Interference in Research, Biotechnology, and Medicine")。</li>
+</ul>
+</li>
+<li><strong>定位克隆（Positional cloning）</strong>
+<ul>
+<li><strong>定义：</strong> 一种遗传学策略，通过将导致特定性状或疾病的基因定位到染色体上的一个狭窄区域，然后利用该区域内的已知遗传标记和物理图谱信息，最终识别并克隆出该基因。在全基因组测序普及之前是寻找疾病基因的主要方法。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 21 Genomic Analysis, Section 21.1 Genomic Analysis Before Modern Sequencing Methods Involved Classical Genetics Approaches and Cloning to Map One or a Few Genes at a Time (提到了传统基因定位方法)。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>构建某种生物的基因组文库有何意义及用途？ (What is the significance and use of constructing a genomic library for a certain organism?)</strong>
+<ul>
+<li><strong>意义和用途：</strong>
+<ol>
+<li><strong>储存和获取全套基因信息：</strong> 基因组文库包含了该生物体的所有基因组DNA片段，为后续研究提供了基因资源的“总仓库”。</li>
+<li><strong>基因克隆和功能研究：</strong> 可以从中筛选和克隆特定基因，进行基因功能分析、结构研究和表达调控研究。</li>
+<li><strong>构建物理图谱：</strong> 文库中的克隆片段可以用于构建基因组的物理图谱，有助于理解基因组的整体结构。</li>
+<li><strong>基因组测序：</strong> 基因组文库是进行全基因组测序的基础材料。</li>
+<li><strong>基因工程和育种：</strong> 克隆的基因可以用于基因工程改造、转基因生物的构建和分子育种。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 20 Recombinant DNA Technology, Section 20.2 DNA Libraries Are Collections of Cloned Sequences。</li>
+</ul>
+</li>
+<li><strong>基因文库和cDNA文库的区别？ (Differences between genomic library and cDNA library?)</strong>
+<ul>
+<li><strong>来源：</strong>
+<ul>
+<li><strong>基因组文库：</strong> 从生物体总DNA中构建，包含基因组中所有DNA序列（包括编码区、非编码区、内含子、启动子、重复序列等）。</li>
+<li><strong>cDNA文库：</strong> 从特定细胞或组织的总mRNA中逆转录合成cDNA，只包含在特定条件下表达的基因的编码序列，不含内含子和启动子/增强子等调控区。</li>
+</ul>
+</li>
+<li><strong>目的：</strong>
+<ul>
+<li><strong>基因组文库：</strong> 用于研究基因组结构、基因组定位、基因组测序等。</li>
+<li><strong>cDNA文库：</strong> 用于研究基因表达模式、克隆全长编码基因、构建表达载体、分析可变剪接等。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 20 Recombinant DNA Technology, Section 20.2 DNA Libraries Are Collections of Cloned Sequences (specifically, "Genomic Libraries", "Complementary DNA (cDNA) Libraries")。</li>
+</ul>
+</li>
+<li><strong>克隆基因的不同方法及原理？ (Different methods and principles of gene cloning?)</strong>
+<ul>
+<li><strong>方法和原理：</strong>
+<ol>
+<li><strong>限制性内切酶和DNA连接酶：</strong>
+<ul>
+<li><strong>原理：</strong> 利用限制性内切酶在特定识别位点切割DNA，产生黏性末端或平末端。将目标基因片段和载体（如质粒）用相同的限制酶切割，产生互补末端。然后，通过DNA连接酶将基因片段连接到载体中，形成重组DNA分子。</li>
+</ul>
+</li>
+<li><strong>聚合酶链反应 (PCR) 克隆：</strong>
+<ul>
+<li><strong>原理：</strong> 利用PCR技术扩增目标基因片段，并在引物中引入限制酶位点或同源臂。扩增产物可以直接用限制酶切割后连接到载体，或通过同源重组（如Gateway克隆、Gibson Assembly）直接插入载体。</li>
+</ul>
+</li>
+<li><strong>反转录PCR (RT-PCR) 克隆：</strong>
+<ul>
+<li><strong>原理：</strong> 从mRNA逆转录合成cDNA，再用PCR扩增目标基因，然后进行克隆。用于克隆只表达的基因。</li>
+</ul>
+</li>
+<li><strong>Gateway克隆系统：</strong>
+<ul>
+<li><strong>原理：</strong> 基于λ噬菌体整合和切除位点特异性重组的原理，实现DNA片段在不同载体间的定向转移，高效快速地克隆基因。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 20 Recombinant DNA Technology, Sections 20.1 Recombinant DNA Technology Began with Two Key Tools: Restriction Enzymes and Cloning Vectors, 20.3 The Polymerase Chain Reaction Is a Powerful Technique for Copying DNA。</li>
+</ul>
+</li>
+<li><strong>对一个新基因开展基因功能研究，可以从哪些方面展开？ (How to conduct gene function research for a new gene?)</strong>
+<ul>
+<li><strong>方面：</strong>
+<ol>
+<li><strong>序列分析和生物信息学预测：</strong>
+<ul>
+<li>通过BLAST、HMMER等工具比较序列同源性，预测蛋白质功能域、转膜区、信号肽等。</li>
+<li>预测亚细胞定位、翻译后修饰位点。</li>
+<li>查找同源基因在其他物种中的已知功能。</li>
+</ul>
+</li>
+<li><strong>基因表达模式研究：</strong>
+<ul>
+<li><strong>转录水平：</strong> RT-qPCR、RNA-seq、Northern blot、in situ hybridization，分析基因在不同组织、细胞类型、发育阶段或环境条件下的表达量和时空特异性。</li>
+<li><strong>蛋白水平：</strong> Western blot、免疫荧光、质谱，分析蛋白质的表达量、定位和翻译后修饰。</li>
+</ul>
+</li>
+<li><strong>功能获得/功能丧失实验：</strong>
+<ul>
+<li><strong>功能丧失 (Loss-of-function)：</strong> 通过基因敲除 (knock-out)、基因敲降 (knock-down，如RNAi、CRISPRi) 或化学抑制剂，观察基因功能缺失对生物体表型（如生长发育、生理生化、抗性、行为）的影响。</li>
+<li><strong>功能获得 (Gain-of-function)：</strong> 通过过表达 (overexpression)、组成型表达或突变活化，观察基因活性增强对表型的影响。</li>
+</ul>
+</li>
+<li><strong>亚细胞定位：</strong> 构建荧光标签融合蛋白（如GFP融合），通过显微镜观察蛋白质在细胞内的具体位置。</li>
+<li><strong>蛋白质相互作用：</strong> 酵母双杂交、共免疫沉淀 (Co-IP)、质谱，寻找与目标蛋白相互作用的其他蛋白质，揭示其参与的蛋白复合物和信号通路。</li>
+<li><strong>生物化学和酶学活性测定：</strong> 如果预测是酶，则体外纯化蛋白质，测定其酶活。</li>
+<li><strong>遗传互作：</strong> 构建双突变体或多突变体，研究目标基因与其他已知基因之间的遗传上位效应或协同作用。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 21 Genomic Analysis, Section 21.4 Functional Genomics Establishes Gene Function and Identifies Regulatory Elements in a Genome; Chapter 20 Recombinant DNA Technology, Section 20.6 Creating Knockout and Transgenic Organisms for Studying Gene Function; Chapter 18 Posttranscriptional Regulation in Eukaryotes, Section 18.3 ( discusses RNA Interference)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第九章-基因表达调控及表观遗传学">第九章 基因表达调控及表观遗传学 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Part Three GENE EXPRESSION AND ITS REGULATION</strong> (Chapters 13-19), 尤其是 <strong>Chapter 16 Regulation of Gene Expression in Bacteria</strong>, <strong>Chapter 17 Transcriptional Regulation in Eukaryotes</strong>, <strong>Chapter 18 Posttranscriptional Regulation in Eukaryotes</strong>, 和 <strong>Chapter 19 Epigenetic Regulation of Gene Expression</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>组蛋白修饰（Histone Modification ）</strong>
+<ul>
+<li><strong>定义：：</strong> 指在组蛋白（DNA缠绕的蛋白质）的N-末端尾部发生的共价化学修饰，如乙酰化、甲基化、磷酸化、泛素化等。这些修饰改变了组蛋白与DNA的结合强度以及染色质结构，从而影响基因的转录活性。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 17 Transcriptional Regulation in Eukaryotes, Section 17.2 Eukaryotic Gene Expression Is Influenced by Chromatin Modifications (specifically, "Histone Modifications and Chromatin Remodeling"); Chapter 19 Epigenetic Regulation of Gene Expression, Section 19.1 Molecular Alterations to the Genome Create an Epigenome (specifically, "Histone Modification and Chromatin Remodeling")。</li>
+</ul>
+</li>
+<li><strong>组蛋白密码（Histone Code ）</strong>
+<ul>
+<li><strong>定义：</strong> 一种假说，认为组蛋白尾部不同类型的修饰组合（模式）能够被细胞内的特定蛋白质识别和“解读”，从而协同调控基因的转录、DNA复制和DNA修复等过程。不同的修饰组合构成一个“密码”，指示基因的活化或沉默状态。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Histone Code”作为子标题，但在讨论组蛋白修饰时会提及。</li>
+</ul>
+</li>
+<li><strong>CpG岛(CpG island)</strong>
+<ul>
+<li><strong>定义：</strong> 基因组中富含CpG二核苷酸（C核苷酸后面直接跟着G核苷酸）的区域，通常位于基因的启动子区域附近。在哺乳动物中，CpG岛常常是未甲基化的，但其甲基化状态的变化（甲基化或去甲基化）与基因的表达调控密切相关。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 19 Epigenetic Regulation of Gene Expression, Section 19.1 Molecular Alterations to the Genome Create an Epigenome (specifically, "DNA Methylation and the Methylome")。</li>
+</ul>
+</li>
+<li><strong>染色质重塑 （Chromatin Remodeling ）</strong>
+<ul>
+<li><strong>定义：：</strong> 指通过ATP依赖性染色质重塑复合物的作用，改变核小体（DNA与组蛋白的复合体）的位置、组成或结构，从而使DNA区域变得可及或不可及，进而影响基因的转录活性、DNA复制和修复。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 12 DNA Organization in Chromosomes, Section 12.4 DNA Is Organized into Chromatin in Eukaryotes (specifically, "Chromatin Remodeling"); Chapter 17 Transcriptional Regulation in Eukaryotes, Section 17.2 Eukaryotic Gene Expression Is Influenced by Chromatin Modifications (specifically, "Histone Modifications and Chromatin Remodeling")。</li>
+</ul>
+</li>
+<li><strong>增强子（enhancer）</strong>
+<ul>
+<li><strong>定义：：</strong> 真核基因组中一类短的DNA序列，可以结合特定的转录因子，从而增强附近（甚至距离很远）基因的转录活性。增强子可以位于基因的上游、下游，甚至内含子内部，且其作用与方向无关。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 17 Transcriptional Regulation in Eukaryotes, Section 17.3 Eukaryotic Transcription Initiation Requires Specific Cis-Acting Sites (specifically, "Enhancers, Insulators, and Silencers")。</li>
+</ul>
+</li>
+<li><strong>可变剪接（Alternative splicing ）</strong>
+<ul>
+<li><strong>定义：：</strong> 指在真核生物中，单个前mRNA分子可以通过不同的剪接方式，去除不同的内含子，并组合不同的外显子，从而产生多种不同的成熟mRNA异构体，进而翻译出不同的蛋白质异构体。这是增加蛋白质多样性和调控基因表达的重要机制。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 18 Posttranscriptional Regulation in Eukaryotes, Section 18.1 Regulation of Alternative Splicing Determines Which RNA Spliceforms of a Gene Are Translated。</li>
+</ul>
+</li>
+<li><strong>基因组印记（Genomic imprinting ）</strong>
+<ul>
+<li><strong>定义：：</strong> 一种表观遗传现象，指某些基因的表达取决于其遗传自父本还是母本。即，只有来自父本的基因拷贝或只有来自母本的基因拷贝是活跃的，而另一份拷贝是沉默的。这种印记模式通常通过DNA甲基化等表观遗传修饰建立并维持。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 19 Epigenetic Regulation of Gene Expression, Section 19.2 Epigenetics and Monoallelic Gene Expression (specifically, "Parent-of-Origin Monoallelic Expression: Imprinting")。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>原核生物和真核生物基因表达调控的不同层次 (Different levels of gene expression regulation in prokaryotes and eukaryotes)</strong>
+<ul>
+<li><strong>原核生物：</strong> 主要在<strong>转录水平</strong>进行调控。
+<ul>
+<li><strong>特点：</strong> 基因组结构简单，无核膜，转录和翻译可同时进行。</li>
+<li><strong>机制：</strong> 操纵子模型（如乳糖操纵子、色氨酸操纵子）——通过阻遏蛋白、激活蛋白、核糖开关、衰减等调控RNA聚合酶与启动子的结合和转录的起始/延伸。</li>
+</ul>
+</li>
+<li><strong>真核生物：</strong> 在<strong>多个层次</strong>进行精细调控。
+<ol>
+<li><strong>染色质结构水平：</strong> 染色质重塑、组蛋白修饰、DNA甲基化影响基因的可及性。</li>
+<li><strong>转录水平：</strong> 转录因子、增强子、沉默子、启动子、绝缘子等调控转录起始和效率。</li>
+<li><strong>转录后加工水平：</strong> RNA剪接（可变剪接）、5'加帽、3'聚腺苷酸化、RNA编辑。</li>
+<li><strong>mRNA运输和稳定性水平：</strong> mRNA从细胞核到细胞质的运输、mRNA的降解速率和半衰期。</li>
+<li><strong>翻译水平：</strong> 翻译起始的调控、核糖体结合。</li>
+<li><strong>翻译后修饰水平：</strong> 蛋白质的折叠、加工、修饰（磷酸化、糖基化等）、降解。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 16 Regulation of Gene Expression in Bacteria; Chapter 17 Transcriptional Regulation in Eukaryotes; Chapter 18 Posttranscriptional Regulation in Eukaryotes; Chapter 19 Epigenetic Regulation of Gene Expression。</li>
+</ul>
+</li>
+<li><strong>表观遗传调控的主要分子机制 (Main molecular mechanisms of epigenetic regulation)</strong>
+<ul>
+<li><strong>解释：</strong> 表观遗传学研究在不改变DNA序列的前提下，基因功能的可遗传变化。主要机制包括：
+<ol>
+<li><strong>DNA甲基化：</strong> 在CpG二核苷酸的胞嘧啶上添加甲基。在哺乳动物中，基因启动子区CpG岛的甲基化通常与基因沉默相关。</li>
+<li><strong>组蛋白修饰：</strong> 对组蛋白的N-末端尾部进行共价修饰（如乙酰化、甲基化、磷酸化等），改变染色质结构，影响基因的可及性。</li>
+<li><strong>染色质重塑：</strong> ATP依赖性染色质重塑复合物改变核小体的位置和结构，使DNA区域开放或关闭。</li>
+<li><strong>非编码RNA (ncRNA)：</strong> 某些非编码RNA分子（如miRNA、siRNA、lncRNA）可以介导染色质修饰、DNA甲基化或直接靶向mRNA，从而调控基因表达。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 19 Epigenetic Regulation of Gene Expression, Section 19.1 Molecular Alterations to the Genome Create an Epigenome (specifically, "DNA Methylation and the Methylome", "Histone Modification and Chromatin Remodeling", "Short and Long Noncoding RNAs")。</li>
+</ul>
+</li>
+<li><strong>印记基因导致的疾病有哪些重要的遗传特征 (Important genetic characteristics of diseases caused by imprinted genes)</strong>
+<ul>
+<li><strong>解释：</strong> 印记基因导致的疾病遵循非孟德尔式的遗传模式。</li>
+<li><strong>遗传特征：</strong>
+<ol>
+<li><strong>依赖于亲本来源的遗传：</strong> 疾病的发生取决于突变基因是遗传自父本还是母本。例如，如果只有父本拷贝表达，而母本拷贝沉默，那么只有当突变来自父本时，子女才会患病；如果突变来自母本，即使子女携带突变，也不会患病。</li>
+<li><strong>特定的亲本效应：</strong> 某些疾病只在突变来自父本时发病，另一些只在突变来自母本时发病。</li>
+<li><strong>单等位基因表达：</strong> 患者体内只有一个亲本来源的基因是活跃的，另一个是沉默的。</li>
+<li><strong>不遵循 Mendelian 分离比：</strong> 遗传模式与经典的孟德尔定律不符。</li>
+<li><strong>例：</strong> Prader-Willi 综合征（父源缺失或母源二倍体）和 Angelman 综合征（母源缺失或父源二倍体）。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 19 Epigenetic Regulation of Gene Expression, Section 19.2 Epigenetics and Monoallelic Gene Expression (specifically, "Parent-of-Origin Monoallelic Expression: Imprinting")。</li>
+</ul>
+</li>
+<li><strong>结合本章的内容，深入思考“基因与环境”、“多重基因和多重环境因素”在决定/影响生物性状中的相互作用 (Reflect deeply on the interaction of "genes and environment," and "multiple genes and multiple environmental factors" in determining/influencing biological traits, based on this chapter's content)</strong>
+<ul>
+<li><strong>思考点：</strong>
+<ol>
+<li><strong>表观遗传是基因与环境的桥梁：</strong> 表观遗传机制（如DNA甲基化、组蛋白修饰）本身就是环境因素（如饮食、压力、毒素、生活方式）可以直接影响基因表达而不改变DNA序列的途径。这解释了为何相同基因型的个体在不同环境下会产生不同表型。</li>
+<li><strong>可塑性和适应性：</strong> 通过表观遗传修饰，生物体能够对其环境变化做出快速且可逆的适应性反应，例如在极端条件下调整基因表达以应对压力。</li>
+<li><strong>跨代遗传：</strong> 某些环境诱导的表观遗传修饰可以在不改变DNA序列的情况下，跨代遗传给后代，这挑战了传统的孟德尔遗传观，揭示了环境影响的长期效应。</li>
+<li><strong>复杂性状的形成：</strong> 大多数人类疾病和复杂性状（如身高、体重、智力）都是由多个基因（遗传背景）和多种环境因素（生活方式、饮食、暴露）共同作用的结果。表观遗传学提供了一个解释这些复杂相互作用的分子机制，即基因型通过表观遗传机制与环境因素进行对话，最终塑造出表型。</li>
+<li><strong>“先天”与“后天”的融合：</strong> 基因型提供潜在能力，而表观遗传和环境因素决定了这些潜力如何以及何时被实现。基因型是“剧本”，环境和表观遗传是“导演”和“演员”的发挥，共同呈现出最终的“表演”（表型）。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 19 Epigenetic Regulation of Gene Expression, especially Section 19.4 Epigenetic Traits Are Heritable (discusses "Environmental Induction of Epigenetic Change", "Stress-Induced Behavior Is Heritable")。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第十章-发育遗传学">第十章 发育遗传学 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 23 Developmental Genetics</strong> 和部分 <strong>Chapter 5 Sex Determination and Sex Chromosomes</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Maternal-effect genes (母体效应基因)</strong>
+<ul>
+<li><strong>定义：</strong> 指位于母本基因组中，其产物（mRNA或蛋白质）在卵子发育过程中被合成并储存在卵细胞质中，这些产物在早期胚胎发育中指导胚胎的极性、体轴形成或早期细胞分化。子代的早期表型取决于母本的基因型，而非子代自身的基因型。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Section 9.4 In Maternal Effect, the Maternal Genotype Has a Strong Influence during Early Development (discusses "Embryonic Development in Drosophila")。</li>
+</ul>
+</li>
+<li><strong>Segmentation genes (分节基因)</strong>
+<ul>
+<li><strong>定义：</strong> 在果蝇胚胎发育中，一系列控制胚胎体节形成和分化模式的基因。它们通过级联调控，将胚胎划分为一系列重复的体节单元。主要包括gap genes、pair-rule genes和segment polarity genes。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 23 Developmental Genetics, Section 23.4 Segment Formation and Body Plans in Drosophila and Mammals (discusses Gap Genes, Pair-Rule Genes, Segment Polarity Genes)。</li>
+</ul>
+</li>
+<li><strong>Homeotic genes (同源异形基因)</strong>
+<ul>
+<li><strong>定义：</strong> 一类在动物和植物发育中起主导作用的基因，它们决定身体特定区域或器官的身份，确保这些区域发育成正确的结构。当这些基因发生突变时，可能导致一个体节或器官发育成另一个体节或器官的结构（同源异形转化）。最著名的是Hox基因。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 23 Developmental Genetics, Section 23.5 Homeotic Selector Genes Specify Body Parts of the Adult (discusses Hox Genes in Drosophila, Hox Genes and Human Genetic Disorders); Section 23.6 Plants Have Evolved Developmental Regulatory Systems That Parallel Those of Animals (discusses Homeotic Genes in Arabidopsis)。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>在果蝇胚胎发育早期，不同类型的基因如何通过精确的层级调控，将胚胎从整体划分为重复的体节单元，并确保不同体节发育成正确的结构。(How different types of genes precisely regulate early Drosophila embryonic development through hierarchical control, dividing the embryo into repeated segments and ensuring correct development of each segment.)</strong>
+<ul>
+<li><strong>解释：</strong> 果蝇胚胎发育的体节形成是一个精确的基因级联调控过程：
+<ol>
+<li><strong>母体效应基因 (Maternal-effect genes)：</strong> 首先，母本在卵细胞质中沉积mRNA和蛋白质（如bicoid和nanos），建立胚胎的前后轴和背腹轴。</li>
+<li><strong>合子基因激活 (Zygotic Gene Activation)：</strong> 胚胎合子基因开始表达。</li>
+<li><strong>间隙基因 (Gap genes)：</strong> 响应母体效应基因梯度，表达形成大的连续区域，决定头部、胸部、腹部等大区段。</li>
+<li><strong>配对规则基因 (Pair-rule genes)：</strong> 响应间隙基因，在每个体节中以斑纹状表达，进一步将胚胎划分为14个体节原基（7个间隔，7个条纹）。</li>
+<li><strong>体节极性基因 (Segment polarity genes)：</strong> 响应配对规则基因，在每个体节内部建立前后极性，确保体节内部结构（如毛囊）的正确排列。</li>
+<li><strong>同源异形基因 (Homeotic genes/Hox genes)：</strong> 在体节形成后，根据每个体节的特定位置表达，决定每个体节将发育成何种特定结构（如触角、翅膀、足等）。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 23 Developmental Genetics, Sections 23.3 Genetic Analysis of Embryonic Development in Drosophila Reveals How the Body Axis of Animals Is Specified, 23.4 Segment Formation and Body Plans in Drosophila and Mammals, 23.5 Homeotic Selector Genes Specify Body Parts of the Adult。</li>
+</ul>
+</li>
+<li><strong>果蝇的性别决定方式是什么？ (What is the mode of sex determination in Drosophila?)</strong>
+<ul>
+<li><strong>解释：</strong> 果蝇的性别决定不是由Y染色体是否存在（如人类），而是由X染色体的数目与常染色体组数目的比率（X/A比率）决定。
+<ul>
+<li>X/A = 1.0 (XX, XXY)：雌性</li>
+<li>X/A = 0.5 (XY, XO)：雄性</li>
+<li>X/A &gt; 1.0：超雌（metacell）</li>
+<li>X/A &lt; 0.5：超雄（metamale）</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 5 Sex Determination and Sex Chromosomes, Section 5.5 The Ratio of X Chromosomes to Sets of Autosomes Can Determine Sex (specifically, "D. melanogaster")。</li>
+</ul>
+</li>
+<li><strong>拟南芥花发育ABC模型的主要内容 (Main content of the ABC model for Arabidopsis flower development)</strong>
+<ul>
+<li><strong>解释：</strong> ABC模型描述了植物花器官发育的遗传调控机制。该模型提出，花朵由四轮花器官（萼片、花瓣、雄蕊、心皮）组成，每轮器官的发育由三类同源异形基因（A、B、C）的组合表达决定：
+<ul>
+<li><strong>A类基因单独表达：</strong> 决定萼片（第一轮）。</li>
+<li><strong>A类基因与B类基因共同表达：</strong> 决定花瓣（第二轮）。</li>
+<li><strong>B类基因与C类基因共同表达：</strong> 决定雄蕊（第三轮）。</li>
+<li><strong>C类基因单独表达：</strong> 决定心皮（第四轮）。</li>
+<li>A类和C类基因是相互拮抗的，即A类基因在第一、二轮表达，C类基因在第三、四轮表达，且两者互相抑制。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 23 Developmental Genetics, Section 23.6 Plants Have Evolved Developmental Regulatory Systems That Parallel Those of Animals (specifically, "Homeotic Genes in Arabidopsis")。</li>
+</ul>
+</li>
+<li><strong>比较果蝇的母体效应基因以及拟南芥花发育的母体效应基因的异同 (Compare similarities and differences between maternal-effect genes in Drosophila and Arabidopsis flower development)</strong>
+<ul>
+<li><strong>果蝇母体效应基因：</strong>
+<ul>
+<li><strong>作用：</strong> 决定胚胎的早期轴性（前后轴和背腹轴），直接影响胚胎体节模式的建立。</li>
+<li><strong>特点：</strong> 母本将mRNA或蛋白质产物沉积到卵细胞中，在合子基因表达之前发挥作用，控制合子基因（如间隙基因）的激活。</li>
+<li><strong>例子：</strong> bicoid, nanos。</li>
+</ul>
+</li>
+<li><strong>拟南芥花发育的“母体效应基因”：</strong> (此处概念稍有偏差，ABC模型中的基因是合子基因，但可以引申理解为亲本基因影响子代花器官发育)
+<ul>
+<li><strong>ABC模型中的基因（如APETALA、PISTILLATA、AGAMOUS）：</strong> 它们是合子基因，在花原基中由子代自身表达，决定花器官的身份。它们不是通过母本在卵细胞中预存物质来发挥作用的。</li>
+<li><strong>如果一定要找类比，可能指的是影响花发育前期的，且基因产物在母体中积累并影响子代花原基形成（如开花时间基因的效应），但这并非ABC模型的核心。</strong> 更准确地说，ABC模型描述的是花器官身份的建立，而非早期胚胎轴性的决定。</li>
+</ul>
+</li>
+<li><strong>异同：</strong>
+<ul>
+<li><strong>作用对象：</strong> 果蝇母体效应基因作用于早期胚胎，建立整体轴性；拟南芥ABC基因作用于花原基，决定特定花器官的身份。</li>
+<li><strong>作用机制：</strong> 果蝇母体效应基因产物是母本预存的；ABC基因是合子（子代）自身表达的。</li>
+<li><strong>调控层次：</strong> 果蝇母体效应基因是发育级联的顶端；ABC基因是花器官身份决定的核心。</li>
+</ul>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 9 Extranuclear Inheritance, Section 9.4 (Embryonic Development in Drosophila); Chapter 23 Developmental Genetics, Section 23.6 (Homeotic Genes in Arabidopsis)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第十一章-数量遗传学">第十一章 数量遗传学 </h3>
+<p>本章内容主要对应《Concepts of Genetics》中的 <strong>Chapter 25 Quantitative Genetics and Multifactorial Traits</strong>。</p>
+<p><strong>名词解释 (Key Terms):</strong></p>
+<ul>
+<li><strong>Variance (方差)</strong>
+<ul>
+<li><strong>定义：</strong> 衡量数据集中数值离散程度的统计量，表示每个数据点与均值之间差的平方的平均值。在数量遗传学中，总方差可以分解为遗传方差、环境方差和遗传-环境互作方差，以评估不同因素对表型变异的贡献。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.3 The Study of Polygenic Traits Relies on Statistical Analysis (specifically, "Variance")。</li>
+</ul>
+</li>
+<li><strong>Standard deviation (标准差)</strong>
+<ul>
+<li><strong>定义：</strong> 方差的平方根，表示数据点与均值之间平均离散程度的量度。它与原始数据的单位相同，比方差更直观。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.3 The Study of Polygenic Traits Relies on Statistical Analysis (specifically, "Standard Deviation")。</li>
+</ul>
+</li>
+<li><strong>heritability (遗传率/遗传力)</strong>
+<ul>
+<li><strong>定义：：</strong> 衡量群体中某个数量性状变异中由遗传因素（基因型差异）所解释的比例。高遗传率意味着该性状的表型差异主要由基因型决定，而低遗传率则表示环境因素影响更大。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.4 Heritability Values Estimate the Genetic Contribution to Phenotypic Variability (整个章节的主题)。</li>
+</ul>
+</li>
+<li><strong>Broad-sense heritability （广义遗传率, H^2）</strong>
+<ul>
+<li><strong>定义：</strong> 群体中总表型方差中，由所有遗传因素（包括加性遗传、显性遗传和上位性）引起的遗传方差所占的比例。它反映了基因型对表型变异的总体贡献。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.4 Heritability Values Estimate the Genetic Contribution to Phenotypic Variability (specifically, "Broad-Sense Heritability")。</li>
+</ul>
+</li>
+<li><strong>Narrow-sense heritability （狭义遗传率, h^2）</strong>
+<ul>
+<li><strong>定义：</strong> 群体中总表型方差中，由加性遗传方差（即等位基因的累加效应）所占的比例。它是对育种和选择反应的最重要预测指标，因为它只考虑那些可以被遗传给下一代的遗传效应。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.4 Heritability Values Estimate the Genetic Contribution to Phenotypic Variability (specifically, "Narrow-Sense Heritability")。</li>
+</ul>
+</li>
+<li><strong>Quantitative Trait Loci (QTLs) （数量性状基因座）</strong>
+<ul>
+<li><strong>定义：：</strong> 基因组中影响数量性状变异的染色体区域。一个QTL可能包含一个或多个影响该性状的基因。QTL定位的目标是找出这些基因座在染色体上的位置，并估算其对性状的贡献。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.6 Quantitative Trait Loci Are Useful in Studying Multifactorial Phenotypes。</li>
+</ul>
+</li>
+<li><strong>Nearly Isogenic Lines （近等基因系, NILs）</strong>
+<ul>
+<li><strong>定义：</strong> 通过连续回交育种获得的、在遗传背景上高度一致，但在特定染色体区域（通常包含一个目标基因或QTL）存在差异的两个或多个品系。它们是研究特定基因或QTL功能和效应的强大工具，因为可以消除背景基因的干扰。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“NILs”作为子标题，但在讨论QTL定位和基因功能验证时通常会提及。</li>
+</ul>
+</li>
+<li><strong>Linkage disequilibrium, LD (连锁不平衡)</strong>
+<ul>
+<li><strong>定义：：</strong> 指在群体中，位于不同基因座的两个或多个等位基因以非随机组合的频率一起遗传的现象。即，某个等位基因的存在，预示着另一个等位基因在同一染色体上的出现概率高于随机预期。LD在基因组关联分析（GWAS）中非常重要，因为疾病相关位点可能不直接是致病基因，而是与其高度连锁的SNP。</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> 在File 1的目录中没有直接列出“Linkage disequilibrium”作为子标题，但在讨论GWAS（Chapter 22）和群体遗传学（Chapter 26）时会提及。</li>
+</ul>
+</li>
+</ul>
+<p><strong>基本内容 (Basic Concepts):</strong></p>
+<ul>
+<li><strong>数量性状（或复杂性状）与质量性状的主要区别？数量性状分析方法的基本原理？ (Main differences between quantitative (complex) and qualitative traits? Basic principles of quantitative trait analysis methods?)</strong>
+<ul>
+<li><strong>区别：</strong>
+<ul>
+<li><strong>质量性状 (Qualitative Traits)：</strong> 表型表现为不连续的类别（如红花或白花、有病或无病），通常由一个或少数几个基因控制，且受环境影响小。遵循孟德尔分离定律。</li>
+<li><strong>数量性状 (Quantitative Traits)：</strong> 表型表现为连续的变异（如身高、体重、产量），通常由多个基因（多基因遗传）共同控制，且受环境影响大。不遵循简单的孟德尔分离定律。</li>
+</ul>
+</li>
+<li><strong>分析方法基本原理：</strong>
+<ol>
+<li><strong>多基因假说：</strong> 假设数量性状是由多个基因（多基因）共同作用，每个基因对性状贡献较小，并且效应可以累加。</li>
+<li><strong>统计学分析：</strong> 由于表型连续变异且受环境影响，需要使用统计学方法（如均值、方差、标准差、相关性、回归分析）来描述群体的表型分布和遗传效应。</li>
+<li><strong>遗传率估算：</strong> 评估遗传因素和环境因素对表型变异的相对贡献。</li>
+<li><strong>QTL定位：</strong> 通过分子标记技术，在基因组上定位影响数量性状的基因座。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.1 Not All Polygenic Traits Show Continuous Variation, 25.2 Quantitative Traits Can Be Explained in Mendelian Terms, 25.3 The Study of Polygenic Traits Relies on Statistical Analysis。</li>
+</ul>
+</li>
+<li><strong>了解QTL定位的基本原理 (Basic principles of QTL mapping)</strong>
+<ul>
+<li><strong>原理：</strong>
+<ol>
+<li><strong>构建作图群体：</strong> 选择两个表型差异显著的亲本进行杂交，构建F2代、回交代或重组自交系等作图群体。</li>
+<li><strong>基因型鉴定：</strong> 对作图群体中的每个个体进行全基因组范围的分子标记（如SSR、SNP）基因型鉴定。</li>
+<li><strong>表型测量：</strong> 对每个个体测量其目标数量性状的表型值。</li>
+<li><strong>连锁分析：</strong> 利用统计学方法（如区间作图、复合区间作图、联想作图）分析分子标记基因型与数量性状表型值之间的关联性。如果某个分子标记与数量性状存在统计学上的显著关联，则表明QTL可能位于该标记附近。</li>
+<li><strong>定位QTL区域：</strong> 确定QTL所在的染色体区域，并估算其效应大小和遗传率。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits, Section 25.6 Quantitative Trait Loci Are Useful in Studying Multifactorial Phenotypes。</li>
+</ul>
+</li>
+<li><strong>理解复杂性状是多基因与环境因素共同作用的结果，既涉及内因与外因的相互关系问题、也牵涉到时间与空间的问题。例如，在植物中，QTL与不同的遗传背景、土壤气候、栽培模式、年份等等因素有关，因而在一定条件下采用一定遗传背景的材料通过分子标记获得的QTL都是相对的，都具有局限性。 (Understand that complex traits are the result of the joint action of multiple genes and environmental factors, involving the interplay of internal and external factors, as well as temporal and spatial issues. For example, in plants, QTLs are related to different genetic backgrounds, soil climate, cultivation modes, years, etc., so QTLs obtained through molecular markers under certain conditions with specific genetic backgrounds are relative and have limitations.)</strong>
+<ul>
+<li><strong>解释：</strong> 复杂性状（即数量性状）的形成是高度动态和交互作用的。
+<ol>
+<li><strong>多基因累加效应：</strong> 多个基因对性状的贡献可能是微小的，但它们的累加效应共同决定了性状的整体表现。</li>
+<li><strong>基因-基因互作 (Epistasis)：</strong> 不同基因之间的上位效应（一个基因影响另一个基因的表达）进一步增加了复杂性。</li>
+<li><strong>基因-环境互作 (G × E Interaction)：</strong> 基因型对表型的影响会随着环境条件的变化而改变。例如，同一个抗旱基因型在干旱环境下表现出高抗性，但在水分充足环境下可能与非抗旱基因型无显著差异。</li>
+<li><strong>时间和空间特异性：</strong> 基因的表达和其对性状的贡献可能在不同发育阶段、不同组织器官或不同地理位置表现出差异。例如，植物的产量QTL可能只在特定生育期或特定土壤条件下显著。</li>
+<li><strong>QTL的相对性和局限性：</strong> 因此，通过QTL定位找到的基因座是针对特定作图群体、特定环境（如某一年份、某个地点、某种栽培管理方式）下检测到的。这些QTL在不同的遗传背景（其他品种）或不同的环境条件下可能表现出不同的效应大小，甚至不再显著。这强调了将实验室发现转化为实际应用时，需要考虑其环境稳定性和广泛适应性。</li>
+</ol>
+</li>
+<li><strong>《Concepts of Genetics》中涵盖：</strong> Chapter 25 Quantitative Genetics and Multifactorial Traits (整个章节都强调了多基因和环境因素的复杂性，以及遗传率的局限性)。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="第十二章-群体遗传与进化">第十二章 群体遗传与进化 </h3>
+<p>这一章主要探讨了基因在种群中如何分布、如何变化，以及这些变化如何驱动进化。</p>
+<p><strong>名词解释 (Key Terms)</strong></p>
+<ol>
+<li>
+<p><strong>gene pool (基因库)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.2):</strong> "The Hardy–Weinberg Law Describes Allele Frequencies and Genotype Frequencies in Population Gene Pools" (哈迪-温伯格定律描述了种群基因库中的等位基因频率和基因型频率)。</li>
+<li><strong>详细解释:</strong> 基因库是指在特定时间点，某个群体（或物种）中所有个体所拥有的全部基因（或等位基因）的总和。它是该群体内所有遗传信息的集合。每个个体都是从这个基因库中抽取等位基因来形成其基因型，并将其自身的等位基因重新贡献回基因库供下一代使用。基因库的大小和多样性直接反映了群体的遗传变异水平。</li>
+</ul>
+</li>
+<li>
+<p><strong>Fitness (适合度)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.4):</strong> "Fitness and Selection" (适合度和选择)。</li>
+<li><strong>详细解释:</strong> 在群体遗传学中，适合度（Fitness，通常用 'w' 表示）是衡量某个基因型个体在特定环境条件下对下一代基因库贡献的相对繁殖成功率。具体来说，适合度高的个体倾向于产生更多存活且可繁殖的后代，从而将其基因型更有效地传递给下一代。适合度是自然选择作用的基础，因为它决定了不同基因型在群体中频率变化的方向和速度。</li>
+</ul>
+</li>
+<li>
+<p><strong>Genetic drift (遗传漂变)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.7):</strong> "Genetic Drift Causes Random Changes in Allele Frequency in Small Populations" (遗传漂变导致小种群中等位基因频率的随机变化)。</li>
+<li><strong>详细解释:</strong> 遗传漂变是指在种群中，由于纯粹的随机机会事件（而非自然选择、突变或迁移）导致的等位基因频率在世代之间发生随机波动。这种效应在小种群中尤为显著，因为随机事件（例如，哪些个体偶然地成功繁殖，哪些个体意外地死亡）对基因库的影响更大，可能导致某些等位基因的丢失或固定，从而减少遗传多样性。</li>
+</ul>
+</li>
+<li>
+<p><strong>Founder effect (奠基者效应)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.7):</strong> "Founder Effects in Human Populations" (人类种群中的奠基者效应)。</li>
+<li><strong>详细解释:</strong> 奠基者效应是遗传漂变的一种特殊形式。当一个新种群由少数从原种群中分离出来的个体建立时，这些“奠基者”的基因库可能无法完全代表原种群的遗传多样性，导致新种群的等位基因频率与原种群显著不同，甚至可能缺失原种群中存在的一些等位基因，或者某些稀有等位基因的频率异常高。</li>
+</ul>
+</li>
+<li>
+<p><strong>Genetic Bottleneck (遗传瓶颈)</strong></p>
+<ul>
+<li><strong>教材关联:</strong> 尽管教材章节列表中没有明确的子标题，但遗传瓶颈是遗传漂变的重要组成部分，通常在讨论遗传漂变及其对种群多样性影响时被提及。</li>
+<li><strong>详细解释:</strong> 遗传瓶颈是指种群数量在短时间内经历大幅下降的事件，例如由于自然灾害、疾病、环境剧变或过度捕猎等原因。这种数量的剧烈减少导致种群的基因多样性大幅降低，因为只有少数幸存个体的基因能够传递给下一代，这些幸存个体可能只携带了原种群遗传多样性的一小部分。瓶颈效应过后，即使种群数量恢复，其遗传多样性也可能需要很长时间才能恢复。</li>
+</ul>
+</li>
+<li>
+<p><strong>Speciation (物种形成)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.9):</strong> "Speciation Can Occur through Reproductive Isolation" (物种形成可通过生殖隔离发生)。</li>
+<li><strong>详细解释:</strong> 物种形成是指通过遗传隔离和进化分化，从现有物种中产生新物种的过程。核心在于生殖隔离的建立，使得不同种群的个体无法或不愿相互繁殖，即使它们地理上相遇。随着时间的推移，这些隔离的种群会积累不同的遗传变异，最终分化成独立的物种。</li>
+</ul>
+</li>
+<li>
+<p><strong>Neutral Theory of Molecular Evolution (分子进化的中性理论)</strong></p>
+<ul>
+<li><strong>教材关联:</strong> 尽管没有直接的子标题，但这一理论是理解分子钟（Chapter 26.10）和基因组进化（Chapter 26.10 "The Complex Origins of the Human Genome"）的基础。</li>
+<li><strong>详细解释:</strong> 由木村资生（Motoo Kimura）提出的分子进化的中性理论认为，在分子水平上（如DNA或蛋白质序列），大多数进化变化不是由自然选择引起的，而是由遗传漂变作用于中性突变（即对生物适合度没有影响的突变）所导致的。这些中性突变在群体中随机出现并随机固定或丢失，其累积速率在不同谱系中相对恒定，为“分子钟”的提出奠定了理论基础。</li>
+</ul>
+</li>
+<li>
+<p><strong>Phylogenetic tree (系统发生树)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.10):</strong> "Phylogeny Can Be Used to Analyze Evolutionary History" (系统发生学可用于分析进化历史) 和 "Constructing Phylogenetic Trees from DNA Sequences" (从DNA序列构建系统发生树)。</li>
+<li><strong>详细解释:</strong> 系统发生树是一种分支图，用于展示不同物种、基因或其它分类单元之间的进化关系。树的分支（或边）代表谱系或进化路径，节点（或分叉点）代表共同祖先或分化事件。通过分析基因序列或形态特征的相似性和差异性，可以构建系统发生树，从而推断生物之间的亲缘关系和进化历史。</li>
+</ul>
+</li>
+<li>
+<p><strong>Molecular clock (分子钟)</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.10):</strong> "Molecular Clocks Measure the Rate of Evolutionary Change" (分子钟衡量进化变化的速度)。</li>
+<li><strong>详细解释:</strong> 分子钟是一种利用生物大分子（如DNA或蛋白质）序列中中性突变累积的速率来估计不同物种或谱系从共同祖先分化时间的技术。它基于分子进化的中性理论，即中性突变在进化过程中以相对恒定的速率累积。通过比较不同物种之间同源基因序列的差异程度，可以推断它们分化的时间。</li>
+</ul>
+</li>
+</ol>
+<p><strong>基本内容 (Core Concepts)</strong></p>
+<ol>
+<li>
+<p><strong>Hardy–Weinberg定律的基本内容，如何计算群体的基因频率及基因型频率？如何判断一个群体是否是一个平衡群体？</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.2):</strong> "The Hardy–Weinberg Law Describes Allele Frequencies and Genotype Frequencies in Population Gene Pools", "Calculating Genotype Frequencies", "Calculating Allele Frequencies", "The Hardy–Weinberg Law and Its Assumptions", "Testing for Hardy–Weinberg Equilibrium in a Population"。</li>
+<li><strong>基本内容:</strong> 哈迪-温伯格定律（Hardy-Weinberg Law）指出，在一个大群体中，如果满足以下五个条件（无突变、无迁移、无自然选择、随机交配、大种群），那么等位基因频率和基因型频率在世代之间将保持不变，处于遗传平衡状态。这是群体遗传学的基石，提供了一个无进化发生的理想基线模型。</li>
+<li><strong>计算方法:</strong> 对于一个基因座有两个等位基因A和a，设A的频率为p，a的频率为q。
+<ul>
+<li><strong>等位基因频率:</strong> <code>p + q = 1</code></li>
+<li><strong>基因型频率:</strong> <code>p² (AA) + 2pq (Aa) + q² (aa) = 1</code></li>
+<li>可以通过基因型计数直接计算等位基因频率，或者通过哈迪-温伯格公式从基因型频率推算（当知道其中一个频率时）。</li>
+</ul>
+</li>
+<li><strong>判断是否平衡:</strong> 通常采用卡方（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0085em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>）分析。首先，根据观察到的等位基因频率计算出期望的基因型频率（假设群体处于哈迪-温伯格平衡状态）。然后，比较观察到的基因型数量与期望的基因型数量，计算卡方值。如果计算出的卡方值超过了特定自由度下的临界值，则可以拒绝零假设（即群体处于平衡状态），认为群体不处于哈迪-温伯格平衡，这意味着至少有一个进化因素正在起作用。</li>
+</ul>
+</li>
+<li>
+<p><strong>改变群体基因频率的因素有哪些？分别对群体的基因频率产生什么影响？</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.4-26.8):</strong> 详述了自然选择、突变、迁移（基因流）、遗传漂变和非随机交配。</li>
+<li><strong>主要因素及其影响:</strong>
+<ul>
+<li><strong>自然选择 (Natural Selection):</strong> 教材26.4节。根据个体在特定环境中的适合度差异，选择那些能更好适应环境并产生更多后代的基因型。这导致有利等位基因频率增加，不利等位基因频率下降。</li>
+<li><strong>突变 (Mutation):</strong> 教材26.5节。基因变异的根本来源。突变通过产生新的等位基因，从而缓慢地改变基因频率，但单一突变事件对群体基因频率的直接影响通常很小。它是进化的原材料。</li>
+<li><strong>迁移/基因流 (Migration/Gene Flow):</strong> 教材26.6节。指个体或配子在不同种群之间移动，并成功地将基因带入新种群。这会使得两个种群的基因频率趋于同质化，减少种群之间的遗传分化。</li>
+<li><strong>遗传漂变 (Genetic Drift):</strong> 教材26.7节。特别在小种群中，由于随机抽样误差导致等位基因频率的随机波动。可能导致等位基因的随机丢失或固定，减少种群内的遗传多样性。</li>
+<li><strong>非随机交配 (Nonrandom Mating):</strong> 教材26.8节。例如近亲繁殖（Inbreeding）。非随机交配不直接改变等位基因频率，但会改变基因型频率。近亲繁殖会增加纯合子的比例，降低杂合子的比例，从而影响基因在群体中的表达模式。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>基因组的进化通过哪些途径产生？</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.10):</strong> "The Complex Origins of the Human Genome" (人类基因组的复杂起源) 讨论了基因组进化的一些宏观方面，但基因组进化的具体途径贯穿了教材的多个章节，例如染色体变异（Chapter 6）、转座因子（Chapter 15）、基因复制（Chapter 6.6）等。在群体遗传学和进化语境下，主要强调以下途径：</li>
+<li><strong>主要途径:</strong>
+<ul>
+<li><strong>点突变 (Point Mutations):</strong> DNA序列中单个核苷酸的改变，是最小尺度上的变异，也是所有其他变异的根本来源。</li>
+<li><strong>基因复制 (Gene Duplication):</strong> 教材6.6节提及。整个基因或基因片段的复制，为新基因功能的演化提供原材料，形成基因家族和基因超家族。</li>
+<li><strong>染色体结构变异 (Chromosomal Structural Variations):</strong> 教材第6章。包括缺失、重复、倒位、易位等，能改变基因的排列顺序和剂量，对基因表达和表型产生重大影响。</li>
+<li><strong>转座子活动 (Transposon Activity):</strong> 教材第15章。转座子可以在基因组内移动并复制，导致基因组大小、结构和基因表达的改变，是基因组动态变化的重要驱动力。</li>
+<li><strong>水平基因转移 (Horizontal Gene Transfer, HGT):</strong> 教材第8章（细菌遗传分析）提及。基因在不同物种个体之间的直接传递，而非垂直（亲代到子代）传递，在细菌和古菌进化中尤为重要。</li>
+<li><strong>全基因组复制/多倍化 (Whole Genome Duplication/Polyploidy):</strong> 导致整个染色体组的倍增，在植物进化中常见，可以为新性状的产生提供巨大的遗传可塑性。</li>
+<li><strong>染色体融合/裂变 (Chromosome Fission/Fusion):</strong> 染色体数量和结构的变化，影响基因组的组织方式。</li>
+<li><strong>基因重组 (Genetic Recombination):</strong> 通过交换和独立分配，产生新的基因组合，是产生遗传多样性的重要机制。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>思考：“现代人类起源于非洲”学说的核心内容，有哪些研究证据支持，有哪些问题依然无法解释。</strong></p>
+<ul>
+<li><strong>教材关联 (Chapter 26.10):</strong> "The Complex Origins of the Human Genome" 和 "Tracking Our Genetic Footprints out of Africa" (特别在Genetics, Ethics, and Society专栏中)。</li>
+<li><strong>核心内容:</strong> “现代人类起源于非洲”（Out-of-Africa Hypothesis），也称为单一非洲起源说，认为所有现代人类（Homo sapiens）在大约20万年前起源于非洲，然后在大约6万至7万年前从非洲扩散到世界各地，取代了当地的早期人种（如尼安德特人、丹尼索瓦人），而非与之杂交并演化。</li>
+<li><strong>研究证据支持:</strong>
+<ul>
+<li><strong>线粒体DNA (mtDNA) 研究:</strong> 教材中可能提及。通过分析全球人群mtDNA序列，发现非洲人群的mtDNA多样性最高，且非洲支系处于mtDNA系统发生树的基部，支持了“非洲夏娃”的概念，即所有现代人拥有一个非洲的共同母系祖先。</li>
+<li><strong>Y染色体研究:</strong> 类似mtDNA，Y染色体（父系遗传）研究也显示非洲人群的Y染色体多样性最高，且非洲Y染色体谱系最古老，支持了“非洲亚当”的概念。</li>
+<li><strong>常染色体DNA研究:</strong> 全基因组测序数据显示，非洲人群拥有最高的遗传多样性，而非洲以外人群的遗传多样性随着与非洲距离的增加而逐渐降低，这与非洲起源并扩散的模式相符，因为扩散过程中会经历多次奠基者效应和遗传瓶颈。</li>
+<li><strong>古人类学化石证据:</strong> 在非洲发现的最早的现代人化石（如埃塞俄比亚的Herto和Omo Kibish）支持了现代人的非洲起源。</li>
+</ul>
+</li>
+<li><strong>依然无法解释的问题:</strong>
+<ul>
+<li><strong>与早期人种的杂交程度:</strong> 尽管主流观点是“取代”，但基因组数据显示，现代非洲以外的人类基因组中存在少量（约1-4%）尼安德特人DNA，以及一些人群中存在丹尼索瓦人DNA。这表明在扩散过程中，现代人与这些早期人种发生了有限的基因交流，具体交流的程度和影响仍在研究中。</li>
+<li><strong>扩散的具体路径和时间线细节:</strong> 尽管有大体框架，但具体的人口迁徙路线、时间点、不同波次的扩散以及环境因素（如冰期）对迁徙的影响，仍然是研究的热点。</li>
+<li><strong>基因组中非编码区域的进化作用:</strong> 除了编码基因的进化，基因组中大量的非编码区域，其变异如何影响人类的适应性进化以及与环境的互动，仍有许多未知。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
