@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>cell</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="file:///c:\Users\14921\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+    
+    <style>
+        /* ========== 新增样式：默认隐藏受保护的内容 ========== */
+        #protected-content {
+            display: none;
+        }
+        /* ============================================== */
+
+        code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+    .markdown-preview.markdown-preview {
+        /* 全局字体设置 */
+        font-size: 12px;
+        font-family: "kai", "Times New Roman", serif;
+        line-height: 1.3;
+        color: #333;
+        max-width: 8000px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #dcbc8b;
+        /* 标题样式 */
+        /* 链接样式 */
+        /* 列表样式 */
+        /* 代码样式 */
+        /* 引用样式 */
+        /* 表格样式 */
+        /* 图片样式 */
+        /* 水平线 */
+        /* 任务列表样式 */
+        /* 脚注样式 */
+        /* 自定义 pdf 导出样式 */
+        /* 自定义 prince pdf 导出样式 */
+        /* 自定义 presentation 样式 */
+        /* 自定义第一个幻灯片样式 */
+    }
+    .markdown-preview.markdown-preview h1,
+    .markdown-preview.markdown-preview h2,
+    .markdown-preview.markdown-preview h3,
+    .markdown-preview.markdown-preview h4,
+    .markdown-preview.markdown-preview h5,
+    .markdown-preview.markdown-preview h6 {
+        font-weight: bold;
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        color: #010e59;
+    }
+    .markdown-preview.markdown-preview h1 {
+        font-size: 2em;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.3em;
+    }
+    .markdown-preview.markdown-preview h2 {
+        font-size: 1.5em;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.3em;
+    }
+    .markdown-preview.markdown-preview h3 {
+        font-size: 1.25em;
+    }
+    .markdown-preview.markdown-preview h4 {
+        font-size: 1em;
+    }
+    .markdown-preview.markdown-preview h5 {
+        font-size: 0.875em;
+    }
+    .markdown-preview.markdown-preview h6 {
+        font-size: 0.85em;
+        color: #777;
+    }
+    .markdown-preview.markdown-preview a {
+        color: #1e88e5;
+        text-decoration: none;
+    }
+    .markdown-preview.markdown-preview a:hover {
+        text-decoration: underline;
+    }
+    .markdown-preview.markdown-preview ul,
+    .markdown-preview.markdown-preview ol {
+        padding-left: 2em;
+        margin-top: 0;
+        margin-bottom: 16px;
+    }
+    .markdown-preview.markdown-preview ul ul,
+    .markdown-preview.markdown-preview ol ul,
+    .markdown-preview.markdown-preview ul ol,
+    .markdown-preview.markdown-preview ol ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .markdown-preview.markdown-preview code {
+        font-family: Consolas, "Liberation Mono", Menlo, monospace;
+        font-size: 0.9em;
+        padding: 0.2em 0.4em;
+        margin: 0;
+        background-color: #f5f5f5;
+        border-radius: 3px;
+    }
+    .markdown-preview.markdown-preview pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 0.9em;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        overflow: auto;
+    }
+    .markdown-preview.markdown-preview pre code {
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+    }
+    .markdown-preview.markdown-preview blockquote {
+        margin: 0;
+        padding: 0 1em;
+        color: #777;
+        border-left: 0.25em solid #e0e0e0;
+    }
+    .markdown-preview.markdown-preview table {
+        border-collapse: collapse;
+        margin: 1em 0;
+        display: block;
+        overflow: auto;
+    }
+    .markdown-preview.markdown-preview table th,
+    .markdown-preview.markdown-preview table td {
+        padding: 0.6em 1em;
+        border: 1px solid #ddd;
+    }
+    .markdown-preview.markdown-preview table th {
+        font-weight: bold;
+        background-color: #f8f8f8;
+    }
+    .markdown-preview.markdown-preview img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 1em auto;
+        border-radius: 3px;
+    }
+    .markdown-preview.markdown-preview hr {
+        height: 0;
+        margin: 1em 0;
+        border: 0;
+        border-top: 1px solid #eee;
+    }
+    .markdown-preview.markdown-preview .task-list-item {
+        list-style-type: none;
+    }
+    .markdown-preview.markdown-preview .task-list-item input[type="checkbox"] {
+        margin-right: 0.5em;
+    }
+    .markdown-preview.markdown-preview .footnote {
+        font-size: 0.9em;
+        color: #777;
+    }
+    @media print {
+        .markdown-preview.markdown-preview body {
+            font-size: 14px;
+        }
+        .markdown-preview.markdown-preview a {
+            text-decoration: underline;
+        }
+        .markdown-preview.markdown-preview pre,
+        .markdown-preview.markdown-preview blockquote {
+            page-break-inside: avoid;
+        }
+        .markdown-preview.markdown-preview h1,
+        .markdown-preview.markdown-preview h2,
+        .markdown-preview.markdown-preview h3,
+        .markdown-preview.markdown-preview h4,
+        .markdown-preview.markdown-preview h5,
+        .markdown-preview.markdown-preview h6 {
+            page-break-after: avoid;
+        }
+    }
+    .markdown-preview.markdown-preview.prince {
+        /* 为PrinceXML渲染的PDF添加特殊样式 */
+    }
+    .markdown-preview.markdown-preview .reveal .slides {
+        /* 修改所有幻灯片 */
+        font-size: 24px;
+    }
+    .markdown-preview.markdown-preview .slides > section:nth-child(1) {
+        /* 修改第一个幻灯片 */
+        text-align: center;
+    }
+    .md-sidebar-toc.md-sidebar-toc {
+        /* 边栏目录样式 */
+        font-size: 0.9em;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-left: 1px solid #eee;
+    }
+    .md-sidebar-toc.md-sidebar-toc a {
+        color: #333;
+        text-decoration: none;
+    }
+    .md-sidebar-toc.md-sidebar-toc a:hover {
+        color: #1e88e5;
+    }
+    .md-sidebar-toc.md-sidebar-toc ul {
+        list-style-type: none;
+        padding-left: 1em;
+    }
+    .md-sidebar-toc.md-sidebar-toc .current-active-header {
+        color: #1e88e5;
+        font-weight: bold;
+    }
+    </style>
+    <!-- The content below will be included at the end of the <head> element. -->
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // your code here
+        });
+    </script>
+</head>
+<body for="html-export">
+
+    <!-- ========== 内容包裹器开始 ========== -->
+    <!-- 所有不想被直接看到的内容都放在这个 div 里面 -->
+    <div id="protected-content">
+
+        <h3 id="第一章-绪论"><strong>第一章 绪论</strong> </h3>
+        <h4 id="基本概念"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞生物学 (cell biology):</strong> 是研究和揭示细胞基本生命活动规律的科学。它应用现代物理学与化学的技术成就和分子生物学的概念与方法，从显微、亚显微与分子水平上研究细胞结构与功能，细胞增殖、分化、代谢、运动、衰老、死亡，以及细胞信号转导、基因表达与调控，细胞起源与进化等重大生命过程。</li>
+<li><strong>细胞学说 (cell theory):</strong> 是关于生物有机体组成的学说，包括三个基本内容：所有生命体均由单个或多个细胞组成；细胞是生命的结构基础和功能单位；细胞只能由原有细胞分裂产生。</li>
+<li><strong>原生质体 (protoplast):</strong> 去除细胞壁的植物、真菌或细菌细胞叫原生质体。如植物细胞通过酶解使细胞壁溶解而得到的具有质膜的球状体。动物细胞就相当于原生质体。</li>
+</ol>
+<h4 id="知识点解析"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞生物学研究的内容与现状</strong></p>
+<p>细胞生物学是研究细胞生命活动基本规律的学科。细胞是生命体结构与功能的基本单位，细胞既是生命科学研究的出发点，又是生命科学研究的汇聚点。因此，细胞生物学是现代生命科学的枢纽学科和前沿学科。</p>
+<p>细胞生物学研究的主要内容包括：细胞生物学与细胞器、细胞信号转导、细胞骨架体系、细胞核、染色体及基因表达、细胞增殖及其调控、细胞分化及干细胞、细胞死亡、细胞衰老、细胞工程、细胞的起源与进化。</p>
+<p><strong>(二) 细胞学与细胞生物学发展简史</strong></p>
+<ol>
+<li>
+<p><strong>细胞学与细胞生物学的发展阶段</strong><br>
+(1) <strong>细胞的发现</strong> 1665年，英国学者胡克 (Robert Hooke) 发现了细胞。胡克在其发表的著作《显微图谱》中描述了用自制显微镜 (放大倍数为40~140倍) 观察软木 (栎树) 的薄片中植物细胞的构造，并首次借用拉丁文 cellar (小室) 这个词来描述他所看到的类似蜂巢状结构 (实际上只是观察到纤维质的细胞壁)。荷兰学者列文虎克 (Antony van Leeuwenhoek) 用设计更好的显微镜，观察了许多动植物的活细胞与原生动物，并于1674年在观察鱼的红细胞时描述了细胞核的结构。<br>
+(2) <strong>细胞学说的建立</strong> 19世纪30年代及之前，是细胞认识阶段；30—50年代是细胞学说提出并初步完善的阶段。<br>
+(3) <strong>细胞学的经典时期</strong> 从19世纪30年代到20世纪中期，主要进行细胞形态、显微结构的硏究。原生质理论的提出、细胞分裂的研究以及各种重要细胞器相继发现，逐渐丰富了人们对细胞的认识。<br>
+(4) <strong>实验细胞学与细胞学的分支及其发展</strong> O. Hertwig 采用实验方法研究海胆和蛔虫卵发育中的核质关系，创立了实验细胞学。此后，实验的手段与分析的方法被广泛用于研究细胞学中的一些重要问题，为细胞学的研究开辟了新的领域，并与生物学其他领域相结合，形成了一些重要的分支学科，如细胞遗传学、细胞生理学以及细胞化学等。<br>
+(5) <strong>细胞生物学的形成与发展</strong> 20世纪50年代以来，电子显微镜超薄切片技术的发展和细胞超微结构的发现，为细胞生物学早期的形成奠定了基础。随着分子生物学的问世及其技术的发展，以及分子生物学、生物化学、遗传学等学科与细胞学之间相互渗透与结合，人们对细胞结构与功能的硏究水平达到了新的高度。20世纪70年代以后，细胞生物学这一学科最后得以形成并确立。20世纪80年代出现的分子细胞生物学代表了细胞生物学的主要发展方向。</p>
+</li>
+<li>
+<p><strong>细胞生物学的发展趋势</strong><br>
+推动细胞生物学学科形成与快速发展的主要原因有：①主要仪器设备的改进和技术方法的进步；②学科的相互渗透与交叉融合。<br>
+“多莉”羊的诞生、人胚胎干细胞的建系和诱导性多潜能干细胞技术，显示出细胞生物学从分子水平向细胞水平的回归，探索生命奥秘的重要标志，显示出细胞生物学的发展进入了一个新的阶段。其基本特点可归纳如下：①以细胞及其社会)特别是活体细胞为研究对象；②以细胞重大生命活动为主要研究内容；③在揭示细胞生命活动分子机制方面，以细胞信号调控网络为研究重点；④在多层次上特别是纳米尺度上揭示细胞生命活动本质；⑤多领域、多学科的交叉研究成为细胞生物学研究的重要特征。总的特点是，从细胞静态的细胞生物学活动到细胞生物活动的动态综合，这在很大程度上也反映了生命科学研究的趋势。</p>
+</li>
+<li>
+<p><strong>当前细胞生物学研究的三个根本性问题</strong><br>
+(1) 基因组是如何在时间和空间上有序表达的？<br>
+(2) 基因表达的产物是如何逐级组装成能行使生命活动的基本结构体系及各种细胞器的？这种自组装过程的调控程序与调控机制是什么？<br>
+(3) 基因及其表达的产物，特别是各种信号分子与活性因子是如何调节诸如细胞的增殖、分化、衰老与凋亡等细胞重要生命活动过程的？</p>
+</li>
+</ol>
+<hr>
+<h3 id="第二章-细胞的统一性与多样性"><strong>第二章 细胞的统一性与多样性</strong> </h3>
+<h4 id="基本概念-1"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>原核细胞 (prokaryotic cell):</strong> 因没有典型的核结构而得名。主要特征是没有明显的细胞核，也没有核膜和核仁，只有类核或拟核，进化地位较低。</li>
+<li><strong>类核 (nucleoid):</strong> 原核细胞具有明显的核区，但没有核膜、核仁，结构简单，为了与真核细胞典型的细胞核区别，称为类核或拟核。类核携带者全部遗传信息，其功能是决定遗传性状和传递遗传信息。</li>
+<li><strong>中膜体 (mesosome):</strong> 又称间体或质膜体，是由细菌细胞膜内陷形成的囊泡状、管状或包层状膜结构。中膜体常见于分裂期细菌的隔或横壁旁边，推测它可能起 DNA 复制的支点作用。也有人认为中膜体上含有细胞色素和琥珀酸脱氢酶，功能类似于线粒体。</li>
+<li><strong>真核细胞 (eukaryotic cell):</strong> 具有典型的细胞结构，有明显的细胞核、核膜、核仁和核基质；遗传信息量大；细胞质中含有一些膜性细胞器。包括植物细胞、动物细胞、原生生物细胞和真菌细胞等。</li>
+<li><strong>古细菌 (archaeobacteria):</strong> 是一类特殊的细菌，具有不同于原核和真核细胞的特征，多生活在极端的生态环境中，在系统进化上既不属真核生物，也不属原核生物，如嗜热细菌、嗜盐细菌。</li>
+<li><strong>病毒 (virus):</strong> 是由一种核酸分子 (DNA 或 RNA) 与蛋白质构成的非细胞形态的寄生生活的有机体。病毒是迄今发现的最小最简单的有机体。</li>
+<li><strong>类病毒 (viroid):</strong> 是目前已知最小的可传染的致病因子，仅由一个有感染性的裸露的环状 RNA 分子构成，侵入宿主细胞后能自我复制，大小仅有几百个核苷酸，只感染植物。</li>
+<li><strong>朊粒 (prion):</strong> 又称朊病毒，是一种感染性蛋白质因子，具有复制能力，与某些哺乳动物的退行性疾病相关。</li>
+</ol>
+<h4 id="知识点解析-1"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞的基本特征</strong></p>
+<ol>
+<li>
+<p><strong>细胞是生命活动的基本单位</strong><br>
+(1) 一切有机体都由细胞构成，细胞是构成有机体的结构单位。构成多细胞生物体的细胞是“社会化”的细胞，但它们又保持着形态结构的独立性，每一个细胞都具有完整的结构体系。<br>
+(2) 细胞是有机体代谢与执行功能的基本单位，与试管内的生化过程的根本不同点是，细胞有严格自动控制的代谢体系，并且具有保证完成有序生命过程的独立的结构。<br>
+(3) 有机体的生长与发育依靠细胞增殖、分化与凋亡来实现。细胞也是研究有机体生长与发育的基础。<br>
+(4) 细胞是遗传的基本单位，每一个细胞 (核) 都具有遗传的全能性 (除少数特化细胞)。</p>
+</li>
+<li>
+<p><strong>细胞的基本共性</strong><br>
+(1) 相似的化学组成。<br>
+(2) 脂-蛋白体系的生物膜。<br>
+(3) 相同的遗传装置。<br>
+(4) 一分为二的分裂方式。</p>
+</li>
+</ol>
+<p><strong>(二) 真核细胞</strong></p>
+<ol>
+<li><strong>真核细胞的基本结构体系</strong><br>
+在亚显微结构水平上，真核细胞可以划分为三大基本结构系统：①以脂质及蛋白质成分为基础的生物膜结构系统；②以核酸与蛋白质为主要成分的遗传信息传递与表达系统；③由特异蛋白质装配构成的细胞骨架系统。</li>
+<li><strong>细胞的大小及其影响因素</strong><br>
+细胞的大小是细胞的重要特征。对于高等动、植物，不论物种的差异多大，同一器官与组织的细胞，其大小总是在一个恒定的范围之内，这是由细胞作为生命基本单位的功能所决定的。细胞的大小，主要是通过调控每个细胞内所含的蛋白质与核糖核酸的量来决定的，其中对蛋白质合成的调控是更为主要的因素。<br>
+目前已知，哺乳动物细胞中，调控细胞大小的信号网络中心是一个叫做 mTOR (mammalian target of rapamycin) 的蛋白激酶。mTOR (或 TOR) 接收上游信号，对细胞外部的氨基酸、葡萄糖等营养物质以及胰岛素等生长因子做出反应。活化的 mTOR 有两个功能：一方面活化核糖体蛋白激酶 S6 (激酶)，导致 rpS6 磷酸化，从而可能加强核糖体的翻译效率，使细胞增大。另一方面，活化的 mTOR 将翻译起始因子 4E-BP (eukaryotic initiation factor 4E-binding protein) 磷酸化，解除其对翻译起始因子 4E (eukaryotic initiation factor 4E, eIF4E) 的抑制，增强蛋白质的翻译，促使蛋白质积累，细胞体积增加。此外，PI3K 和 mTOR 还会激活固醇调控元件结合蛋白 (sterolregulatory- element-binding proteins, SREBPs)，加强脂质的合成。<br>
+总之，细胞大小的决定是极其复杂的，还受到其他多种因素的影响。</li>
+<li><strong>原核细胞与真核细胞的比较</strong><br>
+原核细胞与真核细胞最根本的区别可以归纳为两条：<br>
+(1) 细胞膜系统的分化与演变 建立在细胞内膜系统分化基础上的内部结构与功能区域化与专一化，是进化过程中一次重大飞跃。<br>
+(2) 遗传信息量与遗传装置的扩增与复杂化 真核细胞的基因组远大于原核细胞的，因为遗传信息载体的 DNA 也由原核细胞的环状单倍性变为线状多倍性；基因数量大大增加，由几个发展到数万个；细胞核的存在，使真核细胞基因表达实现了多层次调控，远比原核生物精细与复杂，为完成复杂的生命活动提供了基础。</li>
+</ol>
+<p><strong>(三) 非细胞形态的生命体——病毒</strong></p>
+<ol>
+<li><strong>病毒的基本知识</strong><br>
+(1) 病毒作为非细胞形态的生命体，与细胞的区别主要表现在：①病毒很小，结构极其简单。绝大部分病毒的大小只有 20~200 nm，可以通过细菌滤器。②遗传载体的多样性。不仅有 DNA 病毒，还有 RNA 病毒，这两种病毒均有双链和单链之分。但每一种病毒粒子中只含有 DNA 或 RNA，而非二者兼有。③彻底的寄生性。病毒自身没有独立的代谢与能量转化系统，必须利用宿主细胞的结构、“原料”、能量与酶系统进行繁殖。④病毒是以复制和装配的方式进行增殖，而细胞只能以分裂的方式增殖。<br>
+(2) 病毒的分类 ①依遗传物质分类：DNA 病毒、RNA 病毒；②依病毒结构分类：真病毒 (euvirus，简称病毒) 和亚病毒 (subvirus，包括类病毒、拟病毒)；③依病毒感染的宿主范围分类：动物病毒、植物病毒与细菌病毒 (噬菌体) 等。<br>
+(3) 病毒的基本结构 由核酸和蛋白质组成。蛋白质构成了包裹病毒核酸的衣壳 (capsid)，有保护核酸之功能。衣壳与核酸构成病毒的核衣壳 (nucleocapsid)。有些病毒在核衣壳体之外还有脂双层的囊膜 (envelope)，其主要成分为脂质与蛋白质。脂双层来自于细胞膜，而蛋白质由病毒基因编码。<br>
+(4) 在电子显微镜下才能清楚地看到病毒。根据核壳体的形态，病毒可分为立体对称、螺旋对称和复合病毒三种基本类型。</li>
+<li><strong>病毒在细胞内增殖</strong><br>
+病毒的增殖必须在细胞内进行。病毒在宿主细胞内的增殖是病毒生命活动与遗传性的具体表现。其增殖过程是：<br>
+(1) 病毒识别并侵入宿主细胞，释放出病毒的核酸。<br>
+(2) 病毒核酸的复制。病毒核酸“篡夺”了细胞 DNA 对代谢过程的“指导”作用，转录细胞的全套代谢机构，以病毒核酸为模板，进行病毒核酸的复制与转录，并翻译病毒蛋白质。不同核酸类型的病毒，其复制与转录的方式也各不相同。<br>
+(3) 病毒的装配、成熟与释放 无囊膜的病毒，当其核酸与蛋白质装配成核壳体后，就成为具有感染性的完整病毒颗粒。有囊膜的病毒，当其核酸与衣壳蛋白质装配成核壳体后，还需要以出芽的方式包上囊膜而发育成熟的子代病毒。囊膜实际上是嵌有病毒囊膜蛋白的特化的细胞膜。最后，子代病毒以不同的方式从细胞中释放出来，再感染其他的细胞，开始下一轮的增殖周期。</li>
+<li><strong>病毒在起源与进化中的关系</strong><br>
+病毒与细胞在起源上的关系，目前存在三种主要观点，其中病毒是由细胞或细胞组分演化来的假说得到了更多的实验结果的支持。</li>
+</ol>
+<hr>
+<h3 id="第三章-细胞生物学研究方法"><strong>第三章 细胞生物学研究方法</strong> </h3>
+<h4 id="基本概念-2"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>显微镜分辨率 (resolution):</strong> 是指能区分开两个质点的最小距离。分辨率的高低取决于光源的波长 λ、物镜镜口角 α 和介质折射率 N。</li>
+<li><strong>相差显微镜 (phase-contrast microscope):</strong> 一种将相位差转变成振幅差的显微镜，可观察不染色的活细胞。</li>
+<li><strong>激光共聚焦扫描显微镜 (laser scanning confocal microscope):</strong> 用聚焦极好的激光束对样品逐点、逐层、逐面地扫描后层层深层的层面进行快速扫描，从而获得“光学切片”效果的显微镜。</li>
+<li><strong>透射电子显微镜 (transmission electron microscope):</strong> 通过穿透样品后的电子在显示屏上成像的显微镜。</li>
+<li><strong>扫描电子显微镜 (scanning electron microscope):</strong> 利用电子在样品表面扫描产生二次电子成像的显微镜。</li>
+<li><strong>免疫荧光技术 (immunofluorescence):</strong> 利用偶联荧光分子的抗体与细胞或细胞切片进行孵育，使抗体和相应抗原结合，在荧光显微镜下对抗原进行定位的技术。如果用偶联荧光分子的抗抗体显示一抗抗原结合，就是直接免疫荧光技术；如果是偶联荧光分子的二抗，则属间接免疫荧光技术。</li>
+<li><strong>细胞系 (cell line):</strong> 原代细胞培养物经首次传代成功后的细胞群体。根据遗传传代次数限制又可分为有限细胞系和连续细胞系。</li>
+<li><strong>细胞融合 (cell fusion):</strong> 两个细胞相互融合成形成一个连续的细胞质。融合后的细胞只有一个连续的细胞质膜。</li>
+<li><strong>荧光漂白恢复技术 (fluorescence photobleaching recovery, FPR):</strong> 通过膜组分与荧光染料结合，用激光不可逆地漂白膜上的某一荧光区域，然后根据漂白区荧光恢复的速度，研究膜的流动性。</li>
+<li><strong>荧光共振能量转移技术 (fluorescence resonance energy transfer, FRET):</strong> 用来检测活细胞内两种蛋白质分子是否直接相互作用的技术。当两个蛋白质相互作用时，供体被激发后所发出的荧光作为激发受体荧光而受体产生荧光，即是荧光共振能量转移。</li>
+<li><strong>放射自显影技术 (autoradiography):</strong> 通过检测放射性标记物质在细胞内的定位来对细胞内生物大分子进行定性、定位与半定量研究的一种细胞学技术。结合脉冲标记，可以实现对细胞内生物大分子进行动态研究与追踪。</li>
+</ol>
+<h4 id="知识点解析-2"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞形态结构的观察方法</strong></p>
+<ol>
+<li>
+<p><strong>细胞观察视阈</strong><br>
+多数动植物细胞直径都在20~30 μm，而人裸眼的分辨率一般只有0.2 mm，很难识别单个细胞，更难识别细胞内的各种细胞器，因此必须借助显微镜才能够观察细胞的形态和结构。显微镜主要有两类，即光学显微镜和电子显微镜。</p>
+</li>
+<li>
+<p><strong>光学显微镜</strong><br>
+(1) <strong>普通光学显微镜</strong> 显微镜最重要的性能参数是分辨率，而不是放大倍数。分辨率 (D) 与波长 λ、物镜镜口角 α (标本在光轴上的一点对物镜镜口的张角) 和介质折射率 N 之间的关系是：D=0.61λ/N·sin(α/2)。通常 α 最大值可达 140°，空气中 N = 1，最短的可见光波长 λ = 450 nm，此时分辨率 D = 292 nm，约 0.3 μm。若在油镜下，N 可提高到 1.5，分辨率 D 值则可达 0.2 μm，所以普通光学显微镜的最大分辨率是 0.2 μm。<br>
+普通光学显微镜虽然可以直接观察单细胞，但要获得好的效果，常常需要对细胞进行染色。如果是观察生物样品，则需要对样品进行固定和包埋 (常用的固定剂如甲醛，包埋剂如石蜡等)，再将包埋好的样品切成厚度约 5 μm 的切片，最后进行染色 (如苏木精和伊红染色，又称 H-E 染色)。固定的目的主要是为了保持样品固有的成分及结构，而包埋的目的是为了便于显微切片。但这种固定和包埋往往让蛋白质的活性丧失，因为观察细胞内醇的分布，往往也需经这一冷冻的方式对样品进行包埋，然后冰冻切片。<br>
+(2) <strong>相差显微镜</strong> 由于活细胞的一些样品经固定就会失去生物活性。因此，对活细胞显微结构的观察可以借助相差显微镜来观察。其原理是利用光波的基本属性包括波长、频率、振幅和相位等。可见光波长和频率的变化表现为颜色的不同，振幅的变化表现为亮度的区别，而相位的变化却是人眼不能感觉的。当光通过光学系统时，会发生相互干涉。如果它们的光相位相同，干涉的结果是使光的振幅加大，亮度增强。反之，就会相互抵消而亮度变暗。光通过不同密度的物质时滞留程度不同，密度大的则光相位滞留时间长，密度小的则光相位发生不过程度的改变。相差显微镜 (包括干涉差显微镜) 就是将光线的相位差转变为振幅差，增强样品的反差，从而实现对非染色活细胞的观察。实现这一改变需要相差显微镜在普通光学显微镜的基础上添加两个元件，即“环状光阑”和在物镜后焦面上的“相差板”。<br>
+(3) <strong>荧光显微镜</strong> 与普通光学显微镜相比，荧光显微镜是通过激发光照射样品中能够产生荧光的分子，而荧光光强相对荧光信号提供背景的反差，因此，即便很弱的荧光信号也易于分辨。<br>
+荧光染料 DAPI 能特异性地直接与细胞中的 DNA 相结合，从而显示出细胞核或染色体在细胞中的定位。用显微注射将标记荧光素的肌动蛋白注射到培养细胞中，可以看到肌动蛋白分子组装成肌动蛋白纤维的过程。用可产生荧光的绿色荧光蛋白 (green fluorescent protein, GFP) 基因与编码某种蛋白质的基因相融合，利用荧光显微镜就可以在表达这种融合蛋白细胞中观察到该蛋白质的动态变化。为了获得某种特异蛋白，可以利用其抗原特性结合特异的融合蛋白。用荧光染料标记该种蛋白的抗体，然后用抗体与其孵育后在荧光显微镜下观察。如果待观察的蛋白含量在细胞中很少，还可通过用荧光染料标记二抗的间接荧光免疫技术来达到信号放大，以便观察。此外，还可以用 GFP 基因与待观察蛋白质的基因相融合并通过表达后用荧光显-微镜观察。<br>
+(4) <strong>激光共聚焦扫描显微镜</strong> 普通显微镜，包括荧光显微镜，都存在着许多来自样品中焦平面以外的光的干扰，会使所观察图像的反差减小、分辨能力降低。而激光共聚焦扫描显微镜只聚集光束在样品中某一焦平面上所产生的荧光成像，来自焦平面以外的散射光被小孔或狭缝挡住，因此，激光共聚焦显微镜的分辨率比普通荧光显微镜的分辨率提高了 1.4~1.7 倍。激光共聚焦扫描显微镜还可通过自动调节并改变观察的焦平面，通过“光学切片”即改变焦点获得一系列不同切面上的细胞图像，经叠加后可构建出样品的三维结构。</p>
+</li>
+<li>
+<p><strong>电子显微镜</strong><br>
+光学显微镜技术尽管样品制备相对简单、费用相对便宜，但其最大分辨率只有 0.2 μm。这种分辨率对于观察细胞内的精细结构而言远远不够，只能借助电子显微镜。电子显微镜的分辨率主要因为波长比可见光短得多的电子束作为光源，波长一般小于 0.1 nm，分辨率可达 0.2 nm。根据电子显微镜成像原理的不同，有两种常用的电子显微镜。<br>
+(1) <strong>透射电子显微镜</strong> 透射电子显微镜是利用穿透样品的电子打在荧光屏上进行成像。根据这一成像原理可知，透射电镜成像需要电子穿透样品。但一方面电子的穿透能力很弱，另一方面生物样品的组成特性决定了其对电子穿透能力差异不明显，因此，对干一般样品，即便是细胞，不仅需要切片，还需要染色。<br>
+透射电镜样品制备技术很多种，包括超薄切片、染色、冷冻蚀刻、低温电镜等技术。超薄切片的目的是为了电子能够穿透样品，而染色的目的是为了让样品形成电子密度反差。因此，一般光学显微镜染色不行，必须用重金属盐，如柠檬酸铅 (易与蛋白质)、乙酸双氧铀 (染核酸) 等。通过重金属染色让样品形成电子密度反差，电子密度大的地方电子就少，打在荧光屏上就暗，反之，在荧光屏上就亮，从而形成明暗反差的放大了的图像。如果样品足够小，比如病毒、核酸、蛋白质等，则可以通过负染色技术制样。负染所用的染料仍然是重金属盐。冷冻蚀刻技术比较复杂，简单地说，就是在低温下撕裂细胞，然后让样品中的冰升华 (蚀刻)，再用重金属喷镀和形成碳膜来形成样品的复制膜，最后在透射电镜下观察。<br>
+(2) <strong>扫描电子显微镜</strong> 如果说透射电镜是观察样品的内部结构，那么扫描电镜则是观察样品的表面形貌。扫描电镜的成像原理是利用电子枪发射出的电子束经电磁透镜汇聚成极细的电子“探针”，在样品表面进行“扫描”，激发样品表面放出二次电子。二次电子由探测器收集并被闪烁器转变成光信号，其产生的多少与样品表面的形貌相关。这样，通过扫描电镜可以得到样品表面立体图像信息。<br>
+由于扫描电镜观察的样品表面同样由于电子的穿透能力和生物样品的组成特性，待观察的样品往往需要干燥、喷镀重金属等处理过程，而这些处理中，关键步骤就是干燥时保持样品的固有形貌，因为传统的干燥技术往往会由于水的表面张力导致样品形貌发生改变。为了避免水的表面张力存在，常用临界点干燥方法。</p>
+</li>
+</ol>
+<p><strong>(二) 细胞及其组分的分析方法</strong></p>
+<ol>
+<li>
+<p><strong>细胞的细胞化学显示方法</strong><br>
+如果是在细胞内原位分析细胞组分，可以利用一些显色剂与所检测物质中一些特殊基团特异性结合的特征，通过显色反应在细胞中的定位及颜色深浅来判断某种物质在细胞中的分布和相对含量。如福尔根反应可以特异性显示红色的 DNA 的分布；苏丹III（染料）染色则通过扩散进入脂滴中，使脂滴着色。若在荧光显微镜下进行定性研究，样品制备需采用冰冻切片，或以冷丙酮、甲醛进行短时间固定，以尽量保持酶的活性，然后将样品（细胞或组织切片）与适宜底物共同温育。</p>
+</li>
+<li>
+<p><strong>特异蛋白的定位与定性</strong><br>
+为了对细胞内某一蛋白抗原进行特异性显示、定位或定性研究，可以利用抗原抗体特异性结合的原理，通过标记抗体，然后用标记的抗体与抗原结合进行观察分析。根据抗原位分析精度实验目的的不同，有光学显微镜水平和电子显微镜水平两种不同的方法。<br>
+标记。如前所述，利用光学显微镜进行特异蛋白的定位、定性研究需要对抗体进行荧光标记。利用电子显微镜，则对抗体可以直接与抗原结合（直接免疫荧光技术）；也可标记二抗后再与结合了抗原的一抗孵育，则是间接免疫荧光技术。<br>
+尽管免疫荧光技术能提高样品的分辨率，但其分辨率毕竟有限。因此，可利用免疫电镜技术来有效地提高样品的分辨率，在超微结构水平研究特异蛋白的精确定位。比如要确定某蛋白定位在细胞何种细胞器上，用免疫电镜的精确定位是比较确定的。但免疫电镜技术相对复杂，现在也常用免疫荧光技术来粗略定位某一种蛋白在细胞内的分布等。根据电子显微镜的成像原理可知，用于标记抗体的物质不是荧光分子，而是重金属，如胶体金。<br>
+如果要定位或定性染色体上或细胞内特异核酸，仍然可以通过荧光原位杂交或者是电镜原位杂交的方法达到目的。如果用荧光原位杂交方法进行研究，现在常用生物素标记的 DNA 探针与细胞内DNA或染色体上核酸进行杂交，然后用荧光偶联的抗生物素蛋白；而用电镜原位杂交方法进行研究，则用胶体金偶联的抗生物素抗体进行显示。</p>
+</li>
+<li>
+<p><strong>流式细胞分选技术</strong><br>
+这一技术目前在科学研究中应用十分广泛。流式细胞术（flow cytometry）可定量地测定某一细胞中的 DNA、RNA 或某一特异的标记蛋白的含量，以及细胞群体中上述成分含量的不同细胞的数量。比如要研究细胞群体中有多少细胞处于 G₁期、S 期、G₂/M 期，则可将荧光标记后的细胞用流式细胞仪进行大量而又快速地分析。同样，可通过流式细胞仪带有带特定标志的细胞，如分选干细胞等。</p>
+</li>
+</ol>
+<p><strong>(三) 细胞培养与细胞工程</strong></p>
+<ol>
+<li>
+<p><strong>细胞培养</strong><br>
+细胞培养是细胞生物学乃至整个生命科学研究与生物工程中最基本的技术，最近几年新兴的干细胞生物学发展及其应用在很大程度上得益于细胞培养技术的发展。<br>
+动物细胞若从原代细胞培养做起，需要取出健康动物的组织块，用胰酶或胶原酶与 EDTA（螯合剂）等将细胞连续消化分散，在含有小牛（或胎牛）血清的培养基中。原代培养的细胞一般传至 10 代左右生长出现停滞，大部分细胞衰老死亡，但有极少数细胞可能渡过“危机”而传至下代。这些存活的细胞一般又可顺利地传代 40 ~ 50 代次，并且仍保持原来的染色体二倍体数量及接触抑制的行为。一般情况下（胚胎干细胞等除外），当细胞传至 50 代以后又要出现第二次“危机”，难以再传下去。但在传代过程中如部分细胞发生了遗传突变，并使其带有癌细胞的特点，有可能在培养条件下无限地传代增殖，是指由永生细胞系 (infinite cell line)，或连续细胞系 (continuous cell line)。其特点是染色体一般呈亚二倍体或非整倍体，失去接触抑制，容易传代培养。如 HeLa 细胞系、CHO 细胞系。</p>
+</li>
+<li>
+<p><strong>单克隆抗体技术</strong><br>
+所谓单克隆抗体，是指由单个细胞增殖形成的细胞克隆所分泌的抗体。该技术获得 1984 年的诺贝尔生理学或医学奖。当动物受到外界抗原刺激后可激发 B 淋巴细胞活化，产生相应的抗体。但在体内，这种来源的抗体不仅有限，而且往往是异质性抗体，限制了其实际应用。为了获得大量来源单一的抗体，1975 年，英国科学家 C. Milstein 和 G. J. F. Kohler 将产生抗体的 B 淋巴细胞同肿瘤细胞融合，成功地建立了 B 淋巴细胞杂交瘤技术用于制备单克隆抗体 (monoclonal antibody)。<br>
+B 淋巴细胞能够分泌抗体，但在体外培养时难以增殖。为了获得既能够分泌抗体又能够无限增殖的细胞克隆，将小鼠骨髓瘤细胞与经绵羊红细胞免疫过的 B 淋巴细胞（B 淋巴细胞在聚乙二醇或灭活的病毒介导下发生融合）融合。融合后的杂交瘤细胞具有两种亲本细胞的特性。一方面可分泌抗绵羊红细胞抗体，另一方面像肿瘤细胞一样，可在体外培养条件下或移植到体内无限增殖。尽管没有杂交的 B 淋巴细胞随着培养时间的延长将死亡，但要没有融合的骨髓瘤细胞也淘汰掉而在培养体系中只剩下杂交瘤细胞则需用缺陷型骨髓瘤和选择性培养基。正常细胞在氮基哒呤的作用下可阻止细胞 DNA 合成主要通路，但可以利用次黄嘌呤和胸腺嘧啶核苷通过 TK 和 HGPRT 酶合成 DNA。由于缺陷性杂交瘤细胞缺乏 TK 或 HGPRT，因此在含氨基哒呤的培养液内不能通过旁路合成 DNA 而成活。只有融合细胞才能在含 HAT（次黄嘌呤、氨基哒呤和胸腺嘧啶核苷）的培养液内通过旁路合成核酸而得以生存。通过 HAT 选择培养和细胞克隆，可以获得大量分泌单克隆抗体的杂交瘤细胞株。</p>
+</li>
+</ol>
+<p><strong>(四) 细胞及生物大分子的动态变化</strong></p>
+<ol>
+<li>
+<p><strong>荧光漂白恢复技术 (FPR)</strong><br>
+当高能激光束照射细胞表面某一特定区域后，该区域内标记的荧光分子发生不可逆的猝灭，即光漂白 (photobleaching)。随后，由于膜脂或膜蛋白的运动性，周围非漂白区域的荧光分子不断向光漂白区域迁移逐渐地恢复到原来水平，这一过程称荧光恢复 (fluorescence recovery)。荧光恢复的速度主要取决于膜脂或膜蛋白的运动速率。因此，该技术能定量分析膜脂或膜蛋白的运动。为了使膜脂或膜蛋白产生荧光，需要用荧光分子或绿色荧光蛋白标记待分析的膜成分。</p>
+</li>
+<li>
+<p><strong>酵母双杂交系统 (yeast two-hybrid system)</strong><br>
+该技术主要用于分析蛋白质的相互作用。细胞蛋白转录起始需要转录激活因子，而转录激活因子一般由两个或两个以上在结构上可以分开、功能上相互独立的结构域组成，即 DNA 结合域和转录激活域。一旦这两个结构域分开转录激活因子就不能激活基因转录。因此，为了确定两选出两种蛋白是否相互作用，或者为了寻找与某一种蛋白相互作用的其他蛋白，可将待分析蛋白的基因与转录激活因子的 DNA 结合域和转录激活域的基因分别融合，并导入酵母细胞表达。一旦待分析的蛋白相互作用，便会使 DNA 结合域和转录激活域相互靠近而启动报告基因的表达。该实验系统有存在假阳性的问题。因此，在大量筛选与某种蛋白相互作用的蛋白基础上，通过其他研究方法进一步确认，比如利用免疫共沉淀的方法进行分析。</p>
+</li>
+<li>
+<p><strong>荧光共振能量转移技术 (FRET)</strong><br>
+该技术是用来检测活细胞内两种蛋白分子是否直接相互作用的重要手段。如果一个荧光基团 (供体) 的发射光谱与另一个基团 (受体) 的吸收光谱有一定重的重叠，当这两个荧光基团的距离合适时 (一般小于 10 nm) 就可观察到荧光能量由供体向受体转移的现象。此时，用前一种基团的激发波长光激发后可观察到后一个基团产生的荧光。这就是荧光共振能量转移现象。根据这一原理，将待研究的两种蛋白基因分别与 CFP 和 YFP 荧光蛋白基因融合并在细胞内共表达后，如果待研究的两种蛋白相互作用，其融合的 CFP 和 YFP 荧光蛋白也会相互靠近。此时，用 430 nm 的紫外激发光激发 CFP 后产生的 490 nm 的蓝色荧光被 YFP 吸收，并产生 530 nm 的黄色荧光。因此，根据有无黄色荧光的产生可以判断待研究的两种蛋白是否相互作用。</p>
+</li>
+<li>
+<p><strong>放射自显影技术</strong><br>
+除了生物大分子相互作用的分析方法外，还可以通过放射自显影技术实现对细胞内生物大分子的合成及合成分路进行追踪等。比如，用氚 (³H) 标记的胸腺嘧啶脱氧核苷 (³H-TdR) 作为 DNA 合成的前体物掺入细胞以研究 DNA 合成，用氚标记的尿嘧啶核苷研究 RNA 合成，用³⁵S 标记的甲硫氨酸和半胱氨酸、³H 或¹⁴C 标记的甲硫氨酸、亮氨酸等研究蛋白质合成、分选以及代谢等。</p>
+</li>
+</ol>
+<p><strong>(五) 模式生物</strong></p>
+<p>通常模式生物具有个体较小，容易培养，操作简单，生长繁殖快等特点。利用不同模式生物进行实验，可能结果会有所不同。但总的来讲，不同生物往往有幸或多或少的共同分子代谢机制，因此利用模式生物不仅可以很方便，很深入地开展研究，其研究结果往往还有助于解读生命活动现象。</p>
+<hr>
+<h3 id="第四章-细胞质膜"><strong>第四章 细胞质膜</strong> </h3>
+<h4 id="基本概念-3"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>流动镶嵌模型 (fluid mosaic model):</strong> 一种描述生物膜的动态结构模型。生物膜由膜脂和膜蛋白组成，具有流动性，膜脂镶嵌在脂双层或结合于脂双层表面。</li>
+<li><strong>脂筏模型 (lipid raft model):</strong> 在脂双层上，由胆固醇、鞘磷脂等形成相对有序的脂相，如同漂浮在脂双层上的“脂筏”一样载着执行某些特定生物学功能的各种膜蛋白的生物膜模型。</li>
+<li><strong>膜脂 (membrane lipid):</strong> 生物膜的基本组成成分和结构组织者，主要包括甘油磷脂、鞘脂和固醇三种基本类型。膜脂往往形成脂双层结构。</li>
+<li><strong>脂质体 (liposome):</strong> 根据磷脂分子可在水中形成稳定的脂双层现象而制备的人工膜，常用于研究膜脂与膜蛋白及其生物学特性，以及作为基因或药物输送的载体。</li>
+<li><strong>外在膜蛋白 (extrinsic membrane protein):</strong> 又称外周膜蛋白，位于磷脂双分子层表面，通过非共价键与膜脂或膜蛋白发生相互作用的一种膜结合蛋白。</li>
+<li><strong>内在膜蛋白 (intrinsic membrane protein):</strong> 又称整合膜蛋白，镶嵌或横跨脂双层的膜结合蛋白。</li>
+<li><strong>脂锚定膜蛋白 (lipid anchored protein):</strong> 通过共价相连的脂分子 (脂肪酸或糖脂) 插入膜的脂双层而锚定在膜上的一类蛋白，其水溶性部分位于脂双层外。</li>
+<li><strong>去垢剂 (detergent):</strong> 是一端亲水、一端疏水的两性小分子，常用于分离与研究膜蛋白。</li>
+<li><strong>膜骨架 (membrane associated cytoskeleton):</strong> 细胞质膜下与膜蛋白相连的由纤维蛋白组成的网架结构。哺乳动物红细胞膜骨架有助于维持红细胞的形态，赋予质膜韧性。</li>
+<li><strong>血影 (ghost):</strong> 红细胞经低渗处理后，质膜破裂，并释放出红细胞内其他可溶性蛋白，而仍然保持细胞原来基本形状和大小的结构。</li>
+</ol>
+<h4 id="知识点解析-3"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞质膜的结构模型与基本成分</strong></p>
+<ol>
+<li>
+<p><strong>细胞质膜的结构模型</strong><br>
+(1) <strong>流动镶嵌模型与脂筏模型</strong> 从细胞的发展，到 20 世纪 50 年代利用电子显微镜观察到质膜时，跨时几百年。1925 年，E. Gorter 和 F. Grendel 用有机溶剂抽提人红细胞质膜的膜成分，发现它是红细胞表面积的 2 倍，提示了质膜由双层脂分子构成。随后，人们发现质膜的表面张力比油-水界面的表面张力低得多，因此提出质膜由双层脂分子构成并含有蛋白质成分并提出“脂质-蛋白质-脂质”的三明治式质膜结构模型。1959 年，J. D. Robertson 根据电子显微镜观察结果提出了单位膜模型 (unit membrane model)，并大胆地推断所有生物膜都由蛋白质-脂质-蛋白质的单位膜构成。这一模型得到 X 射线衍射和电镜超薄切片结果的支持。1972 年，Singer 和 Nicolson 提出了生物膜的流动镶嵌模型。<br>
+膜模型 (Simons, 1988) 是对膜流动性的新的理解。在脂筏区域，载着执行某些特定生物学功能的各种膜蛋白。<br>
+(2) <strong>生物膜的结构特点</strong><br>
+① 具有极性和非极性尾部的磷脂分子在水中具有自发形成封膜系统的性质。<br>
+② 蛋白质是组成生物膜的基本结构成分。<br>
+③ 蛋白质以不同方式镶嵌在脂双分子中或结合在其表面。蛋白质的类型、蛋白质的不对称性及其与脂分子的协同作用赋予生物膜各自的特性与功能。<br>
+④ 生物膜可看成是蛋白质在双层脂分子中的二维溶液。<br>
+⑤ 在细胞生长和分裂等生命活动中，生物膜在三维空间上可出现弯曲、折叠、延伸等改变，处于不断的动态变化中。</p>
+</li>
+<li>
+<p><strong>膜脂</strong><br>
+(1) <strong>膜脂成分</strong> 膜脂主要包括甘油磷脂 (glycerophosphatide)、鞘脂 (sphingolipid) 和固醇 (sterol) 三种基本类型。膜脂分子都由亲水性分子或两性分子，即有亲水性的头部和疏水性的尾部。双亲性的特点赋予膜脂分子在水中能自发形成脂双层的能力。<br>
+甘油磷脂成了膜脂的基本成分，占整个膜脂的 50% 以上，主要在内质网合成。组成生物膜的甘油磷脂分子的主要特征是具有一个与磷酸基团相结合的极性头和两个非极性的尾 (脂肪酸链)。<br>
+鞘脂为鞘氨醇的衍生物，主要在高尔基体合成。<br>
+固醇包括胆固醇及其类似物，是一种分子刚性很强的两性化合物。与磷脂不同的，是其分子结构与疏水性太强，自身不能形成脂双层，只能插入磷脂分子之间。参与生物膜的形成、胆固醇的合成是在动物细胞的胞质和内质网完成的，但动物体内胆固醇多数来自于食物。它在调节膜的流动性、增加膜的稳定性以及降低水溶性物质的通透性等方面都起着重要作用。同时，它也是脂筏的基本构成成分。<br>
+(2) <strong>膜脂的运动方式</strong> ①沿膜平面的侧向运动，②脂分子围绕轴心的自旋运动；③脂分子尾部的摆动，即磷脂酰胆碱靠近极性头的摆动较小，其尾部摆动摆动较大；④脂双分子层之间的翻转运动：一般情况极少发生，但在内质网膜上，新合成的磷脂分子几分钟后将有半数从脂双层的一侧通过翻转运动转位到另一侧。<br>
+(3) <strong>脂质体</strong> 有热自由运动、与温度有关，而后一种运动需要依靠特殊的膜蛋白协助才能完成。<br>
+因此，脂质体是研究膜脂与膜蛋白及其生物学性质的极好实验材料。脂质体中囊入 DNA 可有效地将其导入细胞中，因此常用于转基因实验。在临床治疗中，脂质体囊入不同药物或酶等具有特殊功能的生物大分子，可望用于治疗多种疾病。特别是脂质体技术与单克隆抗体技术结合，可使药物更有效地作用于靶细胞以减少对机体的损伤。</p>
+</li>
+<li>
+<p><strong>膜蛋白</strong><br>
+(1) <strong>膜蛋白的类型</strong> 根据膜蛋白分离技术，膜蛋白可分为3种基本类型：外在膜蛋白或称外周膜蛋白、内在膜蛋白或称整合膜蛋白和脂锚定膜蛋白。外在膜蛋白为水溶性蛋白，镶嵌或其他较弱的键与膜蛋白或脂分子结合，因此只要改变溶液离子强度甚至提高温度就可以从膜上分离下来，但膜结构并不被破坏。脂锚定膜蛋白是通过共价相连的脂分子（脂肪酸或糖脂）插入膜的脂双分子中，而锚定在细胞质膜上。其水溶性的蛋白部分位于脂双层外。内在膜蛋白与膜结合比较紧密，只有用去垢剂处理使膜崩解后才可分离出来。据估计人类基因中1/4 ~ 1/3 基因编码的蛋白质为内在膜蛋白。<br>
+(2) <strong>内在膜蛋白的结构</strong> 跨膜蛋白（transmembrane protein），在结构上分为胞外结构域、跨膜结构域和胞内结构域共3个组成部分。<br>
+跨膜结构域与膜脂结合的方式如下：①跨膜结构域含有20个左右的α螺旋疏水氨基酸残基，其外部疏水侧链通过范德华力与脂双层分子脂肪酸链相互作用。如果α螺旋既具有极性侧链又具有非极性侧链，则非极性侧链位于α螺旋的外侧与膜脂相互作用。内侧是极性侧链，又具有跨膜结构域主要由β折叠片构成，则几个β折叠片相互作用形成跨膜通道，通道疏水性的外侧与膜脂产生相互作用。<br>
+(3) <strong>去垢剂</strong> 有离子型去垢剂和非离子型去垢剂两种类型。常用的离子型去垢剂是十二烷基硫酸钠（SDS），非离子型去垢剂为Triton X-100。SDS对蛋白质的作用较为剧烈，破坏蛋白质中的离子键和氢键等，可改变蛋白质亲水部分的构象，引起蛋白质变性。而Triton X-100也可使膜蛋白崩解，但对蛋白质的作用比较温和，它不仅用于膜蛋白的分离与纯化，还用于除去细胞的膜系统，以便对细胞骨架蛋白和其他蛋白质进行研究。</p>
+</li>
+</ol>
+<p><strong>(二) 细胞质膜的基本特征与功能</strong></p>
+<ol>
+<li>
+<p><strong>膜的流动性</strong><br>
+膜的流动性是所有生物膜的基本特征，是细胞生长增殖等生命活动的必要条件。主要指膜脂分子的侧向运动，在大根程度上取决于脂分子本身的性质和温度。温度越高，固醇对膜的流动性起着双重调节作用。不饱和程度越高，流动性越大。在动物细胞中，胆固醇对膜的流动性起着双重调节作用。胆固醇分子既有与磷脂疏水性的尾部相结合使其更为有序、相互作用增强而限制其流动性，也有将磷脂分子隔开使其更易流动的功能。通常，胆固醇防止膜脂由液相变为固相以保证膜脂处于流动状态的作用。<br>
+用抗鼠细胞膜蛋白的荧光抗体（绿光）和抗人细胞质膜的荧光抗体（显红橙色荧光）分别标记人和鼠的细胞表面，然后用仙台病毒介导两种细胞融合。10 min 后不同颜色的荧光在融合细胞表面开始扩散，40 min 后已分辨不出融合细胞表面绿色荧光或红色荧光区域。这一实验清楚地显示了与抗体结合的膜蛋白在质膜上的运动。如果降低温度，则膜蛋白的扩散速率可降低至原来的 1/20 ~ 1/10。在某些细胞中，当荧光抗体标记时间继续延长，均匀分布的标记荧光会重新排布，聚集在细胞表面的某些部位，即所谓成斑现象（patching），或聚集在细胞的一端，即成帽现象（capping）。成斑现象和成帽现象也证实了膜蛋白的流动性，且流动性并不是完全自由和随机的，可能受膜蛋白和膜下骨架系统相互作用以及质膜内系统之间自由泡运等相关。<br>
+膜蛋白和膜脂运动速率的检测，荧光漂白恢复技术（FPR）可定性、定量研究膜蛋白或膜脂的流动性。</p>
+</li>
+<li>
+<p><strong>膜的不对称性</strong><br>
+膜和膜蛋白在生物膜上呈不对称分布，同一种膜脂在脂双层中的分布不同。不同膜蛋白在脂双层中的定向或其拓扑学结构也可能不同。糖蛋白和糖脂的寡糖链部分均位于细胞质膜的外侧。<br>
+(1) 膜脂质的不对称性 糖脂分布于外半膜上，而其他生物膜的名称为了便于研究细胞膜以及其他生物膜的不对称性，人们将细胞膜的各个膜面进行了命名（详细命名见教材）。但由于该命名并不直观，且对于细胞内细胞器膜，包括线粒体等膜的命名不好描述，这里将生物膜的两个半膜分别命名为胞质膜半膜（或胞质面）和非胞质膜半膜。胞质膜半膜背向胞质基质，而非胞质膜半膜背向细胞基质。<br>
+(2) 膜脂的不对称性 不同脂质在脂双层两个半膜内分布不同。糖脂的糖侧链都在非胞质膜半膜一侧。<br>
+(3) 膜蛋白的不对称性 无论是在外在膜蛋白还是内在膜蛋白，在质膜上都呈不对称分布。不同蛋白，膜蛋白的排列是指每种膜蛋白分子在质膜上都具有明确的方向性。糖残基均分布在非胞质膜半膜一侧。膜蛋白的不对称性在合成时就已确定，在随后的一系列转运过程中其拓扑学结构始终保持不变。</p>
+</li>
+<li>
+<p><strong>细胞质膜相关的膜骨架</strong><br>
+细胞质膜特别是膜蛋白常常与膜下结构（细胞骨架系统）协同作用，形成细胞表面的某些特化结构以完成特定的功能。这些特化结构包括膜骨架（membrane associated cytoskeleton）、鞭毛和纤毛、微绒毛及细胞的变形足等，分别与细胞形态的维持、细胞运动、细胞物质交换和信息传递等功能有关。<br>
+哺乳动物成熟的红细胞没有细胞核和内膜系统，是最简单、最易研究的生物膜。正常情况下，红细胞质膜的栅球结构，能通过直径比自己更小的毛细血管。在正常平均寿命约 120 天内，人的红细胞往返于动脉和静脉达几百万公里，行程约 480 km 而不破损。这就需要红细胞质膜既有很好的弹性又具有极高的强度。红细胞质膜的这些特性在很大程度上是由膜骨架赋予的。<br>
+红细胞质膜的刚性与韧性主要由质膜蛋白与膜骨架复合体的相互作用来实现，但其双凹形椭圆结构的形式还需要其他的骨架纤维参与。</p>
+</li>
+<li>
+<p><strong>细胞质膜的基本功能</strong><br>
+(1) 为细胞的生命活动提供相对稳定的内环境。<br>
+(2) 具选择性的物质运输，包括代谢底物的输入与代谢产物的排除，其中伴随着能量物质的传递。<br>
+(3) 提供细胞识别位点，并完成细胞内外信息跨膜转导；病毒等病原微生物识别、侵染特异宿主细胞的存在也存在于质膜上。<br>
+(4) 为多种酶提供结合位点，使酶促反应高效而有序地进行。<br>
+(5) 介导细胞与细胞、细胞与胞外基质之间的连接。<br>
+(6) 质膜参与形成具有不同功能的细胞表面特化结构。<br>
+(7) 膜蛋白的异常与某些遗传性疾病、自身免疫病甚至神经退行性疾病相关，很多膜蛋白可作为疾病治疗的药物靶标。</p>
+</li>
+</ol>
+<hr>
+<h3 id="第五章-物质的跨膜运输"><strong>第五章 物质的跨膜运输</strong> </h3>
+<h4 id="基本概念-4"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>载体蛋白 (carrier protein, transporter):</strong> 以被动或主动运输方式，通过自身构象改变而实现物质跨膜转运的膜蛋白。</li>
+<li><strong>通道蛋白 (channel protein):</strong> 被动运输方式，通过形成亲水性通道实现对特异溶质的跨膜转运，包括离子通道、孔蛋白及水孔蛋白等类型。</li>
+<li><strong>离子通道 (ion channel):</strong> 只允许特定离子顺电化学梯度通过其亲水性通道的被动运输方式。离子通道对离子的转运具有选择性和门控性，包括电压门通道、配体门通道和应力激活通道。</li>
+<li><strong>简单扩散 (simple diffusion):</strong> 不需要细胞提供能量，也无需膜蛋白协助的小分子物质以热自由运动的方式顺着电化学梯度或浓度梯度直接通过脂双层进出细胞的方式。</li>
+<li><strong>被动运输 (passive transport):</strong> 指溶质顺着电化学梯度或浓度梯度，在膜转运蛋白协助下的跨膜转运方式，又称协助扩散 (facilitated diffusion)。</li>
+<li><strong>水孔蛋白 (aquaporin):</strong> 动植物细胞质膜上转运水份子的特异蛋白，为水份子的快速跨膜运动提供通道。</li>
+<li><strong>主动运输 (active transport):</strong> 由载体蛋白所介导的物质逆着电化学梯度或浓度梯度进行跨膜转运的方式。</li>
+<li><strong>ATP 驱动泵 (ATP-driven pump):</strong> 一种 ATP 酶，能直接利用水解 ATP 提供的能量，以实现离子或小分子物质逆浓度梯度或电化学梯度进行跨膜运输的转运蛋白。</li>
+<li><strong>协同运输 (cotransport):</strong> 一种离子或分子逆电化学梯度的转运与另一种或多种其他溶质顺电化学梯度转运相偶联、间接消耗 ATP 的主动跨膜转运过程，有同向和反向协同两种类型。</li>
+<li><strong>Na⁺-K⁺泵 (Na⁺-K⁺ pump):</strong> 位于动物细胞质膜上，又称 Na⁺-K⁺ATPase，能水解 ATP，使 α 亚基发生磷酸化去磷酸化，而将 Na⁺泵出细胞，而将 K⁺泵入细胞的膜转运载体蛋白，对于膜电位的维持、细胞渗透平衡以及吸收营养有重要作用。</li>
+<li><strong>钙泵 (Ca²⁺ pump, Ca²⁺-ATPase):</strong> 属于 P 型泵，利用 ATP 水解释放的能量将离子从低浓度一侧跨膜往较高浓度一侧转运的蛋白质，存在于质膜、肌质内质网、线粒体等。</li>
+<li><strong>ABC 超家族 (ABC superfamily):</strong> 一类 ATP 驱动的膜转运蛋白，利用 ATP 水解释放的能量将多种及多种小分子物质进行跨膜转运蛋白。</li>
+<li><strong>胞吞作用 (endocytosis):</strong> 通过质膜内陷形成囊泡，将细胞外或细胞质膜表面的大分子或颗粒性物质包裹进膜泡内的转运方式，有吞噬作用和胞饮作用两大类。</li>
+<li><strong>吞噬作用 (phagocytosis):</strong> 通过细胞形成伪足包裹病原微生物等形成吞噬体并将吞噬体在溶酶体内消化降解的特殊的吞噬作用。吞噬作用是原生生物摄取食物的一种方式，而高等动物细胞通过吞噬作用清除病原体以及衰老死亡的细胞。</li>
+<li><strong>胞饮作用 (pinocytosis):</strong> 细胞连续摄入溶液及可溶性分子的胞吞方式。</li>
+<li><strong>受体介导的胞吞作用 (receptor mediated endocytosis):</strong> 通过网格蛋白包被膜泡从细胞外摄取特定大分子的途径。被转运的大分子物质与细胞表面互补性的受体结合，形成受体-配体复合物并引发质膜局部的内陷，然后脱离质膜形成有被小泡并将物质存入细胞内。</li>
+<li><strong>胞内体 (endosome):</strong> 动物细胞内的细胞器，其作用是将通过胞吞作用摄取的物质转运到溶酶体中降解。胞内体是质膜内吞的主要分选站。</li>
+<li><strong>跨细胞运输 (transcytosis):</strong> 以胞吞作用从细胞的一侧摄取物质，形成囊泡在细胞内运输，并以胞吐作用从细胞的另一侧释放出去的膜泡转运方式。</li>
+<li><strong>胞膜窖 (caveolae):</strong> 在质膜的脂筏区域，由窖蛋白参与形成的质膜内陷的瓶状结构，是胞饮作用的另一种类型。</li>
+<li><strong>胞吐作用 (exocytosis):</strong> 细胞内合成的生物分子 (蛋白质和脂质等) 和代谢物包裹在分泌泡中，并与质膜融合而将内含物分泌到细胞表面或细胞外的过程。</li>
+</ol>
+<h4 id="知识点解析-4"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 膜转运蛋白与小分子的跨膜运输</strong></p>
+<ol>
+<li><strong>脂双层的不透性与膜转运蛋白</strong><br>
+脂双层对绝大多数极性分子、离子以及细胞代谢产物的通透性都极低，形成了细胞的渗透屏障。这些物质的跨膜转运蛋白参与。跨膜转运蛋白可分为两类：一类是载体蛋白；另一类是通道蛋白。<br>
+载体蛋白具有与特定的溶质分子结合，通过一系列构象改变介导其跨膜转运。不同部位的生物膜往往含有各自功能相关的不同载体蛋白。载体蛋白与底物（ligand）特异性结合的位点，所以每种载体蛋白对底物具有高度选择性，通常只允许与自己结构互补的底物通过，其转运过程类似于酶与底物的饱和动力学特征；既可被底物类似物竞争性地抑制，又可被抑制剂非竞争性抑制以及对 pH 有依赖性等。</li>
+<li><strong>通道蛋白及其功能</strong><br>
+通道蛋白有三种类型：离子通道、孔蛋白 (porin) 以及水孔蛋白。目前所发现的大多数通道蛋白都是离子通道。<br>
+离子通道蛋白形成选择性门控性跨膜通道。转运过程的选择性取决于通道的直径、形状以及通道内壁带电荷氨基酸的分布。所以离子通道介导被动运输时不需要与溶质分子结合，只有大小和电荷适宜的离子才能通过。离子通道的开启和关闭受膜电位、化学信号或压力刺激的调控。因此，根据激活信号的不同，离子通道可分为电压门通道 (voltage-gated channel)、配体门通道 (ligand-gated channel) 和应力激活通道 (stress-activated channel)。</li>
+</ol>
+<p><strong>(二) ATP 驱动泵与主动运输</strong></p>
+<p>主动运输是由 ATP 酶，直接利用水解 ATP 提供的能量实现离子或小分子逆浓度或电化学梯度的跨膜运输；协同运输蛋白 (cotransporter) 或偶联转运蛋白 (coupled transporter) 介导各种离子和分子的跨膜运输；这类似转运蛋白包括两种基本类型：同向协同转运蛋白 (symporter) 和反向协同转运蛋白 (antiporter)。光驱动泵 (light-driven pump) 主要发现于细菌细胞，对溶质的主动运输与光能的输入相偶联，如细菌紫红质 (bacteriorhodopsin)。<br>
+ATP 驱动泵将水解 ATP 生成 ADP 和无机磷 (Pi)，并利用释放的能量将小分子物质或离子进行跨膜运输。因此 ATP 驱动泵通常又被称为转运 ATPase。ATP 驱动泵可分为4类：P 型泵、V 型质子泵、F 型质子泵和 ABC 超家族。前三种只转运离子，后一种主要转运小分子。</p>
+<ol>
+<li>
+<p><strong>钙泵及其他 P 型泵</strong><br>
+(1) <strong>P 型泵的结构与转运机制</strong> Ca²⁺-ATPase 是 P 型泵，每消耗一分子 ATP 可逆着电化学梯度将 Ca²⁺泵出细胞内部 3 个 Na⁺和泵入 2 个 K⁺。其工作机制涉及 α 和 β 亚基。利用 ATP 水解而使 α 亚基某些天冬氨酸残基磷酸化引起 β 亚基构象发生变化，从而将 Na⁺泵出细胞。同时，细胞内的 K⁺与 β 亚基的另一位点结合，使其去磷酸化，α 亚基将再度发生变化将 K⁺泵入细胞。动物细胞要消耗 1/3 的总 ATP 供 Na⁺-K⁺泵工作，以维持细胞内高 K⁺低 Na⁺的离子环境。<br>
+(2) <strong>P 型 H⁺泵</strong> 植物细胞、真菌 (包括酵母) 和细菌细胞质膜上虽然没有 Na⁺-K⁺泵，但有 P 型 H⁺泵 (H⁺-ATPase)。P 型 H⁺泵将 H⁺泵出细胞，建立和维持跨膜的 H⁺电化学梯度 (作用类似动物细胞 Na⁺的电化学梯度)，并用来驱动转运溶质进入细胞。细菌细胞对糖和氨基酸的摄取主要是由 H⁺驱动的同向协同转运完成的。P 型 H⁺泵的工作也使得细胞周围环境呈酸性。</p>
+</li>
+<li>
+<p><strong>V 型质子泵和 F 型质子泵</strong><br>
+(1) V 型质子泵 (V-type proton pump) V 型质子泵广泛存在于动物细胞的胞内体膜、溶酶体膜以及液泡膜上，利用 ATP 水解供能从细胞质基质中逆 H⁺电化学梯度将 H⁺泵入细胞器，以维持细胞质基质 pH 中性和细胞器内的 pH 酸性。<br>
+(2) F 型质子泵 (F-type proton pump) F 型质子泵存在于细菌质膜、线粒体内膜和叶绿体的类囊体膜上。它通常利用质子动力势合成 ATP，即当 H⁺顺着电化学梯度通过质子泵时，所释放的能量驱动 F 型质子泵合成 ATP，如线粒体的氧化磷酸化和叶绿体的光合磷酸化作用因此 F 型质子泵称作 H⁺-ATP 合酶 (ATP synthase)。</p>
+</li>
+<li>
+<p><strong>ABC 超家族 (ABC superfamily)</strong><br>
+ABC 超家族广泛分布于人类各种生物中，是最大的一类转运蛋白，通过水解 ATP 分子完成胞外物质 (原核细胞) 或胞质 (真核细胞) 的跨膜转运。细菌质膜上含有大量 ABC 转运蛋白，以利于逆着浓度梯度从环境中摄取各种营养物。哺乳类细胞质膜上磷脂、亲脂性药物、胆固醇和小分子转运也常常依靠 ABC 转运蛋白完成。<br>
+ABC 转运蛋白能将抗生素或其他抗癌药物泵出细胞而赋予细胞肿瘤抗药性。ABC 转运蛋白在多种肿瘤细胞中高表达，增强了肿瘤细胞的抗药性。</p>
+</li>
+</ol>
+<p><strong>(三) 胞吞作用</strong></p>
+<p>大分子与颗粒性物质如蛋白质、多核苷酸、多糖等的跨膜运输通过胞吞作用或胞吐作用完成。无论胞吞还是胞吐，被转运的物质都包裹在脂双层膜包被的囊泡中，是一个耗能的过程。</p>
+<ol>
+<li>
+<p><strong>胞吞作用的类型</strong><br>
+根据胞吞形成囊泡的分子机制不同和胞吞泡的大小差异，胞吞作用可分为两种类型：吞噬作用和胞饮作用。吞噬作用形成的吞噬泡直径往往大于 250 nm，而胞饮作用形成的胞饮泡直径一般小于 150 nm。此外，所有真核细胞都能通过胞饮作用连续摄入溶液及可溶性分子，而只有特化的吞噬细胞如巨噬细胞 (macrophage)。<br>
+(1) <strong>吞噬作用</strong> 被吞噬物与吞噬细胞表面结合后激活细胞表面的受体，诱发吞噬细胞质膜伸出伪足，将吞噬物包裹起来形成吞噬体，最后与溶酶体融合，并在其中被各种水解酶降解。而伪足的形成需要细胞内微丝及其结合蛋白在质膜下局部装配。<br>
+对于原生生物，吞噬作用是摄取营养的主要方式，而对于高等真核生物，吞噬作用往往发生于巨噬细胞和中性粒细胞，除了摄取营养外，更多的是清除侵染机体的病原体以及衰老或凋亡的细胞。<br>
+(2) <strong>网格蛋白依赖的胞吞作用</strong> 胞饮作用几乎发生于所有类型的真核细胞中，有网格蛋白依赖的胞吞作用 (clathrin dependent endocytosis)、胞膜窖蛋白依赖的胞吞作用 (caveolae dependent endocytosis)、非网格蛋白/胞膜窖蛋白依赖的胞吞作用 (clathrin and caveolae independent endocytosis) 以及大型胞饮作用 (macropinocytosis)。<br>
+网格蛋白依赖的胞吞作用可具体为：当受体 (即被吞噬物) 与膜上受体结合后，网格蛋白聚集在质膜下，导致质膜内陷形成小窝 (clathrin-coated pit)。一种小分子 GTP 结合蛋白——发动蛋白 (dynamin) 在包被小窝的颈部组装成环，水解与其结合的 GTP 引起颈部收缩，最终脱离质膜形成网格蛋白包被膜泡 (clathrin-coated vesicle)。脱包被后的膜泡与早胞内体 (early endosome) 融合，完成从胞外摄取物质。<br>
+(3) <strong>其他类型的胞饮作用</strong> 胞膜窖蛋白依赖的胞吞作用都需要网格蛋白参与。胞膜窖蛋白依赖的胞吞作用由质膜脂筏区域形成，窖蛋白 (caveolin) 参与胞膜窖的形成。胞吞时，胞膜窖携带内容物，利用发动蛋白收缩作用从质膜上脱落，然后转交给胞内体细胞器——膜窖体 (caveosome) 或者跨细胞转运到质膜的另一侧。整个过程窖蛋白都不从胞吞泡膜上解离下来。这种胞吞作用很可能是一种细胞内传递信号的平台。</p>
+</li>
+<li>
+<p><strong>胞吞作用与细胞信号转导</strong><br>
+最典型的例子就是 Notch 信号通路。Notch 信号通路对多细胞生物中细胞分化命运的决定起着关键作用，其激活还依赖 DSL 和 Notch 的胞吞作用。配体 DSL 与 Notch 受体结合，导致 Notch 暴露其出胞外 S2 切割位点并被裂解，胞外部分与配体都被邻被信号细胞内吞，然后，Notch 受体被靶细胞内吞至胞内体并在 S3 位点被 γ-分泌酶切割产生有活性的 Notch 受体内活性片段。该片段进入细胞核，调控靶基因表达，产生细胞响应。</p>
+</li>
+</ol>
+<p><strong>(四) 胞吐作用</strong></p>
+<p>胞吐作用与胞吞作用恰好相反，它是通过分泌泡或其他膜泡与质膜融合而将小泡内的物质运出细胞的过程。从高尔基反面管网（TGN）分泌的囊泡向质膜流动并与之融合，可分为组成型的胞吐途径（constitutive exocytosis pathway）和调节型胞吐途径（regulated exocytosis pathway）两类。<br>
+通过细胞通过胞吞和胞吐作用的动态平衡，不仅细胞大分子或颗粒性物质的跨膜运输，对质膜成分的更新、信号转导以及维持细胞的生长与等长等也发挥了关键作用。</p>
+<hr>
+<h3 id="第六章-线粒体和叶绿体"><strong>第六章 线粒体和叶绿体</strong> </h3>
+<h4 id="基本概念-5"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>电子传递 (electron transport):</strong> 来自三羧酸循环的高能电子在线粒体内膜上经过多步有序转移，最终到达 O₂，将能量逐步释放出来的过程。电子传递在线粒体能量转换中承担了重要的介导作用。</li>
+<li><strong>质子电化学梯度 (electrochemical gradient):</strong> 质子跨线粒体内膜转运后使内膜两侧形成电位差和氢离子浓度差，这两种梯度合称为质子电化学梯度或质子动力势。</li>
+<li><strong>电子传递链 (electron transport chain):</strong> 线粒体内膜上一系列由电子载体组成的电子传递体。这些载体接受高能电子，并在传递过程中逐步降低电子的能量，最终将释放的能量用于合成 ATP 或以其他能量形式储存，也称作呼吸链。</li>
+<li><strong>化学渗透学说 (chemiosmotic theory):</strong> 是氧化磷酸化的偶联机制。电子经呼吸链传递后，形成跨线粒体内膜的质子动力势。线粒体内膜对质子具有不可自由透过的性质，质子流通过 F₀F₁-ATPase 进入线粒体基质时，释放的自由能能推动 ATP合成。</li>
+<li><strong>质子驱动力 (proton motive force):</strong> 在线粒体膜间隙和叶绿体类囊体中，质子的浓度高于基质，产生质子的定向流动，驱动 ATP 的合成，这种 H⁺跨膜电位差和质子浓度梯度 (ΔpH) 形成的驱动力称为质子驱动力。</li>
+<li><strong>线粒体 (mitochondrion):</strong> 真核细胞中由双层高度特化的单位膜围成的细胞器。主要功能是通过氧化磷酸化作用合成 ATP，为细胞各种生理活动提供能量，还参与细胞凋亡等重要生理过程。</li>
+<li><strong>叶绿体 (chloroplast):</strong> 真核植物细胞中行使光合作用完成能量转换的细胞器。由双层膜围成，含叶绿素。基质中有由膜囊构成的类囊体。叶绿体含有自身DNA。</li>
+<li><strong>半自主性细胞器 (semiautonomous organelle):</strong> 线粒体和叶绿体含有自身的基因组和蛋白质合成装置，具有一定的自主性，但其功能主要还要受细胞核基因调控，这样的细胞器称为半自主性细胞器。</li>
+<li><strong>捕光复合体 II (light harvesting complex II, LHC II):</strong> 位于光系统 I 之外具有高疏水性的色素蛋白复合体，含有大量天线色素为光系统 II (PS II) 收集和传递光子。</li>
+<li><strong>暗反应 (light independent reaction):</strong> 光合作用中的一种反应，又称碳同化反应 (carbon assimilation reaction)，发生在叶绿体基质中。该反应利用光反应生成的 ATP 和 NADPH 中的能量，固定 CO₂生成糖类，将不稳定的化学能转变为稳定的化合物的过程。</li>
+<li><strong>光反应 (light dependent reaction):</strong> 构成光合作用的两种反应之一，发生在类囊体膜上。该反应吸收的太阳光能转变成化学能，储存在 ATP 和 NADPH 中。</li>
+<li><strong>光系统 (photosystem):</strong> 在光合作用中能利用光能并将其转变成其他能量形式的多聚蛋白复合体。每个光系统复合体均含有捕光复合物和反应中心复合体。</li>
+<li><strong>氧化磷酸化 (oxidative phosphorylation):</strong> 底物在氧化过程中产生高能电子，通过线粒体内膜上的电子传递链进行传递，并将高能电子的能量释放出来转换成质子动力势进而合成 ATP 的过程。</li>
+<li><strong>光合磷酸化 (photophosphorylation):</strong> 由光照所引起的电子传递与磷酸化作用相偶联而生成 ATP 的过程。</li>
+<li><strong>非循环光合磷酸化 (noncyclic photophosphorylation):</strong> 在光合作用光反应中形成 ATP 的过程，其中电子从 H₂O 分子开始，最终单向性传递给 NADP⁺，由 PS I 和 PS II 两个光系统参与。</li>
+<li><strong>循环光合磷酸化 (cyclic photophosphorylation):</strong> 叶绿体通过光系统 I，而不依赖于光系统 II 形成一个电子传递的闭合回路，电子循环流动释放的能量，建立质子梯度并驱动 ATP 形成的过程。</li>
+<li><strong>结合变构模型 (binding change model):</strong> 利用质子动力势驱动 ATP 合酶构象发生改变，使 ADP 磷酸化生成 ATP 的模型。</li>
+<li><strong>类囊体 (thylakoid):</strong> 叶绿体内的扁平膜囊，在光合作用中是光反应的功能位点。</li>
+<li><strong>天线色素分子 (antenna):</strong> 光合作用单位中光捕获分子，可以吸收各种波长的光子，并将光子的激发能传递至反应中心色素。</li>
+<li><strong>内共生起源学说 (endosymbiotic origin theory):</strong> 是关于叶绿体和线粒体起源的假说，认为叶绿体和线粒体起源于被原始真核细胞吞噬的好氧细菌和行光能自养的蓝细菌。吞噬后建立长期互利的共生关系而演变成叶绿体和线粒体。</li>
+<li><strong>亚线粒体颗粒 (submitochondrial particles):</strong> 又称亚线粒体小泡 (submitochondrial vesicle)，是指用超声波将线粒体破碎后，线粒体内膜碎片自然封闭成颗粒朝外的 小膜泡。这种小膜泡具有传递电子和氧化磷酸化功能。</li>
+</ol>
+<h4 id="知识点解析-5"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 线粒体超微结构</strong><br>
+线粒体由内外两层单位膜封闭包裹而成。外膜 (outer membrane) 平展，内膜 (inner membrane) 则向内折叠延伸形成嵴 (cristae)。外膜和内膜之间的空间被称为膜间隙 (intermembrane space)。通常膜间隙的宽度比较稳定，但也存在随机的外膜点状连接。内膜之内的空间称为基质 (matrix)。</p>
+<ol>
+<li><strong>外膜</strong><br>
+线粒体外膜是平滑的单位膜，厚约6nm，其蛋白质和脂质的质量比约占 50%。外膜上分布有孔蛋白 (porin) 构成的桶状通道，可根据细胞的状态可逆性地开闭，故外膜的通透性很高。外膜上还分布有一些参与肾上腺素氧化、色氨酸降解、脂肪酸链延长的酶等。外膜的标志酶是单胺氧化酶 (monoamine oxidase)。</li>
+<li><strong>内膜</strong><br>
+线粒体内膜也是单位膜，厚 6~8 nm，比外膜拥有更高的蛋白质/脂质比 (质量比≥3:1)。内膜缺乏胆固醇，富含心磷脂，约占磷脂含量的 20%，故内膜具有不透性 (impermeability)，限制了所有分子和离子的自由通过，是质子电化学梯度的建立及 ATP 合成必需的条件。线粒体内膜向内延伸形成嵴，大大增加了内膜的表面积。通常情况下，能量需求较多的细胞中嵴的数量也较多。线粒体内膜是氧化磷酸化的关键场所，嵴上存在许多规则排列的基粒 (elementary particle) 即 ATP 合酶 (ATP synthase)。内膜的标志酶是细胞色素氧化酶。</li>
+<li><strong>膜间隙</strong><br>
+膜间隙宽 6~8 nm，其内的液态介质含有可溶性的酶、底物和辅助因子，腺苷酸激酶是膜间隙的标志酶。</li>
+<li><strong>基质</strong><br>
+基质为富含可溶性蛋白质的胶状物质，具有特定的pH和渗透压，包含三羧酸循环、脂肪酸氧化、氨基酸降解等相关的酶类，DNA、RNA、核糖体以及转录、翻译所必需的重要分子。</li>
+</ol>
+<p><strong>(二) 叶绿体超微结构</strong><br>
+叶绿体包括被膜 (chloroplast envelope)、类囊体 (thylakoid) 以及基质 (stroma)。</p>
+<ol>
+<li><strong>被膜</strong><br>
+又称叶绿体膜 (chloroplast membrane)，是由双层单位膜包绕而成。外膜和内膜之间的腔隙称为膜间隙。叶绿体的外膜通透性大，含有孔蛋白；而内膜通透性较低，成为细胞质与叶绿体基质间的通透屏障，仅允许 O₂、CO₂和 H₂O 分子等自由通过。叶绿体内膜上还有很多转运蛋白，选择性转运较大分子进出叶绿体。</li>
+<li><strong>类囊体</strong><br>
+类囊体是叶绿体内部由内膜衍生而来的封闭的扁平膜囊。空间称为类囊体腔 (thylakoid lumen)。在叶绿体中，许多圆饼状的类囊体有序叠置成垛，称为基粒。基粒类囊体(granum thylakoid) 和基质片层 (stroma lamella) 或基质类囊体 (stroma thylakoid)。管状或扁平状的基质类囊体将相邻基粒类囊体相互连接，因此叶绿体内的类囊体实际上是一个完整连续的封闭膜囊。该膜囊系统独立于内膜，在电化学梯度的建立和 ATP 的合成中起重要作用。</li>
+<li><strong>叶绿体基质</strong><br>
+叶绿体基质为叶绿体内的液态胶状物质，称为叶绿体基质，是光合作用固定 CO₂的场所。基质的主要成分是可溶性蛋白和其他代谢激活物质，其中丰度最高的蛋白为核酮糖-1,5-二磷酸羧化酶/加氧酶 (ribulose-1,5-biphosphate carboxylase/oxygenase 简称 Rubisco)。此外，叶绿体基质中还包含参与 CO₂固定反应的所有酶类、叶绿体 DNA、核糖体、脂滴 (lipid droplet)、植物铁蛋白 (phytoferritin) 和淀粉粒 (starch grain) 等物质。</li>
+</ol>
+<p><strong>(三) 线粒体中的氧化磷酸化</strong><br>
+线粒体可以催化三羧酸循环 (tricarboxylic acid cycle, TCA 循环)、脂肪酸氧化、氨基酸降解等重要的生化反应，还含有 DNA、RNA、核糖体以及转录翻译必需的重要分子。<br>
+线粒体是“细胞的能量工厂”，其重要功能是高效地将有机物中储存的能量转换成细胞生命活动的直接能源 ATP。ATP 合酶是 ATP 生成的基本装置，细胞内生物大分子经三羧酸循环降解产生的 NADH 和 FADH₂脱氢形成高能电子和质子，高能电子沿线粒体内膜呼吸链传递到分子 O₂并逐步释放出能量；而质子则跨线粒体内膜基质向膜间隙定向转移，最终形成跨膜电位差和 H⁺浓度梯度 (pH 差)，即质子驱动力，进而驱动 ATP 合酶的旋转催化，生成 ATP。可见，环境提供的髙能电子是线粒体合成 ATP 的能量来源；而电子在线粒体能量转换中承担了重要的介导作用，其建立的质子驱动力是推动 ATP 磷酸化形成的主要直接动力。由于 ATP 合成时的磷酸化过程 (ADP+Pi→ATP) 是以电子传递中的氧化过程为基础同时进行的，所以，线粒体中的 ATP 合成被称为氧化磷酸化 (oxidative phosphorylation)。</p>
+<p><strong>(四) 光合作用</strong><br>
+光合作用是绿色植物、藻类和蓝细菌将水和二氧化碳转变为有机化合物并放出氧气的过程，由依赖光的反应或称“光反应”和碳同化反应 (carbon assimilation reaction) 协同完成。<br>
+光反应发生于类囊体膜上，是指叶绿素等色素分子吸收，传递光能并将其转换为电能，进而活化电子和形成 ATP 和 NADPH，同时产生 O₂的一系列过程。光能转换为电能再转换为活性的化学能，是光反应的第一步，将光能转换为电能、电子传递形成 ATP 和 NADPH，将电能转换为活泼的化学能。此过程中水分解、电子传递及 NADP⁺还原。其中，H₂O 还原初电子供体，NADP⁺是最终电子受体。水裂解释放的电子在沿着光合电子传递链传递的同时，在类囊体膜的两侧建立电子化学梯度，当腔内的 H⁺顺电化学梯度穿过类囊体膜上的 ATP 合酶 (CF₀和 CF₁) 时，驱动 ATP 形成，并将释放入基质。<br>
+固此反应则发生于叶绿体基质中，它在 ATP 和 NADPH 的驱动下，将 CO₂还原成糖，由此将蕴含在 ATP 和 NADPH 中的活跃化学能转为糖分子中高稳定性化学能。高等植物的碳同化有3条途径：卡尔文循环、C₄途径和景天酸代谢 (CAM)。</p>
+<p><strong>(五) 线粒体和叶绿体的动态特征</strong><br>
+线粒体和叶绿体在细胞中分别呈现明显的动态特征。<br>
+动物、植物细胞中均可观察到频繁的线粒体融合与分裂现象，被认为是线粒体形态调控的基本方式，也是线粒体数目调控的基础。多个颗粒状的线粒体融合可形成较大体积的线条状或片层状线粒体，后者也可通过分裂形成较小体积的颗粒状线粒体。这些体积不同的线粒体内区域间不同区域对能量的需求相关。频繁的线粒体融合与分裂实际上把细胞中所有的线粒体联系成一个不连续的动态整体。<br>
+除了位置和分布的变化以外，线粒体间的动态行为还表现为叶绿体之间的动态连接。叶绿体可以通过其内外膜延伸形成的管状凸出实现叶绿体之间的相互联系。这种动态的融合与分离有助于叶绿体实现实时地物质或信息交换。因此，与线粒体内似，叶绿体内叶绿体仍然可以被视作一个不连续的动态整体。</p>
+<p><strong>(六) 线粒体和叶绿体的半自主性</strong><br>
+线粒体和叶绿体是特殊的细胞器，它们的功能主要受细胞核基因组调控，但同时又受到自身基因组的调控，故被称为半自主性细胞器。<br>
+线粒体和叶绿体的功能依赖核数以千计的核基因编码的蛋白质。同时，这两种细胞器还拥有自身的遗传物质 DNA，编码一小部分必需的 RNA 和蛋白质。这些线粒体和叶绿体专用的酶和核糖体系统进行翻译。虽然这些自身基因组编码的蛋白质在各自的生命活动中是重要和不可缺少的，但还远远不足以支撑它们的基本功能，更多的蛋白质由核基因组来编码，在细胞质中完成合成后被转运到功能位点。这些都充分说明了线粒体和叶绿体对细胞核的依赖性。</p>
+<hr>
+<h3 id="第七章-细胞质基质与内膜系统"><strong>第七章 细胞质基质与内膜系统</strong> </h3>
+<h4 id="基本概念-6"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>内膜系统 (endomembrane system):</strong> 细胞质中在结构、功能乃至发生上相互关联，由膜包被的细胞器或细胞结构的总称。主要包括内质网、高尔基体、溶酶体、胞内体和分泌泡等。</li>
+<li><strong>细胞质基质 (cytoplasmic matrix):</strong> 在细胞内，除膜性细胞器外的细胞质液相内容物区域。细胞质基质可能是一个高度有序并且又不断变化的动态结构体系。多数的中间代谢通常在此区域完成，某些蛋白质的修饰和选择性降解等过程在细胞质基质中进行。细胞骨架纤维贯穿其中并对多种功能行使组织者作用。</li>
+<li><strong>泛素化和蛋白酶体所介导的蛋白质降解途径 (ubiquitin-and proteasome-mediated pathway):</strong> 在 E1、E2、E3 三种酶的催化下，通过一系列级联反应将泛素连接到靶蛋白上，最后由 26 S 蛋白酶体特异性识别被泛素化的底物并将其降解，同时释放出泛素单体以备循环利用。</li>
+<li><strong>分子伴侣 (molecular chaperone):</strong> 在细胞质基质或内质网中，可以识别正在合成或部分折叠的蛋白，并与之某些部位结合，协助其转运、正确折叠或转配的二类蛋白质，但其本身并不参与最终产物的功能。</li>
+<li><strong>内质网 (endoplasmic reticulum, ER):</strong> 是真核细胞中蛋白质、脂质和糖类的合成基地，由封闭的管状或扁平囊状膜系统及其包被的腔形成互相沟通的三维网络结构。根据结构与功能，分为两种基本类型，即糙面内质网和光面内质网。</li>
+<li><strong>微粒体 (microsome):</strong> 是在细胞匀浆和超速离心过程中，由破碎的内质网形成的近似球形的囊泡结构，包含内质网与核糖体两种基本组分。</li>
+<li><strong>糙面内质网 (rough endoplasmic reticulum, rER):</strong> 表面有核糖体的内质网，其主要功能是合成分泌性蛋白和多种膜蛋白。膜上有与新合成的多肽转移有关的蛋白质复合体——移位子 (translocon)。</li>
+<li><strong>光面内质网 (smooth endoplasmic reticulum, sER):</strong> 表面没有附着核糖体的内质网。常为分支管状，包括脂质合成、类固醇激素的合成、有机物的解毒、将葡萄糖-6-磷酸迅速转化成葡萄糖以及 Ca²⁺储存等。</li>
+<li><strong>N-连接糖基化 (N-linked glycosylation):</strong> 在糖基转移酶的催化下寡糖链从内质网膜上磷酸多萜醇转移到靶蛋白三氨基酸残基 (Asn-X-Ser/Thr) 序列的天冬酰胺残基上。然后经内质网特异性糖苷酶加工，形成高甘露糖型糖蛋白，再转移至高尔基体完成蛋白质糖基化修饰。与 Asn 直接结合的糖是 N-乙酰葡糖胺。</li>
+<li><strong>O-连接糖基化 (O-linked glycosylation):</strong> 发生在靶蛋白丝氨酸或苏氨酸残基，或在靶蛋白羟脯氨酸或羟赖氨酸残基上的糖基化。O-连接糖基化发生在高尔基体，与蛋白质结合的糖是 N-乙酰半乳糖胺。</li>
+<li><strong>蛋白二硫键异构酶 (protein disulfide isomerase, PDI):</strong> 附着在内质网膜腔面上的蛋白质，可切断二硫键，形成自由能最低的蛋白质构象，从而帮助新合成的蛋白质重新形成二硫键并产生正确的折叠构象。</li>
+<li><strong>结合蛋白 (binding protein, BiP):</strong> 存在于内质网中的一种分子伴侣，属于 Hsp70 家族。在内质网中有两个作用，一是同进入内质网的未折叠蛋白质的疏水氨基酸多肽链不饱和地结合和聚合，或者识别错误折叠的蛋白质或未装配好的蛋白质亚单位并促进它们重新折叠与装配；二是防止新合成的蛋白质在转运过程中变性或断裂。一旦这些蛋白质形成或正确构象并装配，BiP 蛋白就与蛋白质分离。BiP 蛋白质具有 4 肽驻留信号 (KDEL 或 HDEL) 以保证它们滞留在内质网中。</li>
+<li><strong>肌质网 (sarcoplasmic reticulum):</strong> 心肌细胞和骨骼肌细胞中含有的特化光面内质网，是储存 Ca²⁺的细胞器，对 Ca²⁺具调节作用。肌质网膜上的 Ca²⁺-ATP 酶将细胞质基质中的 Ca²⁺泵入肌质网中储存起来。当肌细胞受到神经冲动刺激后，Ca²⁺释放，触发肌动蛋白收缩。</li>
+<li><strong>内质网应激 (endoplasmic reticulum stress, ERS):</strong> 是当某些细胞内外因素使内质网生理功能发生紊乱，钙稳态失衡，未折叠及错误折叠的蛋白质在内质网腔内超量积累时，激活一些相关信号通路引发的反应。包括未折叠蛋白应答反应、内质网超负荷反应、固醇调节调节级联反应和引发细胞凋亡。</li>
+<li><strong>高尔基复合体 (Golgi complex):</strong> 一种由管网结构和多个膜囊组成的极性细胞器，由至少由互相联系的3个部分组成，即顺面膜囊或顺面网状结构、中间膜囊和反面膜囊及反面高尔基网状结构。主要功能是对 ER 转运来的脂质分子及蛋白质进行加工、修饰以及分选，在膜泡运输中起着枢纽作用。</li>
+<li><strong>组成型分泌 (constitutive secretion):</strong> 细胞内合成的物质以连续的、不需调节的方式向胞外分泌。所有真核细胞均可通过分泌泡将蛋白质分泌至细胞表面。</li>
+<li><strong>溶酶体 (lysosome):</strong> 是单层膜围绕、内含多种酸性水解酶类的囊泡状细胞器，其主要功能是体内物质的消化作用，几乎存在于所有的动物细胞中。植物细胞具有与溶酶体功能类似的功能的细胞器。</li>
+<li><strong>胞内体 (endosome):</strong> 细胞内膜结构由内膜包裹的物质通过细胞内膜上有 ATP 驱动的质子泵，将氢离子泵进胞内体中，使胞内体的 pH 降低 (pH 为 5~6)，被认为是驱动物质的主要分选站。</li>
+<li><strong>过氧化物酶体 (peroxisome):</strong> 又称微体 (microbody)，是由单层膜围绕的内含一种或几种氧化酶类的细胞器，可直接利用分子氧，常含有两种酶，即依赖于黄素 (FAD) 的氧化酶和过氧化氢酶。它也存在于不同的细胞中，甚至单细胞生物的不同个体中所含酶的种类及其行使的功能都有所不同。</li>
+</ol>
+<h4 id="知识点解析-6"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞质基质及其功能</strong></p>
+<p>细胞质基质的主要功能：<br>
+(1) 为某些蛋白质合成和脂肪酸合成提供场所。<br>
+(2) 细胞质骨架作为细胞质基质的主要结构成分，不仅与维持细胞的形态、细胞的运动、细胞内的物质运输及能量传递有关，而且也是细胞质基质结构体系的组织者，为细胞质基质中其他成分和细胞器提供锚定位点，从而在细胞质基质中形成为更精细的三维特定区域，使复杂的代谢反应高效而有序地进行。<br>
+(3) 细胞内的各种膜相细胞器使细胞质基质产生区室化，一方面通过生物膜将蛋白质等生物大分子限定在膜的二维平面上，促进反应高效而有序地进行，另一方面依靠细胞膜或细胞器膜上的泵和离子通道维持细胞内跨膜的离子梯度。<br>
+(4) 蛋白质的修饰：①蛋白质的修饰，包括辅酶或辅基与酶的共价结合、磷酸化与去磷酸化、蛋白质糖基化作用、甲基化修饰、酰基化；②控制蛋白质的寿命，蛋白质 N 端的第一个氨基酸残基是决定蛋白质寿命的信号，泛素化和蛋白酶体所介导的蛋白质降解途径是蛋白质降解的机制之一；③降解变性和错误折叠的蛋白质；④帮助变性或错误折叠的蛋白质重新折叠，形成正确的分子构象。</p>
+<p><strong>(二) 细胞内膜系统及其功能</strong></p>
+<p><strong>内质网</strong></p>
+<ol>
+<li><strong>内质网的两种基本类型</strong><br>
+根据结构与功能，内质网可分为两种基本类型：糙面内质网和光面内质网。</li>
+<li><strong>内质网的功能</strong><br>
+内质网是细胞内蛋白质与脂质合成的基地，几乎全部的脂质和多种重要蛋白质都是在内质网合成的。<br>
+(1) 合成蛋白质是糙面内质网的主要功能 合成的蛋白质种类包括向细胞外分泌的蛋白质、膜的整合蛋白和溶酶体内的可溶性驻留蛋白。<br>
+(2) 光面内质网是脂质合成的重要场所 内质网合成细胞所需的包括磷脂和胆固醇在内的几乎全部脂质。内质网所需要的三种磷脂酶都定位在内质网膜上。其活性部位在膜的细胞质基质侧，底物来自细胞质基质。磷脂转位蛋白（phospholipid transloca-tor）或称移位酶（flippase）帮助磷脂由细胞质基质侧转移向内质网腔面。<br>
+(3) 蛋白质的修饰与加工：①在糙面内质网和高尔基体进行蛋白质糖基化；②在内质网发生二硫键的形成或重排；③蛋白质折叠和多亚基蛋白的装配；④在内质网、高尔基体和分泌泡发生特异性的蛋白质水解切割。<br>
+(4) 新生多肽的折叠是蛋白质分选运输过程中的质量监控的重要场所。不能正确折叠的蛋白质亚基，其识别后通过 Sec61p 复合体内从内质网腔脱钙至细胞质基质，进而通过泛素依赖性途径被蛋白酶体降解。<br>
+(5) 内质网的其他功能 肝细胞的解毒作用（detoxification）；肌质网（sarcoplasmic reticulum）储存和释放 Ca²⁺，对 Ca²⁺具调节作用；固醇类激素的合成。</li>
+<li><strong>内质网应激及其信号调控</strong><br>
+内质网应激（ERS）反应是细胞内的一种自我保护的机制，也是一套完整的监控机制，控制着细胞的折叠与修饰。</li>
+</ol>
+<p><strong>高尔基体</strong><br>
+高尔基体是由大小不一、形态多变的囊泡体系组成的，是一种高度动态的极性细胞器。<br>
+目前认为，高尔基体至少由互相联系的三个部分组成：①高尔基体顺面膜囊或顺面网状结构（cis Golgi network, CGN），CGN接受来自内质网合成的物质并将其分类后大部分转入高尔基膜囊，少部分蛋白质与脂质再返回内质网。②中间膜囊（medial Golgi），多数糖基修饰、脂质的形成以及与高尔基体有关的糖基化多糖都发生在中膜囊。③高尔基体反面膜囊及反面高尔基网状结构（trans Golgi network, TGN），TGN 是高尔基体蛋白质分选的枢纽区，同时也是蛋白质包装形成网格蛋白/AP 包被膜泡的重要发源地之一。</p>
+<p><strong>溶酶体</strong><br>
+溶酶体是单层膜围绕、内含多种酸性水解酶类的囊泡状细胞器，标志酶为酸性磷酸酶。溶酶体膜在成分上也与其他生物膜不同：①嵌有质子泵，利用ATP水解释放的能量将 H⁺泵入溶酶体内，以形成和维持溶酶体内的酸性环境；②具有多种载体蛋白用于产物向外转运；③膜蛋白高度糖基化，以防止自身膜蛋白的降解，所以其保持稳定。<br>
+溶酶体是一种异质性的（heterogeneous）细胞器，即不同溶酶体的形态大小，甚至其中所含水解酶的种类都可能有很大的不同。根据溶酶体处于完成其生理功能的不同阶段，大致可分为：①初级溶酶体（primary lysosome）；②次级溶酶体（secondary lysosome）；③残体（residual body）。</p>
+<p><strong>过氧化物酶体</strong><br>
+与溶酶体一样，过氧化物酶体也是一种异质性的细胞器，但在酶的种类、功能和发生方式等方面都与溶酶体有很大区别。过氧化物酶体中尿酸氧化酶等常形成晶格状结构，可作为电镜下识别的主要特征。<br>
+过氧化物酶体是真核细胞直接利用分子氧的细胞器，其中常含有两种酶：一是依赖于黄素（FAD）的氧化酶，其作用是将底物氧化形成 H₂O₂；二是过氧化氢酶，作用是将 H₂O₂分解，形成水和氧气。过氧化氢酶也被视为过氧化物酶体的标志酶。<br>
+在植物细胞中，过氧化物酶体参与光呼吸作用和乙醛酸循环反应。</p>
+<hr>
+<h3 id="第八章-蛋白质分选与膜泡运输"><strong>第八章 蛋白质分选与膜泡运输</strong> </h3>
+<h4 id="基本概念-7"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>蛋白质分选 (protein sorting):</strong> 依靠蛋白质自身信号序列，从蛋白质起始合成部位转运到其功能发挥部位的过程。核基因编码的蛋白质的分选大体可分后翻译转运途径和共翻译转运途径。</li>
+<li><strong>信号假说 (signal hypothesis):</strong> 1975 年由 Blobel 和 Sabatini 提出。分沁蛋白 N 端携带信号序列，一旦该序列从核糖体翻译合成，细胞质中的结合因子和该序列结合，指导其导向内质网膜，后经翻译将蛋白质在内质网膜腔体上进行。</li>
+<li><strong>信号肽 (signal peptide):</strong> 常指新合成多肽链中用于指导蛋白质在 rER 上合成的N端的氨基酸序列。一般由16～26个氨基酸残基组成，其中包括疏水核心区。信号肽可被细胞质基质中的信号识别颗粒所识别。</li>
+<li><strong>信号识别颗粒 (signal recognition particle, SRP):</strong> 由 6 条不同多肽和一个小 RNA 分子构成的 RNP 颗粒。在核糖体中合成出来的内质网信号序列，指导新生多肽及蛋白质合成装置 (核糖体和 mRNA) 附着到内质网膜上。</li>
+<li><strong>信号序列 (signal sequence):</strong> 蛋白质中由特定氨基酸组成的连续序列，决定蛋白质在细胞中的最终定位。</li>
+<li><strong>后翻译转运途径 (post-translational translocation):</strong> 在细胞质基质游离核糖体上完成多肽链的合成后，再转运至膜围绕的细胞器蛋白质分选方式，如：线粒体、叶绿体、过氧化物酶体及细胞核，或者成为细胞质基质的可溶性驻留蛋白。</li>
+<li><strong>共翻译转运途径 (co-translational translocation):</strong> 蛋白质在游离核糖体上起始合成后，由信号肽及其与之结合的 SRP 引导转移至糙面内质网，然后新生肽链边合成边进入内质网或定位在 ER 膜上的蛋白质分选方式。</li>
+<li><strong>蛋白质跨膜转运 (transmembrane transport):</strong> 新生肽链进入内质网，或进入线粒体、叶绿体和过氧化物酶体细胞器的转运方式。</li>
+<li><strong>膜泡运输 (vesicular transport):</strong> 以膜泡形式携带着蛋白质等物质从供体膜到靶膜的运输方式。膜泡运输涉及供体膜出芽形成不同转运膜泡、运输以及膜泡与靶膜的靶向的锚定与融合等过程。</li>
+<li><strong>选择性门控运输 (selective gated transport):</strong> 在细胞质基质中合成的蛋白质通过大小可调节的核孔复合体在核-质间双向选择性地完成核输入或核输出的转运方式。</li>
+</ol>
+<h4 id="知识点解析-7"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞内蛋白质的分选</strong><br>
+真核细胞中除线粒体和植物细胞叶绿体中能合成少量蛋白质外，绝大多数蛋白质都是由核基因编码，在游离核糖体上起始合成，然后或在细胞质基质 (游离核糖体) 中完成翻译过程，或在糙面内质网上继续合成完成，再通过不同的机制转运至细胞的特定部位并组装成结构与功能的复合体，参与实现细胞的各种生命活动，这一过程称为蛋白质分选。<br>
+细胞内合成的蛋白质所以能够定向转运到特定细胞器取决于两个方面：一是蛋白质自身包含特殊的信号序列，或称不同靶向序列 (targeting sequence)；二是靶细胞器上具有特定的信号识别装置 (分选受体, sorting receptor)。</p>
+<ol>
+<li><strong>信号假说与蛋白质分选</strong><br>
+信号假说可指导分泌性蛋白质在糙面内质网膜上合成，并引导新生肽链边合成边通过内质网膜上的移位子蛋白复合体进入内质网腔，之后被信号肽酶切除。此过程还需要细胞质中的信号识别颗粒 (SRP) 和内质网膜上的信号识别颗粒受体 (docking protein, DP) 等因子共同协助完成。<br>
+信号识别颗粒通常存在于细胞质基质中，但它能特异识别新生肽的信号肽，又能与核糖体的大 A 位点结合，并与核糖体的 A 位点结合形成 SRP-核糖体复合体，阻止了携带氨基酸的 tRNA 进入核糖体，核糖体的蛋白质合成暂停，直到 SRP-核糖体复合体与内质网膜上的 SRP 受体结合为止。SRP 将核糖体引导至内质网膜上，与膜上的 SRP 受体结合，将合成的信号肽插入内质网腔内，SRP 解离，使多肽链合成又重新启动。如果合成的多肽是分泌蛋白，进入内质网腔的信号肽将被信号肽酶切除，并被释放到内质网腔。合成终止后，核糖体大、小亚基解离，重新加入“核糖体循环”。</li>
+<li><strong>蛋白质分选转运的基本途径与类型</strong><br>
+蛋白质分选有两条基本途径，即共翻译转运途径和后翻译转运途径。<br>
+(1) <strong>共翻译转运途径</strong> 从蛋白质合成的角度看，蛋白质转运的方式或机制来看，蛋白质转运分为四类，即跨膜转运、膜泡运输、选择性门控转运和细胞质基质蛋白质的转运。跨膜运输的蛋白质以解折叠的肽链进行转运；膜泡运输的蛋白质以折叠或装配状态进行转运，且拓扑学方向不改变；门控转运的蛋白以折叠状态进行转运。<br>
+(2.1) <strong>后翻译向线粒体、叶绿体和过氧化物酶体的分选</strong><br>
+后翻译途径中，转运到线粒体、叶绿体和过氧化物酶体等细胞器的蛋白质分选是一个多步骤过程。这些蛋白质最终是定位在细胞器不同膜上或者不同的基质空间，除需要线粒体蛋白 N 端的导肽、叶绿体蛋白 C 端的内在靶向序列 (SKL) 和叶绿体蛋白 N 端转运肽 (transit peptide) 外，还需要其他空间定位信号序列。此外，进入线粒体、叶绿体和过氧化物酶体等细胞器的蛋白质必须在分子伴侣的帮助下解折叠或维持非折叠状态，而且蛋白质输入这些细胞器通常是需要能量的过程。</li>
+</ol>
+<p><strong>(二) 细胞内膜泡运输</strong></p>
+<ol>
+<li><strong>3 种包被膜泡的装配与运输</strong><br>
+膜泡运输主要强调了3种类型包被膜泡的运输作用和机制，包括 COP II 包被膜泡负责从内质网到高尔基体的物质运输 (其中 Sar1 作为 GTP 酶而发挥启动膜泡形成作用)；COP I 包被膜泡负责从高尔基体网状结构到内质网的运输，即回收内质网逃逸蛋白返回内质网 (其中 ARF 作为 GTP 酶发挥启动膜泡形成作用)；网格蛋白包被膜泡介导蛋白质从高尔基体 TGN 向质膜、胞内体或溶酶体或植物液泡的运输，另外，在受体介导的胞吞作用中负责将物质从质膜运往细胞质，以及从胞内体到溶酶体的运输。</li>
+<li><strong>膜泡运输的定向性</strong><br>
+根据转运泡表面包被蛋白的不同，目前发现有3种不同类型：COP II (coat protein II) 包被膜泡、COP I (coat protein I) 包被膜泡和网格蛋白/接头蛋白 (clathrin/adaptor protein) 包被膜泡，它们分别介导不同的膜泡运输途径。<br>
+(1) COP II 包被膜泡的装配与运输 运输膜泡内顺向运输 (anterograde transport)，负责从内质网到高尔基体的物质运输。COP II 包被膜泡是通过过渡性 COP II 包被蛋白在供体膜 (ER 膜) 出芽时聚合形成的。<br>
+(2) COP I 包被膜泡的装配与运输 运输膜泡逆向运输 (retrograde transport)，负责从高尔基体反面膜囊到顺面膜囊以及从高尔基体顺面网状区到内质网的膜蛋白运输，是内质网回收错误分选的逃逸蛋白 (escaped protein) 的重要途径。COP I 包被的聚合过程受小分子 GTP 结合蛋白 ARF 调控。ARF 也是一种结合 GTP/GDP 转换的开关调控蛋白。<br>
+(3) 网格蛋白/接头蛋白包被膜泡的运输 网格蛋白/接头蛋白包被膜泡介导的蛋白质分选途径包括从高尔基体 TGN 向胞内体或向溶酶体、黑 (色) 素体、血小板囊泡和植物细胞液泡的运输。经典的网格蛋白/接头蛋白包被膜泡是细胞表面运往胞内体转而到溶酶体的运输。典型的网格蛋白/接头蛋白包被膜泡是双层包被的膜泡，外层由网格蛋白组成，内层由接头蛋白复合物组成。小分子 GTP 结合蛋白 ARF 参与了网格蛋白包被膜泡的调节方式。</li>
+<li><strong>转运膜泡与靶膜的锚定与融合</strong><br>
+膜泡运输的步骤至少涉及如下过程：①供体膜的出芽、装配和断裂，形成不同的被包被转运泡；②在细胞内定向地在中微管为轨道的膜泡运输；③转运膜泡与特定靶膜的锚定和融合。<br>
+各类转运膜泡之所以能够准确地识别并与靶膜融合，是因为转运膜泡表面的标志蛋白能被靶膜上的受体识别，其中涉及识别过程的两类关键性的蛋白质是 SNAREs (soluble NSF attachment protein receptor) 和 Rabs (targeting GTPase)。SNARE 介导转运膜泡特异性停泊和融合，Rab 的作用是使转运膜泡靠近靶膜。</li>
+</ol>
+<hr>
+<h3 id="第九章-细胞信号转导"><strong>第九章 细胞信号转导</strong> </h3>
+<h4 id="基本概念-8"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞通讯 (cell communication):</strong> 一个信号产生细胞发出的信息介质 (又称配体) 传递到另一个靶细胞与其相应的受体相互作用，然后通过细胞信号转导产生靶细胞内一系列生理生化变化，最终表现为靶细胞整体生物学效应的过程。</li>
+<li><strong>内分泌 (endocrine):</strong> 由内分泌细胞分泌信号分子 (如激素) 到血液中，通过血液循环环运送到体内各个部位，作用于靶细胞。</li>
+<li><strong>旁分泌 (paracrine):</strong> 细胞通过分泌局部化学介质到细胞外液中，经过局部扩散作用于邻近靶细胞，在多细胞生物中调节发育的许多生理因子往往是通过短距离而起作用的。</li>
+<li><strong>自分泌 (autocrine):</strong> 是指细胞对自己自身分泌的信号分子产生反应。</li>
+<li><strong>信号转导 (signal transduction):</strong> 外界信号与细胞表面受体识别，转换并启动细胞信号通路，进而引起细胞基因的表达或产生各种生物学效应的过程。</li>
+<li><strong>受体 (receptor):</strong> 一类能够识别并选择性结合某种配体 (信号分子) 的大分子，当与配体结合后，通过信号传递作用将胞外信号转换为胞内化学或物理的信号。</li>
+<li><strong>第二信使 (second messenger):</strong> 是指信号分子与其受体结合后在胞内产生的非蛋白类小分子，可调节细胞内酶和非酶蛋白的活性，从而在细胞信号转导途径中行使信使作用，进而引起细胞最终的效应。</li>
+<li><strong>钙火花 (Ca²⁺ spark):</strong> 钙火花是钙信号转导单元。Ca²⁺从发放源放出，向周围扩散，并通过不同的分子机制回收或清除，以恢复细胞质中正常的 Ca²⁺浓度，以此方式在细胞水平上形成了 Ca²⁺浓度的震荡。</li>
+<li><strong>分子开关 (molecular switches):</strong> 在细胞内信号级联传递中，有正负两种相辅相成的反馈机制进行精确调控，因此称分子开关。一类是开关蛋白的活性由蛋白磷酸化酶酸化而后开启；第二类主要开关蛋白由GTP结合蛋白组成，结合GTP而活化；第三类开关蛋白是Ca²⁺依赖的钙调蛋白。</li>
+<li><strong>离子通道偶联受体 (ion channel-coupled receptor):</strong> 由多亚基组成的受体/离子通道复合体，本身既有信号结合位点，又是离子通道，并借此将信号传递至细胞内。</li>
+<li><strong>酶偶联受体 (enzyme-linked receptor):</strong> 受体胞内结构域具有酶活性，或受体本身不具酶活性，而是受体胞内段与酶相联系，并将胞外信号传递到胞内。</li>
+<li><strong>G 蛋白偶联受体 (G-protein coupled receptor):</strong> 是指配体-受体复合物与G蛋白的作用要通过与G蛋白的偶联，在细胞内产生第二信使，从而将胞外信号跨膜传递到胞内，影响细胞的行为。</li>
+<li><strong>Ras 蛋白:</strong> 是原癌基因的表达产物，为单体 G 蛋白，具有 GTP 酶活性，能够通过水解 GTP 而开启或关闭自身活性。</li>
+<li><strong>SH2 结构域 (src homology domain):</strong> Src 产物同源区，SH2 结构域是一种可特异性结合氨基酸序列中的磷酸酪氨酸残基，由约100个氨基酸残基组成，蛋白家族中的每一个成员具有相似的三维结构。</li>
+<li><strong>钙调蛋白 (calmodulin, CaM):</strong> 真核细胞中普遍存在的 Ca²⁺应答蛋白，含有 4 个结构域，每个结构域可结合一个 Ca²⁺。Ca²⁺与 CaM 结合形成 Ca²⁺-CaM 复合体，然后再与靶酶结合将其活化。</li>
+<li><strong>Sos 蛋白 (son of sevenless, Sos):</strong> 具有鸟苷酸交换因子活性，在细胞中可以被 Grb2 的 SH3 识别和活化。与 Ras 结合引起 Ras 的构象改变，使无活性的 Ras-GDP 转换成有活性的 Ras-GTP。</li>
+<li><strong>蛋白激酶 A (protein kinase A, PKA):</strong> 由 2 个调节亚基和 2 个催化亚基组成。当 2 个调节亚基与 2 分子 cAMP 结合时，2 个催化亚基被释放而激活，激活的 PKA 可调节细胞内转录因子因而于调控基因表达或直接磷酸化细胞质基质内蛋白质而引发细胞生物学反应。</li>
+<li><strong>蛋白激酶 C (protein kinase C, PKC):</strong> 是 Ca²⁺和磷脂酰丝氨酸依赖性的丝氨酸/苏氨酸蛋白激酶，在 DAG-PKC 的信号通路中广泛作用于底物，参与众多生理过程。</li>
+<li><strong>蛋白激酶 B (protein kinase B, PKB):</strong> 是与 PKA 和 PKC 具有高度同源性的丝氨酸/苏氨酸蛋白激酶，又称为 PKA 与 PKC 的相关激酶。N 端有一个 PH 结构域，紧密结合 PI-3,4-P₂ 和 PI-3,4,5-P₃分子的 3 位磷酸基团。该激酶是反转录病毒癌基因 v-akt 的编码产物协同源物，又称 Akt。</li>
+<li><strong>STAT 蛋白 (signal transducer and activator of transcription, STAT):</strong> 指在信号转导通路中，既是激酶的直接底物，又是基因转录调节因子的一类衔接子蛋白。STAT 蛋白 N 端具有 SH2 结构域和核定位信号 (NLS)，中间为 DNA 结合域，C 端有一个保守的、对其活化至关重要的酪氨酸残基。</li>
+</ol>
+<h4 id="知识点解析-8"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞信号转导概述</strong></p>
+<ol>
+<li>
+<p><strong>细胞通讯</strong><br>
+细胞通讯有3种方式：①细胞通过分泌化学信号进行胞间通讯；②细胞间接触依賴性通讯；③相邻动植物细胞间形成间隙连接，植物细胞间则通过胞间连丝。<br>
+细胞通讯通常涉及的步骤：①信号分子合成并释放信号分子；②转运信号分子至靶细胞；③信号分子与靶细胞表面受体特异性结合并受体激活；④活化受体启动胞内一种或多种信号转导途径；⑤引发细胞代谢、功能或基因表达的改变；⑥信号的解除并导致细胞反应终止。</p>
+</li>
+<li>
+<p><strong>信号分子与受体</strong><br>
+信号分子通常可分为3类：①气体性信号分子，包括 NO、CO，可以自由扩散进入细胞直接激活效应酶。②疏水性信号分子，这类亲脂性分子可穿过细胞质膜进入细胞。③亲水性信号分子，不能通过靶细胞质膜，可与靶细胞表面受体结合。<br>
+受体可分为细胞内受体和细胞表面受体。细胞内受体位于细胞质基质或核基质中，主要识别和结合小的脂溶性信号分子。细胞表面受体主要识别和结合亲水性信号分子，包括分泌型信号分子或膜结合型信号分子。</p>
+</li>
+<li>
+<p><strong>G 蛋白</strong><br>
+G 蛋白包括三聚体 GTP 结合蛋白和单体 GTP 结合蛋白。三聚体 G 蛋白由 Gα、Gβ、Gγ三个亚基组成。Gα亚基本身具有 GTPase 活性，是分子开关蛋白。当配体与受体结合后，三聚体 G 蛋白解离，Gα亚基与 GDP 交换 GTP 而活化，游离的 Gα-GTP 处于活化的开启状态，导致结合并激活效应蛋白；而当 Gα-GTP 水解形成 Gα-GDP 时，则处于失活的关闭状态恢复静态静息状态。单体 GTP 结合蛋白，仅有一条肽链如 Ras 蛋白，具有 GTPase 活性，同样在结合 GTP 处于关闭状态，结合 GTP 处于开启状态。</p>
+</li>
+<li>
+<p><strong>信号转导系统及其特性</strong><br>
+信号转导系统的主要特性：①特异性（specificity）；②放大效应（amplification）；③信号系统网络化与反馈调节机制；④整合作用（integration）。</p>
+</li>
+</ol>
+<p><strong>(二) 胞内受体介导的信号转导</strong></p>
+<ol>
+<li><strong>胞内受体</strong><br>
+胞内受体超家族 (intracellular receptor superfamily) 的本质是依赖激素激活的基因调控蛋白。一般都含有3个功能域：C 端的激素结合位点，中部的 DNA 或 Hsp90 结合位点，N 端的转录激活结构域。类固醇激素、视黄酸、维生素 D 和甲状腺素的受体在细胞核内。</li>
+<li><strong>NO 信号</strong><br>
+NO 是由 NO 合酶以 L-精氨酸为底物生成的一种自由基性质的脂溶性气体分子，可通过细胞膜快速扩散，激活靶细胞内鸟苷酸环化酶 (G-cyclase, GC) 活性的 NO 受体。鸟苷酸环化酶使胞内 cGMP 水平提高，活化蛋白激酶 G (PKG)，抑制肌动-肌球蛋白复合体信号通路，导致血管平滑肌舒张。</li>
+</ol>
+<p><strong>(三) G 蛋白偶联受体介导的信号转导</strong></p>
+<ol>
+<li><strong>G 蛋白偶联受体</strong><br>
+G 蛋白偶联受体为7次跨膜结构，配体-受体复合物与靶蛋白的作用要通过三聚体G蛋白（G蛋白），在细胞内产生第二信使。<br>
+(1) 激活磷脂酶 C 的 G 蛋白偶联受体 β-肾上腺素能受体。G 蛋白开关机制的开启与关闭，进而调控跨膜离子通道的开启与关闭。如 M₂乙酰胆碱受体在心肌细胞膜上与 Gi 蛋白偶联，引发三聚体 Gi 蛋白解离，Gβγ亚基释放致使心肌细胞膜上 K⁺通道开启，引发细胞内 K⁺外流；在视杆细胞中，光的吸收激活视蛋白，活化的视蛋白无活性的 GDP-Gt 三聚体蛋白偶联，游离的 Gtα与 cGMP 磷酸二酯酶抑制性亚基结合导致 PDE 活化，cGMP 被降解，使得 cGMP 门控阳离子通道关闭。<br>
+(2) 激活或抑制腺苷酸环化酶的 G 蛋白受体。Gα亚基的首要效应酶是腺苷酸环化酶，调节细胞内第二信使 cAMP 水平，进而影响信号通路的下游事件。这个调控系统涉及5种蛋白组分：①刺激性激素的受体 (Rs)，②抑制性激素的受体 (Ri)，③刺激性 G 蛋白 (Gs)，④抑制性 G 蛋白 (Gi)，⑤腺苷酸环化酶 (AC)。<br>
+(3) 激活磷脂酶 C 的 G 蛋白偶联受体 G 蛋白开关机制启动膜上磷脂酶 C (PLCβ) 活化，使质膜上磷脂酰肌醇-4,5-二磷酸 (PIP₂) 水解生成 IP₃和 DAG 两个第二信使。<br>
+IP₃-Ca²⁺信号通路：IP₃引发内质网中 Ca²⁺转移到细胞质基质中，使胞质中游离 Ca²⁺浓度提高，Ca²⁺与钙调蛋白 (CaM) 结合活化靶酶。<br>
+DAG-PKC 信号通路：DAG 位于质膜，胞质中的蛋白激酶 C (PKC) 可与 Ca²⁺结合并移位至膜内表面。DAG 的积聚可活化质膜，使不同底物蛋白的丝氨酸/苏氨酸残基受磷酸化。</li>
+</ol>
+<p><strong>(四) 酶联受体介导的5类信号通路</strong><br>
+酶联受体主要包括至少包含5类：①受体酪氨酸激酶；②受体丝氨酸/苏氨酸激酶；③受体磷酸酶；④受体鸟苷酸环化酶；⑤酪氨酸蛋白激酶偶联受体。</p>
+<ol>
+<li><strong>受体酪氨酸激酶 RTK-Ras 蛋白信号通路</strong><br>
+所有受体酪氨酸激酶都具有酪氨酸激酶结构域，配体的结合导致受体二聚化，激活受体的蛋白酪氨酸活性，进而在二聚体内彼此交叉磷酸化，即所谓受体的自磷酸化。活化的 RTK 通过磷酸化结合多种含有 SH2 结构域的蛋白，其中一类是接头蛋白，另一类是信号通路中有关的酶。Ras 是活化受体 RTK 下游的重要功能蛋白。二者之间通过接头蛋白和 Ras 蛋白-鸟苷酸交换因子 (Ras-GEF) 联系起来。活化的 Ras-Ras 可表示为：配体→RTK→Ras-Raf (MAPKKK)→MAPKK→MAPK→进入细胞核→其他基因或调控蛋白转录因子 (转录因子) 的磷酸化修饰，对基因表达产生多种效应。</li>
+<li><strong>PI3K-PKB (Akt) 信号通路</strong><br>
+RTK 和细胞因子受体的活化可以产生磷酸化的酪氨酸残基，为募集 PI3K 转运至膜提供了锚定位点。PI3K 既具有 Ser/Thr 激酶活性，又具有磷脂酰肌醇激酶的活性。利用其磷脂酰肌醇激酶功能生成 PI-3-P，PKB 凭借 PH 结构域与 PI-3-P 的结合转位到膜上。PKB 转位到膜后经另两种激酶 PDK1 和 PDK2 活化，从质膜上解离，进入细胞质和细胞核磷酸化靶蛋白。</li>
+<li><strong>TGF-β受体-Smad 信号通路</strong><br>
+TGF-β 受体分为 R I、R II 和 R III 种。TGF-β 受体在本质上属于 Ser/Thr 残基激酶。胞外 TGF-β 与 R III 受体结合，R III 将 TGF-β 递交给 R II 受体。R II 受体募集并磷酸化 R I 受体胞内段 Ser/Thr 残基，使 R I 受体被激活。活化的 R I 受体募集有3种 Smad 转录因子起调控作用，包括受体调节的 R-Smad (Smad2、Smad3)、辅助性 co-Smad (Smad4) 和抑制性 I-Smad (imp-β)。R-Smad 是 R I 受体激酶的直接作用底物，非磷酸化时 NLS 被掩盖，处于非活化状态。当 R I 受体被磷酸化后，两个被磷酸化的 R-Smad 使其 NLS 暴露，再与一个 co-Smad 和 imp-β 结合形成细胞质复合体，进入细胞核。在胞内 GTP 作用下 imp-β与 NLS 解离，Smad2/Smad4 或 Smad3/Smad4 复合物再与其他核内转录因子结合，激活特定靶基因的转录。</li>
+<li><strong>细胞因子受体与 JAK-STAT 信号通路</strong><br>
+细胞因子受体是细胞表面表现为受体酪氨酸激酶联系的受体，也就是说其活性依赖于非受体酪氨酸蛋白激酶。JAK-STAT 信号通路：细胞因子与受体结合，导致受体二聚化；各自结合的 JAK 相互靠近发生交叉磷酸化；具有 SH2 的 STAT 与之结合，并被磷酸化；磷酸化的 STAT 从受体上解离下来，以二聚化的形式转位到核内与特异基因调控序列结合。</li>
+</ol>
+<p><strong>(五) 其他细胞表面受体介导的信号通路</strong></p>
+<ol>
+<li><strong>Wnt-β-catenin 信号通路</strong><br>
+Wnt 是一类富含半胱氨酸的分泌性糖蛋白，β-catenin 是哺乳类中与果蝇 Arm 蛋白同源的转录调控蛋白。β-catenin 结合在由 Axin 介导形成的胞质复合物上，并被 GSK3 磷酸化后被蛋白酶体识别和降解，维持细胞质中 β-catenin 低水平。当细胞外存在 Wnt 信号时，支架蛋白 Axin 与辅助性 LRP 胞质域结合，导致含有 GSK3 和 β-catenin 的胞质复合物解离，而游离的 β-catenin 信号与核内转录因子 TCF 结合，调控在细胞质基质中的转录。</li>
+<li><strong>Hedgehog 受体介导的信号通路</strong><br>
+Hedgehog 在细胞内是以前体 (precursor) 形式合成与分泌的，作用范围小，一般不超过 20 个细胞。Hedgehog 的受体蛋白有3种：Ptc、Smo 和 iHog。静息状态下，受体 Ptc 蛋白抑制细胞膜泡上的 Smo 蛋白，胞质调节蛋白形成复合物并与微管结合。在复合体中被各种激酶磷酸化，磷酸化的 Ci 水解形成 Ci75 片段，进入核内抑制靶基因释放。</li>
+<li><strong>NF-κB 信号通路</strong><br>
+NF-κB 是一种核转录因子，能特异性结合免疫球蛋白 κ 轻链基因的上游增强子序列激活其基因表达。处于非活化状态，同源区的 NLS 因抑制物的结合被掩盖。当细胞受到刺激时，胞质中 I-κB 激酶被激活并磷酸化 I-κB。E3 泛素连接酶快速识别 I-κB 的磷酸化丝氨酸残基并泛素化，降解 I-κB。使 NF-κB 解除束缚并暴露 NLS。NF-κB 进入核内激活靶基因的转录。</li>
+<li><strong>Notch 信号通路</strong><br>
+Notch 信号通路是一种接触依赖性依懒性的受体，其受体本身是膜整合蛋白。Notch 受体蛋白的胞外区包含多个 EGF 样的重复序列及其与配体的结合位点，胞内区含多种功能序列。Delta 与之结合，效应细胞的 Notch 受体两步切割过程，切割后释放 Notch 胞内片段，转移至核内与其他转录因子协同作用，调节基因表达，影响发育中细胞命运的决定。</li>
+</ol>
+<p><strong>(六) 细胞信号反应的整合与控制</strong></p>
+<ol>
+<li><strong>细胞信号反应的特征</strong><br>
+细胞信号转导系统最重要的特征之一是构成复杂的信号网络系统 (signal network system)，不同信号通路之间相互影响，具有高度的非线性特点。人们将信号网络系统中信号通路之间的交互关系形象地称为“交叉对话”(cross talk)。蛋白激酶的网络整合调控复杂的细胞行为是不同信号通路之间实现“交叉对话”的一种重要方式。</li>
+<li><strong>受体脱敏与下调</strong><br>
+靶细胞对信号分子的脱敏机制有5种方式：①受体没收 细胞通过配体依赖性的受体介导的胞吞作用减少细胞表面可利用受体数目。②受体下调 通过受体介导的胞吞作用，受体-配体被消化降解，受体数目减少和配体的清除导致细胞信号敏感性下降。③受体失活 如 G 蛋白偶联受体激酶 (GRK) 使结合配体的受体磷酸化，再通过与胞质抑制蛋白 β-arrestin 结合而阻断与 G 蛋白的偶联作用。④信号蛋白失活 细胞内信号蛋白发生改变，从而使信号级联反应受阻，不能诱导正常细胞反应。⑤抑制性下游产生 下游反应产生抑制性蛋白并形成负反馈环从而降低或阻断信号转导。</li>
+</ol>
+<hr>
+<h3 id="第十章-细胞骨架"><strong>第十章 细胞骨架</strong> </h3>
+<h4 id="基本概念-9"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞骨架 (cytoskeleton):</strong> 由微管、微丝和中间丝组成的纤维网架结构。它是一种高度动态的结构体系，具有为细胞提供结构支架、维持细胞形态、负责细胞内物质和细胞器转运和细胞运动等功能。</li>
+<li><strong>微丝 (microfilament):</strong> 又称肌动蛋白丝 (actin filament)，或纤维状肌动蛋白 (fibrous actin, F-actin)，由肌动蛋白单体组装而成的直径为 7 nm 细胞骨架纤维。有极性。存在于所有真核细胞中，其空间结构与功能取决于与之相结合的微丝结合蛋白。</li>
+<li><strong>肌动蛋白 (actin):</strong> 微丝的主要结构成分，在细胞内有两种存在形式，即肌动蛋白单体 (又称球状肌动蛋白，G-actin) 和由单体组装而成的纤维状肌动蛋白。肌动蛋白单体由单个肽链折叠而成，呈球状，一个裂缝将肌动蛋白分成两瓣，内部有一个核苷酸 (ATP 或 ADP) 和一个二价阳离子 (Mg²⁺或 Ca²⁺) 的结合位点，其负极为正。在生物进化过程中高度保守。</li>
+<li><strong>细胞皮层 (cell cortex):</strong> 是指在紧贴细胞质膜的细胞质区域，细胞内大部分微丝集中在此并由微丝结合蛋白交联成的凝胶状三维网络结构。主要功能包括限制膜蛋白的流动性、维持细胞形状和参与细胞多种运动。</li>
+<li><strong>应力纤维 (stress fiber):</strong> 真核细胞中广泛存在的一种微丝束结构，由大量平行排列的肌动蛋白丝组成，还含有肌球蛋白Ⅱ、原肌球蛋白、细丝蛋白和α-辅肌动蛋白等结构成分。成纤维细胞含有丰富的应力纤维，通过黏着斑与细胞外基质相连，应当还可以产生张力。当细胞形态发生、细胞分化和组织建成等方面发挥作用。</li>
+<li><strong>胞质分裂环 (contractile ring):</strong> 又称收缩环，指分裂末期在两个即将分裂的子细胞之间的质膜内侧形成的起收缩作用的环形结构。由大量平行排列，但极性相反的微丝组成，其动力来源于肌球蛋白所介导的极性相反的微丝之间的滑动。胞质分裂完成后，收缩环即消失。</li>
+<li><strong>马达蛋白 (motor protein):</strong> 主要是指在细胞内参与物质运输的3类蛋白，即沿微丝运动的肌球蛋白、沿微管运动的驱动蛋白 (kinesin) 和动力蛋白 (dynein)。它们既有与微丝或微管结合的马达结构域，又有与膜性细胞器或大分子复合物特异结合的“货物”结构域，利用水解 ATP 所提供的能量有规则地沿微管或微丝纤维运动。</li>
+<li><strong>肌球蛋白 (myosin):</strong> 是沿微丝运动的马达蛋白。肌球蛋白超家族成员至少可分成18种家族，通常含有3个功能结构域，即马达结构域、调控结构域和尾部结构域。</li>
+<li><strong>微管 (microtubule):</strong> 一种外径为 24 nm、内径为 15 nm 中空管状结构的细胞骨架纤维。由α-与β-微管蛋白亚基形成的异二聚体组装而成。α-微管蛋白上有一个不可交换的 GTP 结合位点，β-微管蛋白上的 GTP 结合位点是可交换位点。有极性，组装较快的一端称为正极，另一端为负极。参与细胞形态的发生和维持、细胞内物质运输、细胞运动和细胞分裂等过程。</li>
+<li><strong>微管组织中心 (microtubule organizing center, MTOC):</strong> 在细胞中微管起始组装的地方，如中心体、基体等部位。γ-微管蛋白对微管的起始组装有重要作用。MTOC决定了微管的极性，负极指向微管组织中心，正极背向微管组织中心。</li>
+<li><strong>中心体 (centrosome):</strong> 在对彼此垂直分布的中心粒，被无定形外周物质包围，含γ-微管蛋白。每个中心粒含有9组三联体微管，A管为完整微管，B管和C管为不完整微管。细胞间期时位于细胞核附近，有丝分裂期位于纺锤体的两极。动物细胞的间期微管通常都是从中心体开始装配。</li>
+<li><strong>基体 (basal body):</strong> 位于鞭毛和纤毛根部，在结构上与中心粒基本一致，其外围由9组三联体微管构成，A管为完全微管，B管和C管为不完全微管。中心粒和基粒同源，在某些时候可以相互转换。</li>
+<li><strong>驱动蛋白 (kinesin):</strong> 具有马达结构域的重链2条与具有货物结合功能的轻链组成，其马达结构域具有 ATP 结合位点和微管结合位点。能利用 ATP 水解所释放的能量驱动自身及其所携带的货物分子沿微管运动。驱动蛋白的行为与其马达结构域有关，大部分驱动蛋白家族成员的马达结构域在肽链 N 端 (N-驱动蛋白)，它们从微管的负极向正极移动；少数位于多肽链中部 (M-驱动蛋白) 的驱动蛋白在微管的正端或负极端，使微管处于不稳定状态；马达结构域在 C 端 (C-驱动蛋白) 的驱动蛋白从微管的正极端向负极端移动。</li>
+<li><strong>动力蛋白 (dynein):</strong> 具有马达结构域的重链2条与具有货物结合功能的轻链组成。动力蛋白的行为与其马达结构域有关。动力蛋白可分为两个亚家族：胞质动力蛋白和轴丝动力蛋白。细胞质动力蛋白含多个亚基单位，两条具有ATP酶活性重链，两条中间链，四条中间轻链和一些轻链。重链含有ATP结合部位和微管结合部位，通过水解ATP从微管的正极端向负极端移动。轴丝动力蛋白分为内侧动力蛋白臂和外侧动力蛋白臂，构成外侧臂的动力蛋白具有2个或3个马达结构域，而内侧臂动力蛋白含有1个或2个马达结构域。</li>
+<li><strong>微管结合蛋白 (microtubule associated proteins, MAPs):</strong> 结合在微管表面的蛋白质。具有一个或数个带正电荷的微管结合域，与带负电荷的微管相互作用，稳定微管的结构。具有稳定微管的作用。其调控微管出芽与相邻的微管或细胞结构相互作用，对微管网络的结构和功能进行调节。根据 MAP 电泳时所显示相对分子质量的不同，依次命名为 MAP1、MAP2、MAP4、tau 蛋白等。</li>
+<li><strong>踏车行为 (treadmilling):</strong> 在微丝、微管组装过程中，由于微管、微丝存在极性，即“+”端不断解聚，“-”端不断解聚，当二者速度相等时，微丝、微管的长度不变，称为踏车行为。</li>
+<li><strong>中间丝 (intermediate filament, IF):</strong> 又称中间纤维，是存在于绝大多数动物细胞内，直径约 10 nm 的致密索状的细胞骨架纤维。组成中间丝的蛋白亚基的种类具有组织特异性，但不同种类的中间丝蛋白有非常相似的二级结构，即中部都是高度保守的杆状区，两侧是高度多变的头部和尾部。中间丝为组织和细胞提供了机械稳定性。</li>
+</ol>
+<h4 id="知识点解析-9"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 微丝与细胞运动</strong></p>
+<ol>
+<li><strong>微丝的组成及其组装</strong><br>
+(1) <strong>结构与成分</strong> 肌动蛋白是微丝的结构成分，以单体和多聚体两种形式存在。单体肌动蛋白又叫球状肌动蛋白 (G-actin)，多聚体形成肌动蛋白丝，称为纤维状肌动蛋白 (F-actin)，在电镜下微丝是一条直径为 7 nm 的扭链，呈双股螺旋状。肌动蛋白单体具有极性，装配时呈头尾相接，故微丝也具有极性，即正极与负极之别。<br>
+(2) <strong>微丝的组装及动力学特征</strong><br>
+微丝是由G-actin单体形成的，具有极性。</li>
+<li><strong>非肌细胞内微丝的调节蛋白与细胞运动</strong><br>
+在体内，微丝的组装/去组装与溶液中肌动蛋白单体的状态 (结合 ATP 或 ADP)、离子的种类及浓度等参数相关联。溶液中适当浓度 Ca²⁺时，F-actin → G-actin；含有 ATP、Mg²⁺以及较高浓度 Na⁺、K⁺时，G-actin → F-actin。<br>
+微丝组装的几个阶段：第一阶段是成核反应，即形成至少有2~3个肌动蛋白单体组成的寡聚体。第二个阶段是纤维的延长。肌动蛋白单体结合 ATP 后才能组装到微丝组装后单体具有 ATPase 活性，将 ATP 水解成 ADP。在体外，由于微丝在正极端装配，负极端去装配而短，从而表现为踏车行为。</li>
+<li><strong>肌球蛋白：依赖于微丝的马达蛋白</strong><br>
+肌球蛋白的每条重链都含有一个作为马达结构域的头部。其马达结构域包含一个微丝结合位点和一个具有ATP酶活性的ATP结合位点。<br>
+(I) II 型肌球蛋白存在于多种细胞，包含2条重链和4条轻链。头部即马达结构域，尾部主要起结构作用。E 型肌球蛋白尾尾相接所构成的双极纤维介导相邻的微丝相互滑动。<br>
+(II) 非传统类型的肌球蛋白 I 型肌球蛋白亦为马达结构域，在 ATP 存在时可沿微丝运动。其尾部结构域具有多种细胞功能，通过头部驱动或细胞质膜作为货物分子以及所运载的“货物”始终不与微丝脱离。</li>
+</ol>
+<p><strong>(二) 微管及其功能</strong></p>
+<ol>
+<li><strong>微管的结构组成与极性</strong><br>
+微管由两种类型的微管蛋白亚基 α、β异二聚体构成，平均外径 24 nm，内径 15 nm。微管蛋白在上进化具有高度的保守性。α-微管蛋白结合的 GTP 从不发生水解或交换。α/β-微管蛋白二聚体纵向排列→原纤维→13 根原纤维合拢后构成微管。<br>
+一根原纤维的微管蛋白，另一端是β-微管蛋白，因此微管在结构上呈极性状态。α-微管蛋白具有无 GTP 帽。有 GTP 帽时，微管表现为生长，否则，就解聚。在体外，微管和微丝一样具有踏车行为。</li>
+<li><strong>微管的组装和去组装</strong><br>
+细胞内微管的组装与去组装在时间和空间上是高度有序的。间期处于平衡状态；有丝分裂前期，胞质内微管解聚，组成纺锤体。纺锤体微管大都起源于中心体，纤毛和鞭毛起源于基体。</li>
+<li><strong>微管组织中心</strong><br>
+微管在生理状态或实验处理解聚后重新装配的发生处称为微管组织中心。如鞭毛、基体。动物细胞中的中心体。微管组织中心决定了细胞微管的极性，负极指向微管组织中心，正极背向微管组织中心。<br>
+微管的体内装配需要 γ-微管蛋白，它位于中心体周围的基质中，可以成环形结构，为 α/β-微管蛋白二聚体提供起始组装位点，而 α/β-微管蛋白只有一个中心粒，中心粒和基体均具有自我复制性。</li>
+<li><strong>微管结合蛋白对微管网络的调节</strong><br>
+微管结合蛋白对微管的结构域和与微管结合的区域和与微管结合的结构域，突出部位位于微管外与其他细胞组分（如微管束、中间丝、质膜）结合。主要功能：①促进微管组装；②增加微管稳定性；③促进微管束集聚成束。</li>
+<li><strong>微管对细胞组织的作用</strong><br>
+真核细胞内区域化的体系的形成，微管与生物大分子、细胞器在细胞内的分布，以及细胞形态的维持具有密切关系，参与细胞形态的发生和维持、细胞内物质运输、细胞运动和细胞分裂等过程。</li>
+<li><strong>细胞内依赖于微管的物质运输</strong><br>
+细胞内依赖于微管的物质运输是需要能量的定向运输，与分子马达有关。沿微管运输货物的分子马达主要有驱动蛋白和动力蛋白，它们既能与微管结合，又能与膜泡特异性结合。</li>
+<li><strong>纤毛和鞭毛的结构与功能</strong><br>
+纤毛 (cilia) 和鞭毛 (flagellae) 是真核细胞表面的具有运动功能的特化结构。</li>
+</ol>
+<p><strong>(三) 中间丝</strong></p>
+<ol>
+<li><strong>中间丝的主要类型和组成成分</strong><br>
+中间丝几乎存在于绝大多数动物细胞，其直径约 10 nm，介于粗肌丝与细肌丝之间，故名中间丝。<br>
+组成成分比微丝和微管复杂，具有组织特异性，不同类型细胞含有不同中间丝。分为6种主要类型，在人类基因组中至少包含67种不同的中间丝蛋白基因。中间丝的多样性与人体内200多种细胞类型相关，它为每种细胞类型提供了独特的细胞质环境，是区分细胞类型的身份证。</li>
+<li><strong>中间丝的组装与表达</strong><br>
+与微丝、微管的组装过程不同，中间丝蛋白在合适的缓冲体系中能自我组装成 10 nm 的丝状结构，而且不消耗能量。组装过程：两条中间丝多肽链形成超螺旋二聚体；两个二聚体反向平行并以半交叠形式构成四聚体；四聚体首尾相连形成原纤维；8根原纤维同向平行并以非交叠形式构成四聚体。</li>
+<li><strong>中间丝在细胞内的起源与联系</strong><br>
+细胞质中间丝在结构上往往起源于核膜的周围，伸向细胞周缘，并于细胞质膜上的特殊结构如桥粒、半桥粒结构相连。核纤层存在于细胞核膜的内侧，并通过核纤层蛋白受体与内层核膜相连。参与核膜的组装与去组装等过程。中间丝结构联系增强了细胞抗机械应力的能力，并参与维持组织的整体功能。</li>
+</ol>
+<hr>
+<h3 id="第十一章-细胞核与染色质"><strong>第十一章 细胞核与染色质</strong> </h3>
+<h4 id="基本概念-10"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞核 (nucleus):</strong> 真核细胞中由双层膜包被，含有染色质的细胞器，是遗传物质储存、基因组复制和加工、核糖体大亚基组装的场所。</li>
+<li><strong>核被膜 (nuclear envelope):</strong> 由内外核膜构成，在双层核膜相互融合的地方有核孔复合体，将细胞质与细胞核两个相对独立而又有联系的空间。</li>
+<li><strong>核纤层 (nuclear lamina):</strong> 位于核膜内侧，由核纤层蛋白组成的纤维状网络结构，对核被膜、染色质起结构支撑作用，并调节基因表达、DNA 修复等。</li>
+<li><strong>核孔复合体 (nuclear pore complex, NPC):</strong> 镶嵌在内外核膜上的篮状复合体结构，主要由膜环、核质环、核篮等结构亚单位组成，是物质进出细胞核的通道。</li>
+<li><strong>核定位信号 (nuclear localization signal, NLS):</strong> 富含碱性氨基酸，存在于亲核蛋白中的一段或几段氨基酸序列，能指导蛋白质完成核输入。</li>
+<li><strong>染色质 (chromatin):</strong> 在间期细胞中由 DNA、组蛋白、非组蛋白及少量 RNA 形成，是间期细胞遗传物质的存在形式。</li>
+<li><strong>常染色质 (euchromatin):</strong> 间期核中处于分散状态，压缩程度相对较低，着色较浅的染色质。</li>
+<li><strong>异染色质 (heterochromatin):</strong> 在细胞间期保持高度凝聚状态，着色较深，不具有转录活性的染色质。</li>
+<li><strong>兼性异染色质 (facultative heterochromatin):</strong> 在某些细胞或一定发育阶段，原来具有转录活性的染色质，可被关闭，并呈现为不具转录活性的异染色质。</li>
+<li><strong>结构异染色质 (constitutive heterochromatin):</strong> 在各种类型细胞的整个细胞周期中均保持凝聚状态的染色质，主要由高度重复序列 DNA 构成。</li>
+<li><strong>组蛋白 (histone):</strong> 参与 DNA 组装成染色质，富含精氨酸和赖氨酸的碱性蛋白，是染色质的基本结构蛋白，包括 H1、H2A、H2B、H3 以及 H4 共5种。</li>
+<li><strong>核小体 (nucleosome):</strong> 由 DNA 和组蛋白形成的染色质基本结构单位。每个核小体由 147 bp 的 DNA 缠绕组蛋白八聚体 1.75 圈形成。核小体核心颗粒之间通过 60 bp 左右的连接 DNA 相连。</li>
+<li><strong>X 染色体失活 (X chromosome inactivation):</strong> 雌性哺乳动物细胞中一条 X 染色体变成异染色质而关闭其基因表达活性，这一过程依赖于 Xist RNA 的调控。</li>
+<li><strong>染色体 (chromosome):</strong> 细胞分裂中期由 DNA 及其结合蛋白组成的高度压缩的棒状结构，由染色质包装形成。染色体的形成有助于子细胞获得等量的遗传物质。</li>
+<li><strong>着丝粒 (centromere):</strong> 将姐妹染色单体连接在一起形成有丝分裂染色体的主缢痕部位，是形成动粒及微管与动粒结合的区域。</li>
+<li><strong>动粒 (kinetochore):</strong> 位于着丝粒外表面、由蛋白质形成的结构，是纺锤体微管的附着位点。</li>
+<li><strong>端粒 (telomere):</strong> 位于染色体末端高度保守的重复序列，对染色体结构稳定、末端复制等有重要作用。端粒常在每条染色体末端形成一顶“帽子”结构。</li>
+<li><strong>端粒酶 (telomerase):</strong> 含有 RNA 的反转录酶，能以自身 RNA 为模板，对 DNA 端粒序列进行延长而解决线性染色体末端复制问题。</li>
+<li><strong>多线染色体 (polytene chromosome):</strong> 来源源于核内有丝分裂，染色体 DNA 经多次复制而不分开，呈规则并排的巨大染色体。昆虫中的巨大染色体形态特征最为典型。</li>
+<li><strong>灯刷染色体 (lampbrush chromosome):</strong> 来源于动物卵母细胞第一次减数分裂双线期，为卵子发生过程中营养物储备而 RNA 转录活跃，形态类似灯刷的特殊巨大染色体。</li>
+<li><strong>核仁 (nucleolus):</strong> 细胞核内 rRNA 转录及加工产生核糖体亚基的结构，包括纤维中心、致密纤维组分和颗粒组分。</li>
+<li><strong>核仁组织区 (nucleolar organizing region, NOR):</strong> 位于中期染色体次缢痕部位，由 rRNA 基因组成，参与间期核仁形成区域。</li>
+</ol>
+<h4 id="知识点解析-10"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 核被膜</strong></p>
+<ol>
+<li>
+<p><strong>核被膜结构与动态变化</strong><br>
+核被膜位于细胞核的最外层，是细胞核与细胞质之间的界膜，是核质之间的天然选择性屏障。核被膜主要有3种结构组分：双层核膜、核孔复合体和核纤层。内、外核膜之间的空间称为核周间隙。内、外核膜特点：外核膜表面常附有核糖体颗粒，且常与糙面内质网相连续，使核周间隙与内质网腔彼此相通；而内核膜表面光滑，无核糖体颗粒附着，但紧贴其内表面是核纤层。</p>
+</li>
+<li>
+<p><strong>核孔复合体</strong><br>
+核孔复合体是一个双功能、双向性的亲水性物质交换通道，既能执行被动扩散，又能执行主动运输，既介导蛋白质的入核转运，又介导 RNA、核糖体蛋白颗粒 (RNP) 的出核转运。<br>
+(1) 通过核孔复合体的被动扩散 核孔复合体形成被动扩散的亲水通道，允许小分子以及直径在 10 nm 以下的物质自由通过。但有些小分子蛋白因为带有核定位信号序列，这些蛋白往往以往主动运输的方式进入细胞核。<br>
+(2) 核孔复合体的核输出运输机制了解较少。由于 RNA 的出核实际上是 RNA-蛋白质复合体的转运，人们相信与 RNA 结合的蛋白因子本身含有出核信号。</p>
+</li>
+<li>
+<p><strong>核纤层</strong><br>
+核纤层位于内核膜下，呈纤维状网络结构，是一类特殊的中间丝蛋白，起结构支撑、调节基因表达表达等作用。</p>
+</li>
+</ol>
+<p><strong>(二) 染色质</strong><br>
+染色质是间期细胞遗传物质存在的形式。其中组蛋白与 DNA 含量之比（质量比）约 1:1，非组蛋白与 DNA 之比是 0.6:1，RNA/DNA 比为 0.1:1。在真核细胞的细胞周期中，遗传物质大部分时间以染色质的形式存在。</p>
+<ol>
+<li><strong>染色质 DNA</strong><br>
+真核生物基因组因组蛋白的存在而比原核生物基因组更加复杂。在人类基因组中，蛋白质编码序列仅仅 1% ~ 1.5%，编码 rRNA、tRNA、snRNA 和组蛋白的串联重复序列约 0.3%。</li>
+<li><strong>染色质蛋白</strong><br>
+染色质的蛋白包括组蛋白与非组蛋白两类。前者与 DNA 结合，没有序列特异性，而后者与特定 DNA 序列或组蛋白相结合。<br>
+(1) <strong>组蛋白</strong> 是构成真核生物染色质的基本结构蛋白，富含正电荷 Arg 和 Lys 等碱性氨基酸。在功能上分为两类：核小体组蛋白，包括 H2A、H2B、H3 和 H4，与 DNA 分子结合构成核小体核心颗粒，帮助 DNA 卷曲形成 H1 组蛋白的稳定结构，在进化上十分保守，H3 和 H4 是所有已知蛋白质中最保守的蛋白；在进化上不如核小体组蛋白保守的有生物如酵母菌缺少 H1。<br>
+(2) <strong>非组蛋白</strong> 其与 DNA 或组蛋白序列特异性 DNA 结合，所以又称序列特异性 DNA 结合蛋白。其与 DNA 特异性可通过凝胶延迟滞实验检测。相比于组蛋白，非组蛋白占染色质蛋白的 60% ~ 70%，不仅类型和功能多，如 DNA 聚合酶和 RNA 聚合酶等，而且识别特异的 DNA 序列。</li>
+<li><strong>核小体</strong><br>
+是染色质组装的基本结构单位。<br>
+(1) <strong>主要实验证据</strong><br>
+① 用温和方法裂解细胞核后发现未经处理的染色质自然结构为 30 nm 纤丝，经盐溶液处理后解聚的染色质呈现一系列核小体彼此连接的串珠状结构，串珠的直径为 11 nm。<br>
+② 非特异性微球菌核酸酶消化染色质，结合蔗糖梯度离心及琼脂糖凝胶电泳分析，发现非特异性微球菌核酸酶降解 DNA 时，产生随机大小的片段电泳。如果用同样方法处理裸露的 DNA，则产生随机大小的片段电泳。<br>
+③ X 射线衍射、中子散射和电镜三维重建技术研究染色质颗粒发现核小体颗粒直径为 11 nm、高 6 nm 的扁圆柱体。<br>
+④ SV40 微小染色体分析发现其形成的核小体的数量与预期基本一致，证明每个单位核小体长约 200 bp。<br>
+(2) <strong>核小体结构</strong> 核小体八聚体包括 200 bp 左右的 DNA 和一个组蛋白八聚体以及一个分子组蛋白 H1。组蛋白八聚体构成核小体盘状核心颗粒，两个 H2A·H2B 和两个 H3·H4。长 146 bp 的 DNA 分子盘绕组蛋白八聚体 1.75 圈。组蛋白 H1 在核心颗粒外结合额外 20 bp DNA，锁住核小体 DNA 的进出端，有助于核小体稳定。两个相邻核小体之间以连接 DNA 相连，典型长度为 60 bp。核小体 DNA 的定位受非组蛋白、DNA 自身 AT 和 GC 的分布情况等影响。</li>
+<li><strong>染色质组装</strong><br>
+人的染色质 DNA 组装成染色体，压缩近万倍。染色质组装的前期过程，即从裸 DNA 组装成直径 30 nm 的染色质纤维尚有大多数学者认可。而染色质如何进一步组装成更高级结构体系的过程尚不清楚。目前染色质包装模型有两种。<br>
+(1) <strong>多级螺旋模型</strong> 首先由染色质组装成核小体，在组蛋白 H1 的介导下由核小体彼此连接形成直径约 11 nm 的核小体串珠结构；然后形成 30 nm 的染色质纤维；螺线管再进一步螺旋化形成直径为 0.4 μm 的圆筒状超螺线管结构；最后再螺旋形成长 2~10 μm 的染色单体四级结构。DNA 长度共压缩了 8 400 倍左右。<br>
+(2) <strong>放射环结构模型</strong> 其一级结构、二级结构组装与多级螺旋模型一致。不同的是，30 nm 的染色质折叠成袢环，结合在染色体骨架蛋白上，沿染色体纵轴、由中央向四周伸出构成放射环；此结构再进一步包装形成染色体。</li>
+<li><strong>染色质类型</strong><br>
+间期染色质按其形态、活性状态和染色性能区分为两种类型：常染色质和异染色质。<br>
+(1) <strong>常染色质与异染色质</strong> 具有转录活性的染色质往往是常染色质。而异染色质分为结构异染色质和兼性异染色质。结构异染色质位于着丝粒、端粒等部位，由相对简单、高度重复的 DNA 序列构成，不转录也不编码蛋白质，在复制行为上与常染色质相比表现为晚复制、早紧缩等特征。兼性异染色质由基因关闭而形成，可因基因关闭的晚复制，如哺乳动物 X 染色体失活。<br>
+(2) <strong>常染色质与异染色质的转变</strong> 常染色质与异染色质之间可随着发育时期或细胞周期的变化而相互转化。这种转变常常伴随着一些组蛋白与 DNA 修饰。<br>
+(3) <strong>活性染色质与非活性染色质</strong> 按功能状态的不同可将染色质分为活性染色质 (active chromatin) 和非活性染色质 (inactive chromatin)。活性染色质具有转录活性，而非活性染色质没有转录活性。染色质对 DNase I 敏感。因此，用 DNase I 消化化可分析DNA的结构。若用很低浓度的DNase I处理活性染色质，可将首先被优先切下的少数特异性位点，这些位点叫 DNase I 超敏感位点。超敏感位点实际上是一段长 100~200 bp 的 DNA 序列特异的染色质区域。该位点可能在于超敏感序列首其与其他蛋白质结合而阻止核小体的组装，从而暴露该区域，更有利于 DNase I 的降解。</li>
+</ol>
+<p><strong>(三) 染色体</strong><br>
+染色体是细胞在有丝分裂或减数分裂时遗传物质存在的特定形式，是间期细胞染色质紧密组装的结构。</p>
+<ol>
+<li>
+<p><strong>染色体的形态结构</strong><br>
+根据着丝粒在染色体上所处的位置，可将中期染色体分为4种类型：中着丝粒、亚中着丝粒、端着丝粒以及端着丝粒染色体。<br>
+(1) <strong>着丝粒与动粒</strong> 着丝粒也叫主缢痕，是一种高度有序的整合结构，包括3种不同的结构域域：即着丝粒外表面的动粒结构，由串联重复卫星 DNA 组成的着丝粒 DNA 组成以及位于着丝粒内表面对动粒结构。但并不代表中期染色体的序列有共同作用，才能确保细胞在有丝分裂过程中染色体与纺锤体的结合，保证染色体的有序分离。<br>
+(2) <strong>次缢痕 (secondary constriction)</strong> 除主缢痕外，染色体上的浅染缩部位称次缢痕，也可以作为鉴定染色体的标记。<br>
+(3) <strong>核仁组织区 (NOR)</strong> 位于染色体的次缢痕部位。染色体 NOR 是 rRNA 基因基所在部位 (5S rRNA 基因除外)，与间期细胞核仁形成有关。<br>
+(4) <strong>随体 (satellite)</strong> 位于染色体末端的球形染色体节段，通过次缢痕区与染色体主体部分相连，是识别染色体的重要形态之一。<br>
+(5) <strong>端粒</strong> 是线性染色体两个末端特化结构，常由富含鸟嘌呤核苷酸 (G) 的短的串联重复序列 DNA 组成。哺乳动物端粒序列是 TTAGGG。端粒的生物学作用是维持染色体的完整性和独立性。</p>
+</li>
+<li>
+<p><strong>染色体的功能元件</strong><br>
+为了确保细胞世代中染色体的复制和稳定传递，一条染色体至少含有3种功能元件：至少一个 DNA 复制起点，确保染色体在细胞周期中能够自我复制，维持染色体的连续性；一个着丝粒，使染色体能准确分配到子细胞的两个末端必须有端粒；以保持染色体的独立性和稳定性。<br>
+(1) <strong>自主复制序列 DNA</strong> 绝大多数真核细胞染色体含有多个复制起点，以确保染色体快速复制。通过遗传分析发现自主复制序列 DNA (autonomously replicating DNA sequence, ARS) 都有一段 11~14 bp 的同源性很高的富含 AT 的共有序列。自主复制 DNA 序列与细胞分裂周期两个细胞周期中的起点蛋白质相合的核区，一个是 80~90 bp 的 AT 区，另一个是 11 bp 的保守区。着丝粒保证细胞分裂时染色体分配到子细胞中。<br>
+(2) <strong>着丝粒 DNA 序列 (centromere DNA sequence, CEN)</strong><br>
+(3) <strong>端粒 DNA 序列 (telomere DNA sequence, TEL)</strong> 如果将含有自主复制序列 ARS 和着丝粒 CEN 序列的环状重组质粒 DNA 线性化，形成一个具有两个游离端的线性 DNA 分子，尽管细胞中复制并附着在有丝分裂纺锤体上，但最终将从子细胞中丢失，细胞也无法生长。其原因是质粒人工线性化后缺少端粒序列，无法解决“末端复制问题”，即新合成的 DNA 链 5′末端因 RNA 引物被切除后变短的问题。</p>
+</li>
+<li>
+<p><strong>染色体带型 (karyotype)</strong> 是指染色体在有丝分裂中期的表型，是染色体数目、大小、形态特征的总称。</p>
+</li>
+<li>
+<p><strong>特殊染色体</strong><br>
+(1) <strong>多线染色体</strong> 这是一种体积很大的染色体 (endomitosis)，发现于双翅目摇蚊幼虫的唾腺细胞。多线染色体来源于核内有丝分裂，即 DNA 多次复制而细胞不分裂，产生细胞内同源染色体并排，且体细胞内同源染色体配对，形成体积很大的染色体。<br>
+(2.1) <strong>灯刷染色体</strong> 灯刷染色体几乎普遍存在于动物卵母细胞中，在两栖类卵母细胞中最为典型。灯刷染色体形态与卵子发生过程中营养物储备密切相关。灯刷染色体侧环是 DNA 转录活跃的区域，转录的 RNA 副本 3′端借助 RNA 聚合酶固定在侧环轴丝上，游离的 5′端捕获大量蛋白质形成核蛋白复合。灯刷染色体合成的 RNA 主要为前体 mRNA，部分翻译成蛋白质，而部分与蛋白质结合储存而翻译储存在卵母细胞中。</p>
+</li>
+</ol>
+<p><strong>(四) 核仁与核糖体</strong><br>
+核仁是真核细胞间期核中最显著的结构，负责 rRNA 合成、加工和核糖体亚基的组装。核仁数量、大小和形状随生物种类、细胞类型和代谢状态不同而有变化。蛋白质合成越旺盛的细胞，核仁越大。</p>
+<ol>
+<li><strong>核仁的结构</strong><br>
+(1) <strong>纤维中心 (fibrillar center, FC)</strong> 是包埋在颗粒组分内部一个或几个浅染的低电子密度的圆形结构，是 rDNA 所在部位。目前认为纤维中心代表染色体 NOR 在间期核的副本。<br>
+(2) <strong>致密纤维组分 (dense fibrillar component, DFC)</strong> 是核仁超微结构中电子密度最高的部分，呈环形或半月形包围 FC，用³H 标记 RNA 合成前体物，发现 DFC 区域主要是 rRNA 转录和加工产生核糖体亚基的主要结构。<br>
+(3) <strong>颗粒组分 (granular component, GC)</strong> 颗粒组分是核仁的主要结构，由 RNP 构成，可被蛋白酶和 RNase 消化。这些颗粒是正在加工、成熟的核糖体亚单位前体颗粒。</li>
+<li><strong>核仁的功能</strong><br>
+核仁的主要功能是核糖体的生物发生。这是一个向量过程，从核仁纤维组分开始，再向颗粒组分延续，包括 rRNA 的合成、加工和核糖体亚单位的组装。<br>
+(1) <strong>rRNA 的转录</strong> 真核生物核仁有 5.8S rRNA、18S rRNA、28S rRNA 以及 5S rRNA，前 3 种 rRNA 的基因形成一个转录单位，5S rRNA 基因与其他三种 rRNA 基因不在同一条染色体上，它是由核仁以外的染色体基因编码、RNA 聚合酶 III 转录的。rRNA 基因在染色质轴上呈串联重复排列、沿转录方向，新生的 rRNA 链逐渐延长，形成“圣诞树”样结构。转录产物的纤维游离端 (5′端) 首先形成 RNP 颗粒。串联重复排列的 rRNA 基因被组织在很小的核仁区域，由 RNA 聚合酶 I 连续转录成 rRNA 前体，大大提高了转录效率。<br>
+(2) <strong>rRNA 前体的加工</strong> 不同生物由 RNA 聚合酶 I 转录生成的 rRNA 前体大小不一，哺乳类为 45 S rRNA，酵母为 37 S rRNA。前体 rRNA 经过加工后，生成 18 S、28 S 和 5.8 S rRNA。</li>
+<li><strong>核仁的动态周期变化</strong><br>
+核仁是一种高度动态的结构，其形态和功能随着细胞周期的进行发生很大的变化。当细胞进入分裂期，核仁变小，在中、后期消失，rRNA 合成相应停止；有丝分裂末期，rRNA 开始合成，核仁开始重新组装。</li>
+</ol>
+<hr>
+<h3 id="第十二章-核糖体"><strong>第十二章 核糖体</strong> </h3>
+<h4 id="基本概念-11"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>核糖体 (ribosome):</strong> 由核糖体 RNA 和蛋白质组成的大分子复合物，具有一个大亚基和一个小亚基，是细胞内合成蛋白质的细胞器。其功能是按照 mRNA 的信息将氨基酸高效精确地合成多肽链。</li>
+<li><strong>核糖体蛋白质 (ribosomal protein):</strong> 构成核糖体蛋白组分的统称，简称r蛋白。大多数核糖体蛋白由一个球形结构域和伸展的尾部组成，球形结构域分布在核糖体表面，伸展的多肽链填充于rRNA之间的缝隙。r蛋白不参与合成多肽链的催化反应，只起到稳定rRNA三级结构和蛋白质合成时调节核糖体构象的作用。</li>
+<li><strong>SD 序列 (Shine - Dalgarno sequence):</strong> 原核生物 mRNA 位于起始密码子上游 5 ~ 10 bp 处的一段特殊序列，能够与核糖体小亚基 16 S rRNA 的 3′端序列互补结合，从而起始蛋白质合成。</li>
+<li><strong>核酶 (ribozyme):</strong> 一类具有多种催化活性的 RNA 分子，可催化 RNA 和 DNA 水解、连接以及 mRNA 的拼接。1982 年 Cech 等以四膜虫为材料发现 RNA 具有催化 RNA 自我剪接的功能，因此将具有催化功能的 RNA 定义为核酶。</li>
+<li><strong>多核糖体 (polyribosome):</strong> 核糖体在细胞内不是单独地执行功能，而是由多个甚至几十个核糖体串联在一条 mRNA 分子上进行肽链的合成，这种核糖体与 mRNA 的聚合物称多核糖体。</li>
+<li><strong>RNA 世界假说 (RNA world hypothesis):</strong> 在生命起源之初，最早出现的生物大分子是 RNA，它既可以像 DNA 一样传递遗传信息，也可以像蛋白质一样进行催化反应，DNA 和蛋白质是进化的产物。</li>
+</ol>
+<h4 id="知识点解析-11"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 核糖体的类型与结构</strong></p>
+<ol>
+<li><strong>核糖体的基本类型与化学组成</strong> 原核细胞核糖体的沉降系数为 70 S，真核细胞的沉降系数为 80 S。真核细胞线粒体与叶绿体中也有核糖体，其沉降系数近似于 70 S。</li>
+<li><strong>X 射线衍射分析核糖体的三维结构</strong><br>
+① 每个核糖体含有 1 个供 mRNA 结合的位点，3 个横跨核糖体大小亚基的供 tRNA 分子结合的位点，分别称为 A 位点、P 位点和 E 位点；② 在核糖体结合面无核糖体蛋白质的分布；③ 催化肽键形成的活性位点由 RNA 组成；④ 大多数核糖体蛋白有一个球形结构域和伸展的尾部，球形结构域分布于核糖体表面，尾部则伸入核糖体内折叠的 rRNA 分子中。核糖体蛋白并不参与合成多肽链的反应，只起到稳定 rRNA 和帮助 rRNa 催化蛋白合成时自身构象的改变。</li>
+<li><strong>rRNA 与 r 蛋白的功能</strong><br>
+(1) <strong>rRNA 的功能</strong> rRNA 是核糖体中起主要作用的结构成分，其主要功能有：①具有肽酰转移酶的活性；②为 tRNA 提供结合位点 (A 位点、P 位点和 E 位点)；③为多种蛋白质合成因子提供结合位点；④在蛋白质合成起始与同 mRNA 选择性地结合地区分起始密码子的功能；⑤在蛋白质合成中大小亚基的结合、无意义或框架漂移的校正以及抗生素的作用。<br>
+(2) <strong>r 蛋白的功能</strong> ①r 对 RNA 折叠成有功能的 三维结构是十分重要的；②在蛋白质合成的空间构象发生一系列的变化，某些 r 蛋白可能对核糖体起“微调”作用。</li>
+</ol>
+<p><strong>(二) 多核糖体与蛋白质的合成</strong></p>
+<ol>
+<li><strong>多核糖体合成蛋白质的意义</strong><br>
+真核细胞中，蛋白质的合成以多核糖体的形式进行，可大大提高多肽合成速度。合成速度的提高倍数与结合在 mRNA 上核糖体的数目成正比。细胞中 mRNA 的种类与浓度在细胞周期的不同阶段不断发生变化，以多核糖体的形式进行多肽合成，这对 mRNA 的利用及其数量的调控更为经济和有效。<br>
+原核细胞中，多核糖体结合到 mRNA 上合成多肽链，是与 DNA 转录为 mRNA 同时进行的。</li>
+<li><strong>蛋白质的合成</strong><br>
+以原核细胞为例，蛋白质合成包括肽链的起始、肽链的延伸和肽链的终止3个主要阶段。<br>
+(1) <strong>肽链的起始</strong><br>
+① 30 S 小亚基与 mRNA 的结合：核糖体小亚基的 16 S rRNA 3′端与 mRNA 起始密码子 AUG 上游的 SD 序列结合，从而保证 30 S 小亚基与起始密码子的特异结合。30 S 小亚基结合需要 IF1、IF2 和 IF3 三种起始因子。IF1 与 30 S 亚基 A 位点结合，协助 30 S 亚基与 mRNA 的结合，并防止氨酰-tRNA 错误误入亚基 P 位点；IF2 是一种 GTP 结合蛋白，协助第一氨酰-tRNA 进入核糖体；IF3 能防止核糖体 50 S 大亚基提前与小亚基结合，并有助于第一氨酰-tRNA 进入核糖体。<br>
+② 第一个氨酰-tRNA 进入核糖体：mRNA 的 AUG 与小亚基 P 位点，携带带有甲酰甲硫氨酸的起始 tRNA (tRNAMet) 识别 mRNA 上的 AUG 与小亚基 P 位点。<br>
+③ 完整起始复合物的装配：核糖体大亚基与起始复合物结合，形成完整 70 S 核糖体—mRNA 起始复合物，同时伴随起始因子释放。<br>
+(2) <strong>肽链的延伸</strong><br>
+① 氨酰-tRNA 进入核糖体 A 位点的选择：起始 tRNAMet 占据 P 位点，核糖体接受反密码子能与 A 位点的 mRNA 密码子匹配的氨酰-tRNA 进入 A 位点，此过程还需要氢氧与 GTP 的延伸因子 EF-Tu 结合形成复合物。<br>
+② 肽键的形成：A 位点氨酰-tRNA 氨基酸与 P 位点 tRNA 上氨基酸的羧基形成肽键，由位于大亚基 23 S rRNA 上的肽酰转移酶催化。<br>
+③ 转位：核糖体沿 mRNA 分子 5′→3′方向移动 3 个核苷酸，携带二肽的 tRNA 从 A 位点移位到 P 位点，没有携带任何氨基酸的 tRNA 从 P 位点移位到 E 位点。<br>
+④ 脱氨酰-tRNA 的释放：脱氨酰-tRNA 离开核糖体 E 位点，新的氨酰-tRNA 进入 A 位点，开始新的肽链延伸循环。<br>
+(3) <strong>肽链的终止</strong> 如果 A 位点 mRNA 是 UAA、UGA 或 UAG 终止密码子，由于没有与之匹配的反密码子 tRNA，tRNA 不能结合到 A 位点。释放因子水分子添加至肽链末端的羧基游离出来，肽链终止终止。释放因子 RF1 可识别 UAA 或 UAG，RF2 识别 UAA 或 UGA。新生肽链通过大亚基上肽通道进入细胞质基质。</li>
+</ol>
+<p><strong>(三) 核糖体与 RNA 世界</strong></p>
+<ol>
+<li><strong>核酶</strong><br>
+(1) 核酶的发现 Cech 等发现四膜虫的 26 S 前体 rRNA 加工去除内含子时是由 rRNA 自身催化的，这说明 RNA 具有催化活性，因此被命名为核酶，Cech 因为首次发现核酶而获得 1989 年诺贝尔化学奖。<br>
+(2) 核糖体本质是核酶 是核糖体由含量大约 2/3 的 RNA 和 1/3 的蛋白质组成，rRNA 负责核糖体催化是结构的三维结构，tRNA 在 mRNA 上的定位；二是肽酰转移酶中心仅由 23 S rRNA 组成；三是核糖体的3个结合位点，即 A 位点、P 位点和 E 位点也主要是由核糖体 RNA 组成。</li>
+<li><strong>RNA 世界与生命起源</strong><br>
+(1) <strong>RNA 世界假说</strong> 最早出现的生物大分子很可能是 RNA，它兼具了 DNA 与蛋白质的功能，不但可以像 DNA 一样储存遗传信息，而且还像蛋白质一样进行催化反应，DNA 和蛋白质则是进化的产物。<br>
+(2) 蛋白质合成的进化 ①原始蛋白质的合成不需要 mRNA，直接通过 RNA 分子催化完成，在进化过程中具有催化功能的 RNA 逐渐与蛋白质一起形成核糖体；②特异性不高的肽酰转移酶在进化过程中逐渐获得了将氨酰-tRNA 精确定位到模板 RNA 分子上的功能，最终出现了现有的核糖体；③蛋白质由于自身的多样性，更有效地催化多种生化反应，从而替代了 RNA 的绝大多数催化与结构功能，成为结构和功能复杂的进化基础。<br>
+(3) <strong>RNA 与生命起源</strong> 生命的最早形式可能是由膜包裹的一套具有自我复制能力的分子体系和物质与能量供应体系组成，其遗传物质的载体是 RNA（原始 RNA）而不是 DNA，构成核酸的基本成分是核糖。在进化过程中，RNA 催化产生了蛋白质，核糖还原产生了脱氧核糖，从而形成更稳定的 DNA，于是 DNA 代替了 RNA 的遗传信息功能，蛋白质取代了 RNA 分子的绝大多数催化功能，从而演化成今天遗传信息的流模式——中心法则。</li>
+</ol>
+<hr>
+<h3 id="第十三章-细胞周期与细胞分裂"><strong>第十三章 细胞周期与细胞分裂</strong> </h3>
+<h4 id="基本概念-12"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞增殖 (cell proliferation):</strong> 细胞增殖是细胞生命活动的重要特征之一，是生物繁育和生长发育的基础。细胞增殖最直观的表现是细胞分裂 (cell division)，即由一个亲代细胞 (mother cell) 变为两个子代细胞 (daughter cell)，使细胞的数量不断增加。</li>
+<li><strong>细胞周期 (cell cycle):</strong> 又称为细胞分裂周期 (cell division cycle)、细胞生活周期 (cell life cycle) 或细胞繁殖周期 (cell reproductive cycle)，是指一次细胞分裂结束到下一次分裂完成之间的有序过程。</li>
+<li><strong>周期中细胞 (cycling cell):</strong> 这类细胞 (如上皮组织基底层细胞) 的细胞周期持续运转，持续不断的分裂增加细胞数量。</li>
+<li><strong>G₀期细胞 (G₀ phase cell, quiescent cell):</strong> 这类细胞暂时脱离细胞周期，停止细胞分裂，但仍然活跃地进行代谢活动，执行特定的生物学功能。G₀期细胞只是暂时脱离细胞周期，一旦得到信号，便会快速返回细胞周期进行分裂增殖。</li>
+<li><strong>终末分化细胞 (terminally differentiated cell):</strong> 在机体内由于分化程度高，则执行特定功能，且终生不再分裂的细胞，如横纹肌细胞、血液多型核白细胞等。</li>
+<li><strong>检验点 (checkpoint):</strong> 是细胞周期的调控点，检验细胞周期从一个时期进入下一个时相的条件是否适合。是分子水平看，检验点是作用于细胞周期转换时序的调控信号通路。</li>
+<li><strong>细胞周期同步化 (cell cycle synchronization):</strong> 让整个细胞群体的细胞都处于同一个时相的过程称为细胞周期同步化，包括天然同步化 (natural synchronization) 和人 工同步化 (artificial synchronization) 两种方式。人工同步化包括 DNA 合成阻断法和分裂中期阻断法。</li>
+<li><strong>有丝分裂 (mitosis):</strong> 是指细胞核中已复制的染色体通过纺锤体的牵引准确分配到两个子细胞中，从而使子细胞染色体完全相同的细胞分裂方式。</li>
+<li><strong>减数分裂 (meiosis):</strong> 是真核生物形成成熟生殖细胞的分裂方式，染色体复制一次而细胞分裂两次，使染色体数目减半的细胞分裂形式。产生的子细胞只有母细胞染色体中的一条是特殊的有丝分裂。</li>
+<li><strong>有丝分裂纺锤体 (mitotic spindle):</strong> 有丝分裂过程中，由微管及其结合蛋白、纺锤体两极组成的有丝分裂装置，在有丝分裂过程中对复制后染色体的排列与运动具有重要作用。</li>
+<li><strong>联会 (synapsis):</strong> 在减数分裂过程中，同源染色体彼此配对的过程。起始于偶线期，完成于粗线期。</li>
+<li><strong>同源染色体 (homologous chromosome):</strong> 二倍体细胞中能够配对的染色体，每条配对的染色体均来自不同的亲本。发生联会的同源染色体对共携带 4 份 DNA 拷贝，每条同源染色体各含两条染色单体。</li>
+<li><strong>细胞板 (cell plate):</strong> 在分裂的植物细胞质中，由膜泡融合形成的扁平的膜囊结构，与完成胞质分裂相关，是新生细胞质膜的前体。</li>
+<li><strong>重组节 (combination nodule):</strong> 在减数分裂染色体配对的复合体部位，由多种蛋白质装配形成的结构。推测认为，重组节与染色体重组有关。</li>
+<li><strong>染色质凝缩 (chromatin condensation):</strong> 是指由间期细长、弥漫样分布的线性染色体，经过螺旋化、折叠和包装等过程，逐渐变短变粗，形成光镜下可辨的染色体结构。</li>
+<li><strong>染色体整列 (congression):</strong> 染色体动粒在两侧动粒微管的作用下，向赤道面运动的过程。</li>
+<li><strong>联会复合体 (synaptonemal complex, SC):</strong> 是减数分裂前期Ⅰ在两个同源染色体之间形成的一种临时性蛋白质梯状结构，由位于中间的中央组分和位于两侧的侧生组分共同构成，广泛存在于动物和植物减数分裂过程中。主要功能是介导同源染色体之间配对和遗传重组。</li>
+<li><strong>星体 (aster):</strong> 动物细胞有丝分裂时，细胞两极围绕中心体向外辐射排列的微管所组成的星形结构。</li>
+<li><strong>中心体 (centrosome):</strong> 由一对相互垂直的柱状中心粒及周围电子致密的基质组成，是微管组织的细胞器。</li>
+<li><strong>中心粒 (centriole):</strong> 由9组等间距平行排列的三联体微管组成。中心粒几乎总是成对出现，两者呈垂直排列。</li>
+<li><strong>凝缩蛋白 (condensin):</strong> 属于染色体结构维持蛋白，介导染色体 DNA 分子内交联，利用水解 ATP 的能量，促进染色体凝缩。</li>
+<li><strong>黏连蛋白 (cohesin):</strong> 由多个亚基构成的，介导姐妹染色单体黏着的蛋白质。其核心组分具有 ATPase 活性，在染色体高级结构组织、包装和配对等方面起关键作用。</li>
+<li><strong>胞质分裂 (cytokinesis):</strong> 细胞分裂过程中，通过收缩环的收缩，最终导致细胞膜融合形成两个子细胞的过程。</li>
+</ol>
+<h4 id="知识点解析-12"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞周期的时相组成及各主要事件</strong></p>
+<ol>
+<li><strong>G₁期</strong><br>
+G₁期是细胞周期的第一阶段。每次细胞分裂之后产生两个子代细胞，即标志着 G₁期的开始。子代细胞随即进入细胞生长期，开始合成除了细胞核 DNA 之外的细胞生长所需要的各种蛋白质、糖类、脂质等。在 G₁期的晚期阶段存在起始点 (start，芽殖酵母中) 或者限制点 (restriction point，R 点，动物细胞中)，细胞只有在内、外因素共同作用下才能通过这一阶段，进入 S 期并合成 DNA。任何影响到这一基本事件完成的因素，都将严重影响细胞从 G₁期向 S 期转换。</li>
+<li><strong>S期</strong><br>
+S 期即 DNA 合成期，该时期真核细胞和原核生物的 DNA 都严格按照半保留方式进行复制。DNA 复制的起始和复制过程受到多种细胞周期调节因子的严密调控。新合成的 DNA 立即与组蛋白结合，共同组成核小体串珠结构。</li>
+<li><strong>G₂期</strong><br>
+DNA 复制完成以后，细胞即进入 G₂期。核内 DNA 的含量已经倍增，其他结构物质和相关的细胞结构均也已完成进入分裂期的必要准备。但细胞能否进入分裂期还受 G₂期检验点的控制。只有当所有因素满足后，细胞才能实现从 G₂期向 M 期 的转化。</li>
+<li><strong>M期</strong><br>
+M 期即细胞分裂期。不论有丝分裂还是减数分裂，细胞都经过分裂，将其在 S 期复制的染色体 (DNA) 准确分配到两个子细胞。</li>
+</ol>
+<p><strong>(二) 有丝分裂各期的主要事件及其结构装置</strong></p>
+<ol>
+<li><strong>前期 (prophase)</strong><br>
+有丝分裂的开始，主要发生两个事件：<br>
+(1) 染色质凝缩 已复制姐妹染色单体的两个姐妹染色单体间彼此黏着和凝缩；不同水平染色体高级结构的组织依赖于不同的染色体结构维持蛋白，如黏连蛋白和凝缩蛋白。<br>
+(2) 细胞分裂的建立和纺锤体的装配 动物细胞分裂极的确立，与中心体的复制、分离和有星纺锤体的装配密切相关。中心体建立两极纺锤体，确保细胞分裂过程的对称性和双极性，这对子细胞个体和组织的建立都具有重要作用。高等植物细胞没有中心体，但有丝分裂时也要装配形成无星纺锤体。</li>
+<li><strong>前中期 (prometaphase)</strong><br>
+其标志性事件有3个：<br>
+(1) 核膜崩解 核膜崩解缘于核纤层的解体。核纤层蛋白的磷酸化与去磷酸化可能是有丝分裂过程中核纤层结构动态变化的调控因素。核纤层蛋白是有些分裂促进因子 (MPF) 的直接作用底物。<br>
+(2) 纺锤体装配完成 动物细胞的纺锤体是由星体微管、染色体动粒微管和极间微管及其结合蛋白构成，是细胞分裂过程中一种与染色体分离直接相关的结构。植物细胞虽然不含中心体，但仍能形成无星纺锤体介导植物细胞的核分裂。<br>
+(3) 染色体整列 (chromosome alignment) 由纺锤体极体发出的微管捕捉染色体动粒，形成的染色体动粒微管是染色体整列的必要条件，而染色体着丝粒-动粒复合体 (centromere-kinetochore complex) 是染色体整列的必要装置。有些蛋白质参与染色体整列事件，其中首要的两组蛋白称为 Mad 和 Bub 蛋白，它们可以使动粒微管，促使微管与动粒接触。一旦所有染色体都被纺锤体微管捕获，Mad2 和 Bub1 很快会从动粒上消失，细胞分裂期则启动被启动。</li>
+<li><strong>中期 (metaphase)</strong><br>
+中期的主要标志是染色体整列完成并且所有赤道面上的染色体动粒结构呈现典型的纺锤样。当染色体完成在赤道面整列之后，两侧的动粒微管长度相等，作用力均衡。</li>
+<li><strong>后期 (anaphase)</strong><br>
+有丝分裂中期姐妹染色单体分离产生向极运动的时段，由后期 A (anaphase A) 及后期 B (anaphase B) 组成。后期 A 是有丝分裂中染色体向两极的向极运动，后期 B 是纺锤体两极进一步远离。</li>
+<li><strong>末期 (telophase)</strong><br>
+在动粒微管消失后，极间微管继续加长，较多地分布于两组染色单体之间。到达两极的动粒微管开始去浓缩，伴随核纤层蛋白去磷酸化，核纤层与核膜同时形成核孔复合体在核膜上装配。在末期，核仁也开始重新组装，RNA 合成功能逐渐恢复。</li>
+<li><strong>胞质分裂与核分裂 (有丝分裂) 是相关事件</strong>。胞质分裂一般开始于细胞分裂后期，完成于细胞分裂末期；而有丝分裂即使在没有胞质分裂的情况下也会发生。胞质分裂随着细胞由赤道板附近形成的分裂沟，形成分裂沟（furrow）。随着细胞由后期向末期转化，分裂沟逐渐加深，直至两个子代细胞完全分开。胞质分裂开始时，大量的肌动蛋白和肌球蛋白 II 在赤道板处组装成反向排列的微丝束，环绕细胞，称为收缩环。收缩环收缩沟逐渐加深，细胞形状也由原来的圆形逐渐变为椭圆形、哑铃形，直到形成两个子细胞。</li>
+</ol>
+<p><strong>(三) 减数分裂各阶段及特点</strong></p>
+<p>减数分裂是一种特殊的有丝分裂形式，仅发生于有性生殖细胞形成过程中的某个阶段。减数分裂最主要特征是，仅进行一次 DNA 复制，随后两次分裂。两次分裂分别称为减数分裂 I 和减数分裂 II，在两次分裂之间，还有一个短暂的分裂间期。减数分裂既可以有效地获得双亲的遗传物质，保持后代的遗传稳定性，又可以增加更多的变异，增强生物适应环境变化的能力。因此减数分裂是生物有性生殖的基础，是生物遗传、进化和生物多样性的重要保证。<br>
+与有丝分裂相似，在减数分裂之前的间期阶段，减数分裂前间期 (premeiotic interphase)，也可以人为地划分为 G₁期、S 期、G₂期 3 个时相。减数分裂 I (meiosis I) 也可以人为地划分为前期Ⅰ、中期Ⅰ、后期Ⅰ和胞质分裂 I 六个阶段。减数分裂 I 又有其鲜明的特点是前期Ⅰ (prophase I) 的同源染色体配对和基因重组；二是前期 I 持续时间较长，在高等生物，其时间可持续数甚至数十年。此外也合成一定量的 RNA 和蛋白质。根据细胞染色体形态变化，可将前期 I 人为地划分为细线期、偶线期、粗线期、双线期和终变期5个阶段。</p>
+<hr>
+<h3 id="第十四章-细胞增殖调控与癌细胞"><strong>第十四章 细胞增殖调控与癌细胞</strong> </h3>
+<h4 id="基本概念-13"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>MPF:</strong> 成熟促进因子 (maturation-promoting factor)，或有丝分裂促进因子 (mitosis-promoting factor)，也称 M 期促进因子 (M-phase-promoting factor)，是催化亚基 cdc2 蛋白和调节亚基周期蛋白 B 共同组成的蛋白质复合物，具有激酶活性，促使细胞从 G₂ 期进入 M 期。</li>
+<li><strong>早熟凝缩染色体 (premature condensation chromosome, PCC):</strong> 将 M 期细胞与 G₁、S 和 G₂ 期细胞融合，并继续培养一定时间后，融合细胞染色体提前凝缩，形成各异，称之为早熟凝缩染色体。其中 G₁、S 和 G₂ 期的 PCC 分别为细单线状、粉末状和双线状。</li>
+<li><strong>后期促进复合物 (anaphase-promoting complex, APC):</strong> 具有泛素连接酶活性的蛋白质复合物，在 M 期向间期表达，但只在 M 期被激活，通过泛素依赖性途径降解参与姐妹染色单体分离的蛋白质，使细胞从中期向后期转换。</li>
+<li><strong>Rb 蛋白 (retinoblastoma protein, Rb protein):</strong> 目前已知 Rb 蛋白是 cyclin D - CDK 的底物，是 E2F 的抑制因子，在 G₁/S 期起到转录抑制的作用，在 G₁ 期的晚期阶段通过磷酸化而失活。Rb 基因突变失活则会导致视网膜母细胞瘤 (retinoblastoma)。Rb 基因向 p53 等基因被称为抑癌基因或抗癌基因。</li>
+<li><strong>温度敏感型突变株 (temperature-sensitive mutants, ts):</strong> 某些酵母突变株，在允许温度条件 (20 ~ 23℃) 下可正常分裂繁殖，而在限定温度条件 (35 ~ 37℃) 下，则不能正常分裂繁殖。这种在限定温度下失去正常分裂繁殖能力的现象，是由于某个基因发生突变而引起的。不同温度敏感型突变株可用于研究细胞周期调控基因。</li>
+<li><strong>cdc2 基因:</strong> cdc2 基因是第一个被分离出来的细胞周期调控基因，该基因突变会导致细胞停留在 G₁/M 期交界处。它的表达产物是一种相对分子质量为 3.4 x 10⁴ 的蛋白质，被称为 p34cdc2，具有蛋白激酶活性，可以使多种蛋白底物磷酸化，因而又被称为 p34cdc2 激酶。</li>
+<li><strong>良性肿瘤 (benign tumor):</strong> 肿瘤细胞不受正常生长调控，但不浸润附近的正常组织，也不向较远的位置转移。</li>
+<li><strong>癌细胞 (cancer cell):</strong> 脱离了细胞社会制约，表现出细胞增殖失控，并有侵袭和转移等特征。</li>
+<li><strong>RNA 瘤病毒 (RNA tumor virus):</strong> 感染脊椎动物细胞并能将细胞转化成癌细胞的 RNA 病毒。</li>
+<li><strong>癌基因 (oncogene):</strong> 控制细胞生长和分裂的一类正常基因，其突变能引起正常细胞发生癌变。癌基因可分成两大类：一是病毒癌基因，指反转录病毒的基因组里带有可使受感染的宿主细胞发生癌变的基因，简写成 v-onc (v 是 virus 的缩写)；另一类癌基因是细胞癌基因，简写成 c-onc (c 是 cell 的缩写)，又称原癌基因 (protooncogene)。</li>
+<li><strong>抑癌基因或肿瘤抑制基因 (tumor-suppressor gene):</strong> 又称抗癌基因 (antioncogene)，所编码的蛋白质是正常细胞增殖过程中的负调控因子，在细胞周期的检验点上起阻止周期进程或者促进细胞凋亡，或者既抑制细胞增殖又促进细胞凋亡。</li>
+<li><strong>p53 抑癌基因:</strong> p53 基因是一种细胞周期调控基因，当 DNA 受到损伤后被活化，阻止细胞周期运转或者介导细胞凋亡。编码 p53 基因。</li>
+<li><strong>肿瘤干细胞 (cancer stem cell):</strong> 某些肿瘤组织中存在的类似于成体干细胞的干细胞样细胞，具有无限增殖、转移和抗化学药物损伤的能力。一般肿瘤细胞相比，肿瘤干细胞具有高致瘤性。</li>
+<li><strong>恶性转化细胞 (malignant transformed cell):</strong> 应用人工诱导技术可培养出恶性转化的细胞及恶性程度不同的转化细胞。恶性转化细胞同癌细胞一样具有无限增殖的潜能，在体外培养时贴壁生长，可依附在培养器皿壁上生长，有些还可进行悬浮式培养；失去运动和分裂的接触抑制，可在琼脂培养基中形成细胞克隆。当将恶性转化细胞注入易感动物体内时，往往会诱发肿瘤。对外培养的恶性转化细胞及癌细胞的比较研究有助于了解肿瘤的特征及发生机制。</li>
+</ol>
+<h4 id="知识点解析-13"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞周期蛋白的功能与结构</strong></p>
+<p>已从生物体和人体中克隆分离了数十种周期蛋白 (cyclin)，它们在细胞周期内表达时相有所不同，所执行的功能也多种多样。有的只在 G₁ 期表达并在 G₁ 期和 S 期转换过程中执行调节功能，常被称为 G₁ 期周期蛋白，如 cyclin D、cyclin E、Cln1、Cln2、Cln3 等；有的在细胞周期不同时期表达和积累，但到 M 期时才表现出调节功能，所以常被称为 M 期周期蛋白，如 cyclin A、B 等。</p>
+<p>各种周期蛋白之间有着共同的分子结构特点，但也各有特性。首先，它们均含有二段相当保守的周期蛋白框。周期蛋白框介导周期蛋白与 CDK 结合。不同周期蛋白框组成不同，组成不同的 cyclin-CDK 复合物，表现出不同的 CDK 活性。</p>
+<p>M 期周期蛋白还另有一个特点，在近 N 端含有一段破坏框。破坏框主要参与泛素依赖性的 cyclin A 和 B 的降解。G₁ 期周期蛋白不含破坏框，但其 C 端含有一段特殊的 PEST 序列。据认为，PEST 序列与 G₁ 期周期蛋白的更新有关。</p>
+<p><strong>(二) 周期蛋白依赖性蛋白激酶的结构与调控因子</strong></p>
+<p>当酵母 cdc2 和 cdc28 基因被分离出来后，研究者又从人、非洲爪蟾和果蝇的 cDNA 文库成功分离到了十多个 cdc2 相关基因，被统称为周期蛋白依赖性蛋白激酶 (cyclin-dependent kinase, CDK)。它们含有两个共同的特点：一个是在它们的 N 端含有一小段序列保守，即 PSTAIRE 序列，此序列与周期蛋白结合有关，进而表现出蛋白激酶活性。不同 CDK 所结合的周期蛋白不同，在细胞周期中执行的调节功能也不同。此外，在 CDK 分子中也发现一些重要位点，对这些位点进行磷酸化修饰，将对 CDK 活性起重要调节作用。</p>
+<p>细胞内存在多种因子，对 CDK 分子进行修饰，对 CDK 活性调节。除周期蛋白和上述修饰因子对 CDK 活性调节之外，细胞内还存在一些对 CDK 活性起负调控的蛋白质，称为 CDK 抑制因子 (CDK inhibitor, CKI)。</p>
+<p><strong>(三) 细胞周期运转的调控</strong></p>
+<ol>
+<li>CDK1 对 G₂/M 期转换的调控作用<br>
+MPF 由 p34cdc2 (CDK1) 和 cyclin B 结合而成。p34cdc2 蛋白在细胞周期中的含量相对稳定，而 cyclin B 的含量则呈现周期性变化。p34cdc2 蛋白只有与 cyclin B 结合后才有可表现出激酶活性。因而，CDK1 活性首先依赖于 cyclin B 含量的积累。Cyclin B 一般在 G₁ 期的晚期开始合成，通过 S 期，其含量不断增加，到达 G₂ 期，其含量达到最大值。cyclin B 含量积累并结合 CDK1，以及 Cak 和 Wee1 两种激酶对 CDK1 第 14、15 和 161 位氨基酸残基磷酸化，随后被 cdc25 去掉第 14 位和 15 位氨基酸残基上的磷酸基团，CDK1 活性才开始出现。到 M 期的中期阶段一直维持到 M 期的中期阶段。<br>
+CDK1 通过使其底物蛋白磷酸化，改变下游的某些靶蛋白的结构和功能，实现其调控细胞周期的作用。CDK1 催化底物蛋白磷酸化有一定的位点特异性，即选择底物中某个特定序列中的丝氨酸或苏氨酸残基。CDK1 可以使多种底物蛋白磷酸化，其中包括组蛋白 H1、核纤层蛋白 A、B、C，核仁蛋白 (nucleolin)、No38, p60src-abl 蛋白等。组蛋白 H1 磷酸化，使染色质凝缩；核纤层蛋白磷酸化，促使核仁解体；p60src-abl 蛋白磷酸化，促使细胞骨架重排；c-abl 蛋白磷酸化，促使细胞形态调整等，由此细胞从 G₁ 期向 M 期转换。</li>
+<li>M 期周期蛋白与细胞分裂中期向后期转换<br>
+细胞周期运转还受到分裂中期向后期转换的调控。M 期周期蛋白 A 和 B 将迅速降解，CDK1 活性丧失，上述被 CDK1 磷酸化的底物去磷酸化后细胞周期向后期转换。目前已经知道，cyclin A 和 B 的降解是通过泛素依赖途径实现的。<br>
+有丝分裂中期过后，周期蛋白与分离酶在 APC 的作用下，M 期 cyclin A 和 B 通过其分子中的破坏框结构，结合泛素，经蛋白酶体途径被蛋白酶降解。<br>
+目前已知细胞中存在其它几种蛋白可调节 APC 的活性。体外实验显示，M 期 CDK 磷酸化而激活。在有丝分裂组装检验点 (spindle assembly checkpoint) 的调控下，纺锤体组装不完全，或所有动粒不能被微管全部捕捉，位于动粒上的 Mad2 (mitosis arrest deficient 2) 蛋白则不能解离下来。作为一种“等待”信号，Mad2与 cdc20 结合并有效地抑制其活性。cdc20 是 APC 的有效正调控因子，因此，纺锤体组装不完全，APC 始终处于失活状态。当纺锤体组装完成后，动粒全部被微管捕捉，Mad2 从动粒上解离，从而解除对 cdc20 的抑制作用，促使 APC 活化，导致 M 期周期蛋白的降解；在酵母细胞中，促使 Cul2/Pds1p 降解，解除其对姐妹染色单体分离的抑制从而向后期转换。</li>
+<li>G₁/S 期转换与周期蛋白依赖性蛋白激酶的激活<br>
+细胞能否成功地实现由 G₁ 期向 S 期转化，标志着该细胞能否完成其 DNA 合成和其他相关生物大分子的合成，进而完成细胞分裂。目前一般认为，细胞周期 G₁ 期向 S 期转化主要受 G₁ 期 CDK 所控制。在哺乳动物细胞中，G₁ 期向 S 期转化主要包括 cyclin E、D 等。与 G₁ 期周期蛋白结合的 CDK 主要包括 CDK2、CDK4 和 CDK6 等。目前已知 Rb 蛋白是 cyclinD - CDK 的底物，而 Rb 是 E2F 的抑制因子。因此，G₁/S 期转换的负调控因子。Rb 基因的突变往往导致儿童视网膜母细胞瘤。</li>
+<li>DNA 复制执照因子学说<br>
+DNA 复制周期中，DNA 只能复制一次？为此，研究者提出在细胞的胞质内存有一种执照因子，对细胞核染色质 DNA 复制发行“执照”(licensing)。在 M 期，细胞核膜破裂，胞质中的执照因子与染色质接触并与之结合，使后者获得 DNA 复制必需的“执照”。细胞通过 G₁ 期后进入 S 期，DNA 开始复制。随 DNA 复制过程的进行，“执照”信号不断减弱直到消失。到达 G₁ 期，细胞核不再含有“执照”信号，DNA 复制不再复制。只有等到下一个 M 期，染色质再次与胞质中的执照因子接触，重新获得“执照”，细胞核才能开始新一轮的 DNA 复制。研究结果证实，执照因子主要包括 Mcm 蛋白 (minichromosome maintenance protein) 等成分。</li>
+<li>S/G₂/M 期转换与 DNA 复制检验点<br>
+DNA 复制结束后，细胞周期由 S 期自动转换到 G₂/M 期，并准备进行细胞分裂。然而，为什么在 DNA 复制尚未完成之前，细胞不能开始 S/G₂/M 期转换呢？原来，细胞中存在一系列检查细胞复制进程的监控机制。DNA 复制还未完成或者 DNA 复制出现问题，细胞周期便不能向下一个阶段转换。DNA 复制检验点主要包括两种：S 期内部检验点 (intra-S phase checkpoint) 以及 DNA 复制检验点 (replication checkpoint)。</li>
+</ol>
+<p><strong>(四) 癌细胞的基本特征</strong></p>
+<ol>
+<li>细胞生长与分裂失去控制，成为“不死”的永生细胞，核质比例增大，分裂速度加快，结果破坏了正常组织的结构与功能。</li>
+<li>具有浸润性和扩散性<br>
+恶性肿瘤细胞 (癌细胞) 间黏着性降低，具有浸润性和扩散性，易于浸润周围健康组织，或通过血液循环或淋巴途径转移并在其他部位黏着和增殖。此外，癌细胞在分化程度上低于正常细胞和良性肿瘤细胞，失去了原组织的某些结构和功能。</li>
+<li>细胞间相互作用改变<br>
+癌细胞冲破了细胞识别作用的束缚，在转移过程中，除了会产生水解酶类 (如用于水解基底膜成分的酶类)，而且需要表达某些膜蛋白，以便与别处细胞黏着和继续增殖。并借此避免免疫系统的监视，防止天然杀伤细胞等的识别和攻击。</li>
+<li>表达谱改变或蛋白质活性改变<br>
+癌细胞的基因表达谱系中，往往出现一些在胚胎细胞中所表达的蛋白质，如在肝癌细胞中表达肝胚胎蛋白中的多种蛋白。多数癌细胞中具有较高的端粒酶活性。癌细胞还异常表达与其恶性增殖、扩散等过程相关的组织蛋白酶，如纤连蛋白减少，某些蛋白如蛋白激酶 Src、转录因子 Myc 等过量表达。此外，由于癌细胞基因突变位点不同，同一种癌甚至同一癌灶中的不同细胞之间也可能具有不同的表型，而且其表型不稳定，特别是具有高转移潜能的癌细胞其表型更不稳定，这就决定了癌细胞异质性的特征。</li>
+</ol>
+<hr>
+<h3 id="第十五章-细胞分化与胚胎发育"><strong>第十五章 细胞分化与胚胎发育</strong> </h3>
+<h4 id="基本概念-14"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞分化 (cell differentiation):</strong> 是指在个体发育中，由一种相同的细胞类型经细胞分裂后逐渐在形态、结构和功能上形成稳定性差异、产生不同的细胞类型的过程。</li>
+<li><strong>管家基因 (house-keeping gene):</strong> 是指所有细胞中均表达的一类基因，其产物是维持细胞基本生命活动所必需的。</li>
+<li><strong>组织特异性基因 (tissue-specific gene):</strong> 又称细胞类型特异性基因 (cell type-specific gene)，亦称奢侈基因 (luxury gene)，是指不同类型细胞特异性表达的基因，其产物赋予各种类型细胞特异的形态结构与特异的生理功能。一般在细胞周期早期复制。细胞分化的实质是组织特异性基因在时空上的差异表达。</li>
+<li><strong>组合调控 (combinational control):</strong> 是指有限的少量调控蛋白启动了为数众多的特异细胞分化程序，即每种类型的细胞分化共同参与的细胞分化。</li>
+<li><strong>主导基因 (master gene):</strong> 是指编码在启动细胞分化的各类调节蛋白中的两种起决定作用的调控蛋白。主导基因的表达可能启动整个细胞的分化过程。</li>
+<li><strong>终末分化 (terminal differentiation):</strong> 指由干细胞最终形成特化细胞类型的过程。</li>
+<li><strong>转分化 (transdifferentiation):</strong> 是指一种类型的分化细胞转变成另一种类型的分化细胞的过程，往往经历去分化和再分化的过程。</li>
+<li><strong>重编程 (reprogramming):</strong> 是指已分化的细胞在特定条件下完成去分化过程，最终形成了原始的胚胎细胞的特性。</li>
+<li><strong>再生 (regeneration):</strong> 一般是指生物体部分缺损后重建的过程，广义的再生可包括细胞水平、组织与器官水平及个体水平的再生。</li>
+<li><strong>胚胎干细胞 (embryonic stem cell, ES cell):</strong> 是从早期囊胚的内细胞团 (ICM) 或生殖嵴中原始生殖细胞 (PGC) 分离出来的具有发育全能性的一种未分化的细胞，它具有与胚胎细胞相似的形态特征及发育全能性的中空球形体。</li>
+<li><strong>细胞全能性 (totipotency):</strong> 是指细胞分裂和分化后仍具有形成完整有机体的潜能或特性。动物的受精卵、卵裂早期胚胎细胞及植物细胞等都具有全能性。</li>
+<li><strong>微环境 (niche):</strong> 是指细胞间质及其周边细胞的细胞和体液成分。微环境的稳定是保持细胞正常增殖、分化、代谢和功能活动的重要条件。</li>
+<li><strong>囊胚 (blastula):</strong> 是指受精卵经过卵裂后形成的多细胞组成的微环境的中空球形体。此时细胞已明显分化，外表为滋养层细胞，将发育成的胎盘等胚外组织，中心为囊胚腔，腔内一侧的细胞称内细胞团，将发育成胚体等。</li>
+<li><strong>原肠胚 (gastrula):</strong> 是指囊胚形成后，胚胎细胞经历了剧烈有序的运动过程，细胞间的相对位置发生显著改变，最终形成3个胚层(germ layer)，这个阶段原肠形成为原肠胚。</li>
+<li><strong>胚胎诱导 (embryonic induction):</strong> 也称近端组织相互作用 (proximate tissue interaction)，是指胚胎发育过程中，一部分细胞组织周围细胞使其向一定方向分化的现象。主要通过细胞旁分泌产生的一信号分子来实现的。</li>
+<li><strong>原生殖细胞 (primordial germ cell, PGC):</strong> 原肠胚时期含有生殖质的细胞称为原生殖细胞。此前的生殖细胞称为预定原生殖细胞。原生殖细胞的祖先细胞。</li>
+<li><strong>顶体反应 (acrosomal reaction):</strong> 精子释放顶体酶，溶蚀卵子放射冠和透明带的过程。</li>
+<li><strong>旁侧抑制 (lateral inhibition):</strong> 是指在很多具有相同分化潜能的细胞中，当一个细胞分化，就会抑制附近的细胞形成相同的分化，从而保证充足的空间和营养物质，最后产生间隔模式。</li>
+</ol>
+<h4 id="知识点解析-14"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞分化的基本概念</strong></p>
+<p>细胞分化是基因选择性表达的结果。</p>
+<p>细胞分化是基因选择性地表达各自特有的一专一性蛋白质而导致细胞形态、结构与功能的差异。不同类型的细胞各自表达一套特异的基因，其产物不仅决定细胞的形态结构，而且执行特定的生理功能。</p>
+<p>组合调控引发组织特异性基因的表达。</p>
+<p>细胞分化的机制为组合调控，每种类型的细胞分化由多种调控蛋白共同参与完成。如果调控蛋白的数目是 n，则其调控组合在理论上可以启动分化的细胞类型为 2ⁿ。</p>
+<p>单细胞生物甚至原核生物也存在细胞分化，然而与多细胞有机体细胞分化的不同之处是：前者多为适应外界环境的改变，而后者则通过细胞分化构建执行不同功能的器官。因此，多细胞有机体在其分化程序与调节机制方面显得更为复杂。</p>
+<p><strong>(二) 细胞潜能与干细胞</strong></p>
+<ol>
+<li>干细胞的分类<br>
+干细胞是机体中能进行自我更新 (产生与自身相同的子代细胞) 和多向分化潜能 (分化形成不同细胞类型) 并具有形成克隆能力的一类细胞。<br>
+细胞分化潜能不同，干细胞又可分为全能干细胞、多能干细胞和单能干细胞。全能干细胞可分化为机体内的任何一种细胞，甚至形成一个复杂的有机体。多能干细胞可分化为多种类型的细胞。单能干细胞只能分化为一种类型的细胞。</li>
+<li>诱导多能干细胞<br>
+诱导多能干细胞 (induced pluripotent stem cell, iPS cell)：通过基因转染技术将某些转录因子导入动物体细胞，使体细胞经过重编程形成胚胎干细胞样的多能细胞。诱导多能干细胞最初是日本科学家山中伸弥 (Shinya Yamanaka) 于 2006 年利用病毒载体将4个转录因子 (Oct4, Sox2, Klf4 和 c-Myc) 转入分化的体细胞中而实现。</li>
+</ol>
+<p><strong>(三) 影响细胞分化的因素</strong></p>
+<ol>
+<li>受精卵细胞质的不均一性对细胞分化<br>
+决定子是一种与蛋白质结合处于非活性状态的 mRNA (隐蔽 mRNA)，能影响卵裂细胞向不同方向分化的细胞质成分，这种不均匀性在一定程度上决定了胚胎发育早期细胞的分化。</li>
+<li>胞外信号分子对细胞分化的影响<br>
+近端组织相互作用主要通过细胞旁分泌产生的信号分子来实现，另一种远距离相互作用相互作用主要通过内分泌产生的信号分子来实现。</li>
+<li>细胞间的相互作用与位置效应。</li>
+<li>细胞记忆与决定<br>
+细胞决定是指一个细胞接受了某种指令，在发育中这一细胞及其子代细胞将区别于其他细胞而分化成某种特定的细胞类型，或者说在形态、结构与功能等尚未显现之前就已确定了细胞的分化命运。细胞的分化记忆有两种方式实现：一是正反馈途径 (positive feedback loop)，二是染色体结构变化 (DNA与蛋白质相互作用及其修饰) 的信息传到子代细胞。</li>
+<li>环境对性别的决定<br>
+主要表现在温度对卵生动物孵化时性别的影响，例如某些蜥蜴在 24℃下全部发育为雌性，在 32℃下则全部发育为雄性。</li>
+<li>染色质变化与基因重排对细胞分化的影响<br>
+纤毛虫类(如草履虫、四膜虫)的细胞内存在2个细胞核，小核称为生殖核，包含完整的二倍体基因组，但基本不表达；大核称为营养核，丢失 10% ~ 90% 的 DNA，剩余的 DNA 经重复扩增后形成多倍体；其基因活跃地转录并决定其一切表型特征。B 淋巴细胞在繁殖过程中，其编码抗体的基因可发生重排。</li>
+</ol>
+<p><strong>(四) 胚胎发育中的细胞分化</strong></p>
+<ol>
+<li>生殖细胞的分化<br>
+(1) 哺乳动物的性别分化<br>
+SRY 的发现 性别分化本质是性腺细胞的分化。性腺分化有两个方向——睾丸或卵巢，哺乳动物的 Y 染色体决定分化方向。Y 染色体上携带决定男性性别的关键基因，称之为睾丸决定因子 (testis-determining factor, TDF)。SRY (sex-determining region of Y) 基因编码一与性别分化相关的转录因子，最终决定睾丸的发育。<br>
+SRY 与性腺细胞的分化 表达 SRY 的性腺细胞，最终分化为睾丸中最主要的细胞类型——支持细胞，这是生殖嵴细胞中最早产生性别分化的细胞。支持细胞诱导性腺细胞体中其他细胞分化为其他类型的睾丸组成细胞，引导性别分化朝向雄性的方向。在 XX 个体中，分化为睾丸细胞的这部分细胞将分化为卵巢中的滤泡细胞。<br>
+SRY 的作用机制 SRY 编码一个转录因子，通过调节下游的基因表达，引起前体细胞向睾丸支持细胞的分化。Sox9 (SRY-related high mobility group box 9) 与 SRY 同属于 HMG 类 DNA 结合蛋白家族，是 SRY 下游最关键的基因，是其直接和普遍的作用。<br>
+(2) 生殖细胞的形成与成熟 生殖细胞是最早决定分化的细胞之一。原生殖细胞向精子或卵子分化，经过减数分裂等一系列复杂的过程，最终成为精子或卵子。哺乳动物生殖细胞的发育过程中，随着精子在附睾最末端的几次卵裂所产生的细胞是全能性的。随着胚胎发育某些细胞在邻近细胞的诱导之下向 PGC 方向分化。PGC 形成后便分裂和迁移，到达生殖嵴。性别特异性基因的甲基化 (基因印记) 是由 PGC 本身的核型所决定的，而 PGC 迁移进入生殖嵴后的细胞分裂方式取决于生殖嵴的体细胞。</li>
+<li>早期胚胎发育过程中的细胞分化<br>
+(1) 动物早期发育 有性生殖的生物，其生命一般起始于受精 (fertilization)，包括两个连续发生的发应——顶体反应和皮层反应 (cortical reaction)。受精作用形成合子 (zygote)，使染色体恢复到二倍体状态，受精卵开始进行一段时间的快速细胞分裂，称为卵裂。为囊胚。卵裂期间存在的空隙融合在一起，形成内部的腔，这时其主要过程为：囊胚形成后，胚胎细胞经历了剧烈有序的运动过程，细胞间的相对位置显著改变，最终形成3个胚层(germ layer)，这个阶段称为原肠胚。<br>
+(2) 神经胚形成 脊椎动物原肠胚背部的中胚层和覆盖在其表面的外胚层的相互作用，是各种特异性组织和器官产生的过程。<br>
+脊索的形成：非经典 Wnt 信号途径在背部的中胚层组织形成脊索过程中起重要作用。神经管的形成：脊索诱导其上方的外胚层形成神经板，也称神经板的形成。神经板将发育为中枢神经的脑和脊髓。神经嵴(neural groove)→神经褶(neural fold)→神经管(neural tube)。在神经管闭合闭合后，头部和脊髓的神经嵴(neural crest)细胞开始迁移，最终形成外周神经系统、色素细胞甚至具有中胚层性质的头骨和头部真皮，以及心血管系统的部分细胞。神经管开始形成阶段是脊椎动物发育历程中的重要时期，称之为神经胚(neurula)期。<br>
+(3) 神经管初期发育进程中神经干细胞的维持<br>
+① FGF 信号维持神经干细胞向神经元分化。<br>
+② Delta 的表达。cyclin D2 与 CDK4/6 形成复合物，促进早期 G₁ 进程，从而诱导 neurogenin 的连续表达。Delta-Notch 信号途径与神经元分化是决定 G₁ 是否分化的关键因素，是 Delta-Notch 信号途径的下游靶分子。关闭了抑癌细胞 neurogenin 的表达，使之继续维持干细胞状态。同时，强的 Delta 信号抑制了邻近细胞 Delta的合成，这样就解除了对自身抑制，于是在邻近细胞高表达 Delta信号的前体细胞合成，激活了下游信号因子 neuro D 的表达，前体细胞开始向神经元分化。<br>
+③ Wnt-β-catenin 经典途径维持神经管腹侧前体细胞的分裂，维持神经前体细胞库。<br>
+④ Hedgehog 途径对早期中枢神经系统生长的调控 此信号通路激活可通过 N-myc 和 cyclin D1 促进细胞增殖。Shh (Sonic hedgehog) 的神经管的分化起关键作用。<br>
+⑤ BMP (bone morphogenetic protein) 信号通过其不同受体调控背侧脊髓细胞的增殖与分化 BMP 受体 Ia, 会诱导 Wnt 基因的表达，促进细胞的增殖；而表达持续活化的 BMP 受体 Ib, 则引起细胞分化。<br>
+(4) 神经管细胞的分化 脊索抑制其邻近的神经管细胞增殖，形成了相对较薄的底板；侧面的前体中胚层组织则诱导与之相邻的神经管较厚较厚的神经管壁。诱导神经管出现背腹分化的主要4种信号分子，FGF、RA、Shh 和 BMP。<br>
+① Shh 和 RA 在腹侧神经细胞分化中起关键作用 Shh 信号以浓度依赖的方式对神经管发挥作用，神经管旁的中体节中胚层在视黄醛脱氢酶 2 (retino-aldehyde dehydrogenase 2, RALD H2) 的催化下，合成并分泌的另外一种信号分子 RA 也形成了一个浓度梯度，与 Shh 梯度相颉颃；距离腹侧近的神经细胞分化几乎全部由 Shh 决定；而距离稍远的神经细胞分化，则由 Shh 和 RA 共同决定。Shh 和 RA 的效应分子都是带有同源结构域的转录因子。<br>
+② BMP 促进背侧神经细胞分化 BMP 诱导的细胞分化同样有浓度梯度依赖性，也激活了神经元亚类的特化，FGF、RA、Shh 和 BMP 信号所诱导的转录因子体系，通过对其他方向分化潜能的抑制最终决定了细胞的分化命运。</li>
+<li>果蝇胚胎早期发育中的细胞分化<br>
+调整型发育 (regulative development)：也称为细胞分化，脊椎动物胚胎发育过程中，细胞附近组织对细胞分化发挥了巨大作用，细胞的分化命运大部分由其所处环境决定。<br>
+镶嵌型发育 (mosaic development)：也叫自主型发育，大部分无脊椎动物的发育过程中，细胞分化命运大体是由细胞本身所决定的，对细胞所处环境依赖较小。果蝇的发育就是典型的镶嵌型发育。</li>
+</ol>
+<hr>
+<h3 id="第十六章-细胞死亡与细胞衰老"><strong>第十六章 细胞死亡与细胞衰老</strong> </h3>
+<h4 id="基本概念-15"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>程序性细胞死亡 (programmed cell death, PCD):</strong> 是由遗传机制决定的、受到严格的基因调控的细胞“主动”死亡方式。这种严谨的过程具有重要的意义。</li>
+<li><strong>细胞凋亡 (apoptosis):</strong> 由 Kerr 等三位科学家于 1972 年提出。是细胞接受某些特定信号刺激后，主动的由基因决定的细胞死亡方式。该过程具有典型的形态学和生化特征，凋亡细胞最后以凋亡小体形式被吞噬消化。</li>
+<li><strong>细胞坏死 (necrosis):</strong> 细胞受到意外损伤，如极端的物理、化学因素或严重的病理性刺激而发生的细胞死亡形式。细胞坏死时，细胞内含物释放到细胞外，引起周围组织的炎症反应。有研究表明，细胞坏死也是“程序性死亡”的另一种形式。</li>
+<li><strong>细胞自噬 (autophagy):</strong> 细胞通过溶酶体与来自内质网或细胞质中膜泡的双层膜包裹的细胞自身物质融合，从而降解细胞自身物质的过程。细胞中双层膜包裹的结构称为自噬体 (autophagosome)，自噬体与溶酶体融合后形成自噬溶酶体 (autophagolysosome)。细胞自噬是促使细胞存活的自我保护机制。</li>
+<li><strong>凋亡小体 (apoptotic body):</strong> 细胞凋亡过程中断裂的 DNA 或染色质与其他细胞内物质一起被反折的细胞质膜包裹，形成的球形小体，将被邻近细胞或吞噬细胞吞噬，在溶酶体内被消化分解。</li>
+<li><strong>DNA 梯带 (DNA ladder):</strong> 凋亡细胞内特异性核酸内切酶活化后，染色质 DNA 在核小体间被特异性切断，形成 180 ~ 200 bp 或其整数倍片段，经琼脂糖凝胶电泳呈现出的梯状条带。</li>
+<li><strong>TUNEL 法 (terminal deoxynucleotidyl transferase (TdT) -mediated dUTP nick end labeling):</strong> 转移酶介导的 dUTP 缺口末端标记法，是细胞凋亡的检测方法之一。通过借助一种可观测的标记物，如荧光素，对单个凋亡细胞核内 DNA 分子中 3' -OH 断裂缺口进行原位染色，用荧光显微镜观察。</li>
+<li><strong>caspase (cysteine aspartic acid protease):</strong> 又称天冬氨酸特异性的半胱氨酸蛋白水解酶，是一组结构类似、与细胞凋亡有关的蛋白酶，其活性位点均包含半胱氨酸，主动的由基因决定的细胞死亡方式。选择性地切割某些蛋白的天冬氨酸残基后的肽键，负责选择性地切割某些蛋白质失活或活化。根据其在细胞凋亡过程中的功能不同，可分为起始 caspase 和效应 caspase。通常均以无活性的酶原形式存在于细胞质基质中。</li>
+<li><strong>caspase 激活的 DNA 酶 (caspase activated DNase, CAD):</strong> 一般与其抑制因子 ICAD 结合在一起，处于失活状态。细胞凋亡程序启动后，活化的 caspase - 3 降解 ICAD，使 CAD 释放出来并在核小体间切割 DNA，形成间隔 200 bp 或其倍数的 DNA 片段。</li>
+<li><strong>caspase 募集结构域 (caspase recruitment domain, CARD):</strong> 存在于凋亡起始 caspase - 2 和 9，以及凋亡相关接头蛋白凋亡蛋白酶激活因子(Apaf-1)中，通过结构域之间的聚合，caspase 能够彼此结合或与接头蛋白结合，被招募到上游信号复合物中活化。</li>
+<li><strong>Bcl-2 (B-cell lymphoma gene 2):</strong> 是 Bcl-2 基因编码产物，也是线虫抗凋亡蛋白 Ced9 在哺乳动物细胞中的同源物，大多定位在线粒体膜上，或受信号刺激后转移到线粒体膜上，调控线粒体通透性，促进或抑制细胞凋亡。该家族成员含有一个或者多个 BH (Bcl-2 homology) 结构域。</li>
+<li><strong>凋亡诱导因子 (apoptosis inducing factor, AIF):</strong> 位于线粒体外膜，是一种能够诱导非 caspase 依赖性细胞凋亡的蛋白。凋亡过程中，AIF 从线粒体释放到细胞质基质中，然后进入细胞核，引起核内 DNA 凝集并断裂形成约 5 x 10⁴ 大小的片段，而非 caspase 依赖性细胞凋亡典型产物的间隔 200 bp 的 DNA 片段。</li>
+<li><strong>限制性内切核酸酶 G (endonuclease G):</strong> 属于 Mg²⁺ 依赖性核酸酶家族，位于线粒体中。主要功能是负责线粒体 DNA 的修复和复制。但在细胞受到凋亡信号刺激后，它从线粒体中释放出来进入细胞核。对核 DNA 进行切割，产生的典型凋亡小体为单位的 DNA 片段，引发 caspase 非依赖性的细胞凋亡。</li>
+<li><strong>细胞凋亡的抑制因子 (inhibitor of apoptosis):</strong> 细胞中存在的 caspase 抑制因子家族。家族成员具有由 70 个氨基酸组成的 BIR (baculoviral IAP repeat) 结构域，能够直接与 caspase 活性分子结合，阻抑其对底物的切割作用。</li>
+<li><strong>细胞衰老 (cell aging, cell senescence):</strong> 一般是复制衰老 (replicative senescence)，即体外培养的正常细胞经过有限次数的分裂增殖后，停止生长，细胞形态和生理代谢活动发生显著改变的现象。细胞衰老的假说主要有端粒缩短理论和氧化损伤理论等。</li>
+<li><strong>Hayflick 界限 (Hayflick limit):</strong> 正常细胞的体外培养增殖寿命不是无限的，而是只有有限次数的分裂增殖。美国生物学家 Leonard Hayflick 注意到正常细胞只能进行有限次数的分裂增殖。</li>
+<li><strong>衰老相关的 β-半乳糖苷酶 (senescence associated β-galactosidase, SA β-gal):</strong> 细胞衰老中在 pH 6.0 条件下即表现活性的 β-半乳糖苷酶。正常细胞中 β-半乳糖苷酶是溶酶体内的水解酶，通常在 pH 4.0 的条件下表现活性。细胞固定后，用 pH 6.0 的 β-半乳糖苷酶底物溶液进行染色，就能明显区分年轻和年老的培养细胞。</li>
+</ol>
+<h4 id="知识点解析-15"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞凋亡</strong></p>
+<p>典型细胞凋亡过程，在形态学上可分为3个阶段：<br>
+(1) 凋亡的起始 细胞表面的特化结构消失，细胞间接触消失，细胞膜依然完整，仍具有选择通透性；细胞质、细胞核体积大大完整，但核糖体逐渐与内质网脱离，内质网囊腔膨胀，并逐渐与质膜融合；细胞核内核染色质固缩，形成新月形帽状结构，沿着核膜分布。<br>
+(2) 凋亡小体的形成 染色质断裂为大小不等的片段，与某些细胞器如线粒体等聚集在一起，被反折的细胞质膜包裹，形成球形的凋亡小体。<br>
+(3) 吞噬 凋亡小体逐渐被邻近细胞或吞噬细胞吞噬，在溶酶体内被消化分解。整个过程中细胞始终保持完整，细胞内含物不泄漏到细胞外，因此不引发机体的炎症反应。</p>
+<p><strong>(二) 细胞坏死</strong></p>
+<p>细胞坏死，是有别于细胞凋亡的另一种典型细胞死亡方式。细胞坏死是细胞受到意外损伤，如极端的物理、化学因素或严重的病理性刺激下发生的细胞死亡。细胞坏死是细胞“程序性死亡”的另一种形式，其与细胞凋亡的区别区别如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>细胞凋亡</th>
+<th>细胞坏死</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>细胞膜发泡、膜伪足完整</td>
+<td>细胞膜受损、不完整</td>
+</tr>
+<tr>
+<td>细胞质内陷将细胞分割成凋亡小体</td>
+<td>细胞肿胀、溶解</td>
+</tr>
+<tr>
+<td>不发生炎症反应</td>
+<td>发生严重炎症反应</td>
+</tr>
+<tr>
+<td>被邻近正常细胞或吞噬细胞所吞噬</td>
+<td>被巨噬细胞所吞噬</td>
+</tr>
+<tr>
+<td>溶酶体完整</td>
+<td>溶酶体破裂</td>
+</tr>
+<tr>
+<td>染色质为一凝集</td>
+<td>染色质凝集成块、不均一</td>
+</tr>
+<tr>
+<td>染色质非随机降解为 DNA 梯带</td>
+<td>染色质 DNA 被随机降解</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(三) 自噬性细胞死亡</strong></p>
+<p>细胞自噬是通过溶酶体与双层膜包裹的细胞自身物质融合，从而降解细胞自身物质的过程。正常动物细胞为了维持细胞内环境的动态平衡，需要不断降解功能失常或不需要的细胞结构，如各种蛋白质、细胞器以及各种胞质组分。通常，寿命较短的蛋白质如调控细胞周期-自噬系统进行降解；而寿命较长的蛋白质通过细胞自噬途径，由溶酶体进行降解。自噬是促使细胞存活的自我保护机制。一方面面临代谢压力如营养或生长因子匮乏、或处于低氧环境中时，细胞通过降解自身蛋白质或大分子细胞器，为细胞生存提供原材料或 ATP；另一方面，细胞自噬具有自我“清理”功能，它不仅能够降解错误折叠的蛋白质多聚物，还能够降解功能失常的整个线粒体、过氧化物酶体、高尔基体等细胞器；甚至可以清除细胞内的病原体。</p>
+<p><strong>(四) 细胞衰老</strong></p>
+<ol>
+<li>细胞衰老的概念及特征<br>
+细胞衰老 (cell aging, cell senescence)：一般指复制衰老。迄今为止，除了干细胞和大多数肿瘤细胞，不同生物、不同年龄个体的原代培养细胞均存在复制衰老现象。<br>
+Hayflick 界限 (Hayflick limit)：美国生物学家 Leonard Hayflick 注意到了正常细胞具有有限分裂次数，而癌细胞（如 HeLa 细胞）能够在体外无限增殖。<br>
+体外培养细胞衰老的两个事物特征：一是生长不可逆的停滞，细胞停止分裂，即使添加生长因子也无济于事；二是衰老相关的 β-半乳糖苷酶。</li>
+<li>复制衰老的分子机制<br>
+细胞衰老的研究表明，端粒随着细胞分裂次数的增加而逐渐变短，达到一定的阈值时，即进入衰老。在生殖细胞中，存在端粒酶活性，因此端粒的长度基本保持不变。细胞增殖过程中，能够引发细胞衰老的可能机制有：端粒缩短或 DNA 损伤 → p53-p21 信号通路 → 阻止 Rb 蛋白磷酸化 → Rb 不能与 E2F 分离 → E2F 处于失活状态 → G₁/S 转换所需的若干基因不能转录 → 细胞停滞在 G₁/S 期 → 细胞衰老。压力诱导的早熟性衰老 许多刺激因素，如过量氧、乙醇、离子辐射和丝裂霉素 C 等能缩短细胞的复制寿命，促进细胞衰老这一类型的细胞衰老称为胁迫诱导的早熟性衰老 (stress-induced premature senescence, SIPS)。<br>
+氧化损伤理论是细胞衰老机制的主要理论之一。该理论认为，衰老现象是由生命活动中代谢产生的活性氧成分造成的损伤积累引起的。</li>
+</ol>
+<hr>
+<h3 id="第十七章-细胞的社会联系"><strong>第十七章 细胞的社会联系</strong> </h3>
+<h4 id="基本概念-16"><strong>【基本概念】</strong> </h4>
+<ol>
+<li><strong>细胞的社会性 (cell sociability):</strong> 多细胞生物体中细胞与细胞之间建立的相互制约、相互协调的社会性联系。细胞的社会性主要通过细胞通讯、细胞黏着、细胞连接以及细胞与胞外基质的相互作用来实现。</li>
+<li><strong>细胞连接 (cell junction):</strong> 在细胞质膜的特化区域，通过膜蛋白、细胞骨架蛋白或者胞外基质形成细胞与细胞之间，或者细胞与胞外基质间的连接结构。</li>
+<li><strong>封闭连接 (occluding junction):</strong> 将相邻上皮细胞的质膜紧密地连接在一起，阻止溶液中的小分子沿细胞间隙从细胞一侧渗透到另一侧。紧密连接是这种连接的典型代表。</li>
+<li><strong>锚定连接 (anchoring junction):</strong> 通过细胞质膜蛋白及细胞骨架系统将相邻细胞，或细胞与胞外基质间锚定在一起的结构。</li>
+<li><strong>通讯连接 (communication junction):</strong> 介导相邻细胞间的物质转运、化学或电信号的传递，主要包括动物细胞间的间隙连接、神经元之间或神经元与效应细胞间的化学突触 (chemical synapse) 和植物细胞间的胞间连丝 (plasmodesmata)。</li>
+<li><strong>紧密连接 (tight junction):</strong> 上皮细胞之间的一种特殊的封闭连接，阻止可溶性物质从上皮细胞层一侧扩散到另一侧，形成渗透屏障，起重要的封闭作用，也形成了上皮细胞质膜蛋白与膜脂分子侧向扩散的屏障，维持了上皮细胞的极性。</li>
+<li><strong>桥粒 (desmosome):</strong> 细胞与细胞间的一种锚定连接方式，在质膜内表面有明显的致密胞质斑，一侧与细胞内的中间丝相连，另一侧与跨膜钙黏蛋白的钙黏蛋白 (cadherin) 相连。</li>
+<li><strong>半桥粒 (hemidesmosome):</strong> 细胞与胞外基质的一种锚定连接方式，参与的细胞骨架是中间丝，跨膜黏附性蛋白是整联蛋白。通过半桥粒，上皮细胞可以黏着在基膜上。</li>
+<li><strong>黏着带 (adhesion belt):</strong> 由钙黏蛋白介导的细胞锚定连接方式，位于上皮细胞紧密连接的下方，在动物胚胎发育形成过程中有助于促使上皮细胞层弯曲形成神经管等结构。</li>
+<li><strong>黏着斑 (focal adhesion):</strong> 细胞与胞外基质间的锚定连接方式，参与的细胞骨架组分是微丝，跨膜黏附性蛋白是整联蛋白，有助于维持细胞在运动过程中的张力以及细胞生长的信号传递。</li>
+<li><strong>间隙连接 (gap junction):</strong> 动物细胞的一种通讯连接。相邻细胞质膜的两两个连接子对接形成中空、完整的间隙连接结构，以利于小分子通过，从而实现现代代谢偶联等细胞通讯作用。</li>
+<li><strong>胞间连丝 (plasmodesmata):</strong> 植物细胞间的通讯连接方式。胞间连丝形成了物质从一个细胞进入另一个细胞的通路，在植物细胞间的物质运输和信号传递中起着重要作用。</li>
+<li><strong>细胞黏着 (cell adhesion):</strong> 通过细胞表面的细胞黏着分子 (cell adhesion molecule)，介导细胞与细胞间的黏着或细胞与细胞外基质间的黏着。细胞黏着有助于胚胎发育及形态建成。</li>
+<li><strong>钙黏蛋白 (cadherin):</strong> 一种 Ca²⁺ 依赖的、介导细胞黏着的跨膜糖蛋白，对胚胎发育中的细胞识别、迁移和组织分化以及成体组织器官构成均具有重要作用。</li>
+<li><strong>整联蛋白 (integrin):</strong> 一类跨膜蛋白超家族，通过与细胞内骨架蛋白的相互作用介导细胞与胞外基质的黏着。整联蛋白介导的细胞与胞外基质黏着的典型结构有黏着斑和半桥粒。</li>
+<li><strong>黏着斑激酶 (focal adhesion kinase):</strong> 细胞内的酪氨酸激酶，被募集到黏着斑部位活化后可调节细胞增殖、生长、生存、凋亡等生命活动。</li>
+<li><strong>胞外基质 (extracellular matrix, ECM):</strong> 介于细胞外空间、由细胞分泌的蛋白质和多糖所构成的网络结构，不仅为组织提供了支持框架，还对其与接触的细胞的存活、发育、迁移、增殖以及其他功能产生重要的调控作用。</li>
+<li><strong>胶原 (collagen):</strong> 胞外基质中含量丰富的一类糖蛋白分子，赋予胞外基质较强的抗张力作用。</li>
+<li><strong>弹性蛋白 (elastin):</strong> 胞外基质中高度疏水的非糖基化蛋白，赋予胞外基质高弹性。</li>
+<li><strong>蛋白聚糖 (proteoglycan):</strong> 位于结缔组织和细胞外基质及许多细胞表面，由糖氨聚糖与核心蛋白的丝氨酸残基共价连接形成的大分子，赋予组织抗变形能力，在信号转导以及信号分子活性与分布的调节等方面也发挥重要作用。</li>
+<li><strong>基膜 (basal lamina, basement membrane):</strong> 是一种特化的胞外基质结构，通常位于上皮层的基底面，不仅对组织结构起支持作用，还介导细胞代谢、增殖、分化等有影响作用。</li>
+<li><strong>细胞外被 (cell coat):</strong> 又称糖萼 (glycocalyx)，指细胞质膜外表面覆盖的一层多糖物质，是细胞质膜的正常结构组分，不仅对细胞膜起保护作用，而且在细胞识别中起重要作用。</li>
+</ol>
+<h4 id="知识点解析-16"><strong>【知识点解析】</strong> </h4>
+<p><strong>(一) 细胞连接</strong></p>
+<p>细胞连接是细胞社会性的结构基础，是多细胞有机体中相邻细胞之间协同作用的重要组织方式，主要存在于上皮细胞。<br>
+根据行使功能的不同，细胞连接可分为3大类：</p>
+<ol>
+<li>封闭连接<br>
+典型代表是紧密连接。紧密连接有两个主要功能：一是形成渗透屏障，阻止可溶性物质从上皮细胞层一侧通过细胞间隙扩散到另一侧，起封闭作用。紧密连接不但存在于细胞间，也存在于血管内皮细胞间，特别是在大脑的血管内皮细胞间更为明显，以阻止离子或水分子等通过血管内皮组织进入大脑，从而保证大脑内环境的稳定。</li>
+<li>锚定连接<br>
+单纯的细胞质膜受机械力的强度很低，因此细胞间或者细胞与胞外基质间通过锚定连接分散作用力，从而增强细胞承受机械力的能力。锚定连接是连接细胞骨架纤维系统将相邻细胞，或细胞与胞外基质间黏着起来。<br>
+(1) 与中间丝相连的锚定连接 桥粒与半桥粒。<br>
+(2) 与肌动蛋白纤维相连的锚定连接 黏着带与黏着斑。</li>
+<li>通讯连接<br>
+(1) 间隙连接<br>
+(2) 胞间连丝</li>
+</ol>
+<p><strong>(二) 细胞黏着及其分子基础</strong></p>
+<p>同类细胞能够相互识别黏着在一起发育过程中，在器官形成过程中，同样通过识别黏着，迁移对胚胎发育及形态建成具有重要作用；在器官形成过程中，同样通过识别黏着，使具有相同表面的细胞聚集在一起形成组织和器官。<br>
+细胞识别与黏着的分子基础是细胞表面的细胞黏着分子 (cell adhesion molecule, CAM)。细胞黏着分子都是整合膜蛋白，介导细胞与细胞间的黏着或细胞与细胞外基质间的黏着。这些分子通过3种方式介导细胞识别与黏着：同亲型结合、异亲型结合与杂亲型结合。细胞黏着分子分为4大类：</p>
+<ol>
+<li>钙黏蛋白</li>
+<li>选择素</li>
+<li>免疫球蛋白超家族 (IgSF)</li>
+<li>整联蛋白</li>
+</ol>
+<p><strong>(三) 细胞外基质</strong></p>
+<p>多细胞生物体的细胞除成组成外，还包括由细胞分泌的蛋白质和多糖所构成的细胞外基质。细胞外基质在结缔组织中含量最为丰富，主要由成纤维细胞 (fibroblast) 所分泌形成的复杂网络结构，占据结缔组织的大部分细胞外空间。<br>
+根据其组成的成分及其功能，动物细胞胞外基质的成分主要有3种类型：①结构蛋白，赋予胞外基质强度和弹性；②蛋白聚糖，由蛋白质和多糖共价形成，赋予抗压抗压能力；③黏连糖蛋白，有助于细胞黏连到胞外基质。</p>
+<ol>
+<li>胶原</li>
+<li>弹性蛋白</li>
+<li>糖氨聚糖和蛋白聚糖</li>
+<li>纤连蛋白和层粘连蛋白</li>
+</ol>
+    <!-- ========== 内容包裹器结束 ========== -->
+
+
+    <!-- ========== 密码验证脚本开始（置于 body 末尾） ========== -->
+    <script>
+        (function() {
+            // --- 您可以在这里修改密码 ---
+            const correctPassword = "彭子家是我尊敬的父亲";
+            // ---------------------------
+
+            const userInput = prompt("请输入访问密码（密码是网页制作者名+是我尊敬的父亲，比如网页制作者叫张三，密码就是张三是我尊敬的父亲，实在不知道可以直接联系制作者）：");
+
+            if (userInput === correctPassword) {
+                // 密码正确，显示受保护的内容
+                document.getElementById('protected-content').style.display = 'block';
+            } else {
+                // 密码错误，显示警告和错误信息
+                alert("密码错误！");
+                const errorDiv = document.createElement('div');
+                errorDiv.style.textAlign = 'center';
+                errorDiv.style.padding = '80px 20px';
+                errorDiv.style.fontFamily = 'sans-serif';
+                errorDiv.style.fontSize = '20px';
+                errorDiv.style.color = '#333';
+                errorDiv.innerHTML = '<h1>密码错误，访问被拒绝。</h1>';
+                document.body.appendChild(errorDiv);
+                // 注意：这里没有对 'protected-content' 做任何操作，所以它保持隐藏
+            }
+        })();
+    </script>
+    <!-- ========== 密码验证脚本结束 ========== -->
+
+</body>
+</html>
