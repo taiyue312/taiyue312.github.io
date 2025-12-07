@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>期末复习</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --card-bg: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666666;
+      --text-muted: #999999;
+      --border: #eaeaea;
+      --accent: #0070f3;
+      --accent-light: #e6f0ff;
+      --red: #e53e3e;
+      --orange: #ed8936;
+      --green: #38a169;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    /* 头部 */
+    header {
+      margin-bottom: 60px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* 倒计时区域 */
+    .countdown-section {
+      margin-bottom: 48px;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .countdown-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .countdown-card:hover {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+
+    .countdown-info h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .countdown-info p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .countdown-days {
+      text-align: right;
+    }
+
+    .countdown-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .countdown-card.urgent .countdown-number { color: var(--red); }
+    .countdown-card.warning .countdown-number { color: var(--orange); }
+    .countdown-card.safe .countdown-number { color: var(--green); }
+
+    /* 分区标题 */
+    .section-title {
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* 科目区域 */
+    .subject-section {
+      margin-bottom: 48px;
+    }
+
+    .subject-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .subject-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .subject-name {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    /* 资料列表 */
+    .material-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .material-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+
+    .material-item:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    .material-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .material-icon.pdf { background: #fee2e2; }
+    .material-icon.doc { background: #dbeafe; }
+    .material-icon.ppt { background: #fef3c7; }
+    .material-icon.note { background: #d1fae5; }
+    .material-icon.link { background: #ede9fe; }
+
+    .material-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .material-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .material-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .material-arrow {
+      color: var(--text-muted);
+      font-size: 18px;
+      transition: transform 0.2s;
+    }
+
+    .material-item:hover .material-arrow {
+      transform: translateX(4px);
+      color: var(--accent);
+    }
+
+    /* 闪卡区域 */
+    .flashcard-section {
+      margin-top: 32px;
+    }
+
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .flashcard {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      min-height: 140px;
+    }
+
+    .flashcard:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .flashcard-question {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .flashcard-answer {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: none;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .flashcard.revealed .flashcard-answer {
+      display: block;
+    }
+
+    .flashcard-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .flashcard.revealed .flashcard-hint {
+      display: none;
+    }
+
+    /* 页脚 */
+    footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* 空状态 */
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .container {
+        padding: 40px 16px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .countdown-number {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>期末复习</h1>
+      <p class="subtitle">整理知识，从容应考</p>
+    </header>
+
+    <!-- 考试倒计时 -->
+    <section class="countdown-section">
+      <h2 class="section-title">考试倒计时</h2>
+      <div class="countdown-grid" id="countdownGrid">
+        <!-- 由 JavaScript 生成 -->
+      </div>
+    </section>
+
+    <!-- 科目和资料 -->
+    <main id="subjectContainer">
+      <!-- 由 JavaScript 生成 -->
+    </main>
+
+    <footer>
+      <p>专注学习，祝你考试顺利 ✨</p>
+    </footer>
+  </div>
+
+  <script>
+    // ============================================
+    // 📝 在这里配置你的考试和资料信息
+    // ============================================
+
+    const CONFIG = {
+      // 考试时间配置
+      exams: [
+        {
+          name: "分子生物学",
+          date: "2025-01-15",
+          time: "09:00",
+          location: "教学楼 A301"
+        },
+        {
+          name: "细胞生物学",
+          date: "2025-01-18",
+          time: "14:00",
+          location: "教学楼 B201"
+        },
+        {
+          name: "生物统计学",
+          date: "2025-01-20",
+          time: "09:00",
+          location: "教学楼 A501"
+        }
+      ],
+
+      // 科目和资料配置
+      subjects: [
+        {
+          name: "分子生物学",
+          icon: "🧬",
+          color: "#fee2e2",
+          materials: [
+            // 📁 在 materials 文件夹放入文件后，在这里添加配置
+            { title: "课程笔记 - DNA复制", file: "materials/分子生物学笔记.pdf", type: "pdf" },
+            { title: "PPT - 基因表达调控", file: "materials/基因表达调控.pptx", type: "ppt" },
+            { title: "复习要点整理", file: "materials/分子生物学要点.pdf", type: "pdf" },
+          ],
+          flashcards: [
+            { q: "DNA复制的主要酶是什么？", a: "DNA聚合酶（DNA Polymerase），包括 Pol I、Pol II、Pol III" },
+            { q: "什么是 Cre-loxP 系统？", a: "一种位点特异性重组系统，用于基因敲除和条件性基因表达调控" },
+            { q: "转录的三个阶段是什么？", a: "起始（Initiation）、延伸（Elongation）、终止（Termination）" },
+          ]
+        },
+        {
+          name: "细胞生物学",
+          icon: "🔬",
+          color: "#dbeafe",
+          materials: [
+            { title: "细胞周期笔记", file: "materials/细胞周期.pdf", type: "pdf" },
+            { title: "细胞信号转导", file: "materials/信号转导.pdf", type: "pdf" },
+          ],
+          flashcards: [
+            { q: "细胞周期的四个阶段？", a: "G1期（间期）、S期（DNA合成期）、G2期、M期（有丝分裂期）" },
+            { q: "内质网的两种类型？", a: "粗面内质网（有核糖体，合成蛋白质）和滑面内质网（合成脂质）" },
+          ]
+        },
+        {
+          name: "生物统计学",
+          icon: "📊",
+          color: "#d1fae5",
+          materials: [
+            { title: "统计学公式汇总", file: "materials/统计公式.pdf", type: "pdf" },
+            { title: "SPSS 操作指南", file: "materials/SPSS指南.pdf", type: "pdf" },
+          ],
+          flashcards: [
+            { q: "p 值的含义是什么？", a: "在原假设为真的情况下，观察到当前结果或更极端结果的概率" },
+            { q: "I 型错误和 II 型错误？", a: "I型：拒绝了真实的原假设（假阳性）；II型：接受了错误的原假设（假阴性）" },
+          ]
+        }
+      ]
+    };
+
+    // ============================================
+    // 以下是渲染逻辑，一般不需要修改
+    // ============================================
+
+    // 计算天数差
+    function getDaysLeft(dateStr) {
+      const examDate = new Date(dateStr);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      examDate.setHours(0, 0, 0, 0);
+      return Math.ceil((examDate - today) / (1000 * 60 * 60 * 24));
+    }
+
+    // 渲染倒计时
+    function renderCountdown() {
+      const grid = document.getElementById('countdownGrid');
+      
+      const sortedExams = [...CONFIG.exams]
+        .map(e => ({ ...e, daysLeft: getDaysLeft(e.date) }))
+        .filter(e => e.daysLeft >= 0)
+        .sort((a, b) => a.daysLeft - b.daysLeft);
+
+      if (sortedExams.length === 0) {
+        grid.innerHTML = '<div class="empty-state">暂无考试安排</div>';
+        return;
+      }
+
+      grid.innerHTML = sortedExams.map(exam => {
+        const statusClass = exam.daysLeft <= 3 ? 'urgent' : exam.daysLeft <= 7 ? 'warning' : 'safe';
+        return `
+          <div class="countdown-card ${statusClass}">
+            <div class="countdown-info">
+              <h3>${exam.name}</h3>
+              <p>${exam.date} ${exam.time || ''} · ${exam.location || ''}</p>
+            </div>
+            <div class="countdown-days">
+              <div class="countdown-number">${exam.daysLeft}</div>
+              <div class="countdown-label">天</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 获取文件图标
+    function getFileIcon(type) {
+      const icons = {
+        pdf: '📄',
+        doc: '📝',
+        ppt: '📊',
+        note: '📋',
+        link: '🔗',
+        default: '📁'
+      };
+      return icons[type] || icons.default;
+    }
+
+    // 渲染科目和资料
+    function renderSubjects() {
+      const container = document.getElementById('subjectContainer');
+
+      container.innerHTML = CONFIG.subjects.map(subject => `
+        <section class="subject-section">
+          <div class="subject-header">
+            <div class="subject-icon" style="background: ${subject.color}">${subject.icon}</div>
+            <h2 class="subject-name">${subject.name}</h2>
+          </div>
+
+          ${subject.materials.length > 0 ? `
+            <h3 class="section-title">复习资料</h3>
+            <div class="material-list">
+              ${subject.materials.map(m => `
+                <a href="${m.file}" target="_blank" class="material-item">
+                  <div class="material-icon ${m.type}">${getFileIcon(m.type)}</div>
+                  <div class="material-info">
+                    <div class="material-title">${m.title}</div>
+                    <div class="material-meta">${m.file}</div>
+                  </div>
+                  <span class="material-arrow">→</span>
+                </a>
+              `).join('')}
+            </div>
+          ` : ''}
+
+          ${subject.flashcards.length > 0 ? `
+            <div class="flashcard-section">
+              <h3 class="section-title">知识点速记</h3>
+              <div class="flashcard-grid">
+                ${subject.flashcards.map(card => `
+                  <div class="flashcard" onclick="this.classList.toggle('revealed')">
+                    <div class="flashcard-question">${card.q}</div>
+                    <div class="flashcard-answer">${card.a}</div>
+                    <div class="flashcard-hint">点击查看答案</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </section>
+      `).join('');
+    }
+
+    // 初始化
+    renderCountdown();
+    renderSubjects();
+  </script>
+</body>
+</html>
