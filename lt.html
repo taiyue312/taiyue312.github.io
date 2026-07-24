@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bi-exponential fluorescence decay</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root{
+    --bg:#f7f7f5; --card:#ffffff; --ink:#1a1a19; --sub:#5f5e5a;
+    --line:#e1e0d9; --blue:#2a78d6; --green:#1baf7a; --red:#e34948; --purple:#7f77dd;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:28px 20px 50px;}
+  h1{font-size:23px; font-weight:600; margin:0 0 6px;}
+  .lead{color:var(--sub); font-size:14px; margin:0 0 22px; max-width:820px;}
+
+  .layout{display:grid; grid-template-columns:360px 1fr; gap:24px; align-items:start;}
+  @media(max-width:860px){ .layout{grid-template-columns:1fr;} }
+  .panel{position:sticky; top:20px;}
+  @media(max-width:860px){ .panel{position:static;} }
+
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:18px 20px; margin-bottom:18px;
+  }
+  .formula{font-size:16px; text-align:center; letter-spacing:.3px;}
+  .formula small{display:block; color:var(--sub); font-size:12.5px; margin-top:8px; letter-spacing:0; line-height:1.5;}
+
+  .ctrl{margin-bottom:16px;}
+  .ctrl:last-child{margin-bottom:0;}
+  .ctrl label{display:flex; justify-content:space-between; font-size:13px; color:var(--sub); margin-bottom:6px;}
+  .ctrl label b{color:var(--ink); font-weight:600;}
+  input[type=range]{width:100%; accent-color:var(--red);}
+
+  .topbar{display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between; margin-bottom:16px;}
+  .toggle{display:flex; align-items:center; gap:8px; font-size:13.5px; cursor:pointer; user-select:none;}
+  .toggle input{width:17px; height:17px; accent-color:var(--red);}
+  .btn{border:1px solid #cfcec7; background:#fff; border-radius:8px; padding:6px 13px; font-size:13px; cursor:pointer; color:var(--ink);}
+  .btn:hover{background:#f2f1ec;}
+
+  .stats{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .stat{background:#f4f3ee; border-radius:8px; padding:10px 12px;}
+  .stat .k{font-size:11.5px; color:var(--sub);}
+  .stat .v{font-size:18px; font-weight:600; margin-top:2px;}
+  .stat.err .v{color:var(--purple);}
+
+  .legend{display:flex; flex-wrap:wrap; gap:16px; font-size:13px; color:var(--sub); margin:2px 0 12px;}
+  .legend span{display:flex; align-items:center; gap:6px;}
+  .swatch{width:20px; height:0; display:inline-block;}
+  .chart-title{font-size:13.5px; color:var(--sub); margin:14px 0 6px;}
+  .chart-title:first-child{margin-top:0;}
+  .chart-box{position:relative; width:100%; height:260px;}
+  .chart-box.short{height:190px;}
+  footer{color:var(--sub); font-size:12.5px; margin-top:22px; max-width:900px;}
+  sup{font-size:.7em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Bi-exponential fluorescence decay</h1>
+  <p class="lead">When two fluorescent probes are excited by the same wavelength but have different deactivation time constants (τ₁ ≠ τ₂), the measured signal is the linear sum of two single-exponential decays. Adjust the parameters on the left; the plots and the "best single-exponential fit" update instantly on the right.</p>
+
+  <div class="layout">
+    <div class="panel">
+      <div class="card formula">
+        I(t) = A₁·e<sup>−t/τ₁</sup> + A₂·e<sup>−t/τ₂</sup>
+        <small id="normNote">With "normalize" on, each of the three curves is divided by its own value at t=0, so all start at 1.</small>
+      </div>
+
+      <div class="card">
+        <div class="topbar">
+          <label class="toggle"><input type="checkbox" id="norm"> Normalize (all curves = 1 at t=0)</label>
+          <button class="btn" id="reset">Reset</button>
+        </div>
+        <label class="toggle" style="margin-bottom:16px;"><input type="checkbox" id="showfit" checked> Show single-exponential fit + error</label>
+        <div class="ctrl">
+          <label>A₁ · probe 1 amplitude <b id="a1o">0.70</b></label>
+          <input type="range" id="a1" min="0" max="1" step="0.05" value="0.7">
+        </div>
+        <div class="ctrl">
+          <label>τ₁ · probe 1 lifetime (ns) <b id="t1o">1.5</b></label>
+          <input type="range" id="t1" min="0.3" max="10" step="0.1" value="1.5">
+        </div>
+        <div class="ctrl">
+          <label>A₂ · probe 2 amplitude <b id="a2o">0.50</b></label>
+          <input type="range" id="a2" min="0" max="1" step="0.05" value="0.5">
+        </div>
+        <div class="ctrl">
+          <label>τ₂ · probe 2 lifetime (ns) <b id="t2o">6.0</b></label>
+          <input type="range" id="t2" min="0.3" max="10" step="0.1" value="6.0">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="stats">
+          <div class="stat"><div class="k">lifetime ratio r = τ₂/τ₁</div><div class="v" id="ratio">—</div></div>
+          <div class="stat"><div class="k">amplitude-weighted mean ⟨τ⟩</div><div class="v" id="tauAmp">—</div></div>
+          <div class="stat"><div class="k">fitted lifetime τ<sub>fit</sub></div><div class="v" id="tauFit">—</div></div>
+          <div class="stat err"><div class="k">fitted-lifetime error (τ<sub>fit</sub> vs ⟨τ⟩)</div><div class="v" id="tauErr">—</div></div>
+          <div class="stat err"><div class="k">max relative error</div><div class="v" id="maxErr">—</div></div>
+          <div class="stat err"><div class="k">RMS relative error</div><div class="v" id="rmsErr">—</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="legend">
+        <span><span class="swatch" style="border-top:2px dashed var(--blue);"></span>probe 1</span>
+        <span><span class="swatch" style="border-top:2px dotted var(--green);"></span>probe 2</span>
+        <span><span class="swatch" style="border-top:3px solid var(--red);"></span>sum (measured)</span>
+        <span><span class="swatch" style="border-top:2px solid var(--purple);"></span>single-exp best fit</span>
+        <span><span class="swatch" style="border-top:1.5px dashed #9a988f;"></span>1/e reference</span>
+      </div>
+      <div class="chart-title">Linear scale — I(t)</div>
+      <div class="chart-box"><canvas id="linChart"></canvas></div>
+      <div class="chart-title">Semi-log scale — single exponentials are straight lines; the sum bends</div>
+      <div class="chart-box"><canvas id="logChart"></canvas></div>
+      <div class="chart-title">Relative error — (fit − sum) / sum, only where signal &gt; 1% of peak</div>
+      <div class="chart-box short"><canvas id="resChart"></canvas></div>
+    </div>
+  </div>
+
+  <footer>
+    Fitting: within the displayed time window, a single exponential B·e<sup>−t/τ</sup> is fit to the sum curve by least squares (in intensity space); both τ<sub>fit</sub> and the amplitude B are optimized. The fitted-lifetime error = (τ<sub>fit</sub> − ⟨τ⟩) / ⟨τ⟩, where ⟨τ⟩ is the amplitude-weighted mean lifetime (A₁τ₁+A₂τ₂)/(A₁+A₂); it measures how far the single-exponential fit's lifetime deviates from the true mean. The curve's relative error is evaluated only where the signal exceeds 1% of the peak, to avoid dividing by near-zero values in the tail.
+    The 1/e reference line is drawn at 1/e of the initial intensity (0.368 when normalized): where a single-exponential curve crosses it, the time coordinate equals that curve's lifetime τ, so you can read it off directly. When normalization is on, the fitted curve is also normalized to 1 at t=0.
+    Rule of thumb: the closer r is to 1, or the more one component dominates in amplitude, the smaller the error and the better a single exponential works. When r is large and both amplitudes are comparable, the error grows (the semi-log curve bends more) and the signal should not be treated as single-exponential.
+  </footer>
+</div>
+
+<script>
+(function(){
+  const ids=['a1','t1','a2','t2'];
+  const el={}; ids.forEach(i=>el[i]=document.getElementById(i));
+  const defaults={a1:0.7,t1:1.5,a2:0.5,t2:6.0};
+  const norm=document.getElementById('norm');
+  const showfit=document.getElementById('showfit');
+  const N=240;
+  const blue='#2a78d6', green='#1baf7a', red='#e34948', purple='#7f77dd';
+  const muted='#898781', grid='#e1e0d9';
+
+  function P(){return {a1:+el.a1.value,t1:+el.t1.value,a2:+el.a2.value,t2:+el.t2.value};}
+
+  function fitSingle(t,y){
+    const tmax=t[t.length-1];
+    const lo=Math.max(0.05,tmax*0.004), hi=tmax*1.2;
+    let best={ssr:Infinity,tau:1,B:0};
+    const steps=600;
+    for(let k=0;k<=steps;k++){
+      const tau=lo*Math.pow(hi/lo,k/steps);
+      let sg=0,gg=0;
+      for(let i=0;i<t.length;i++){const g=Math.exp(-t[i]/tau); sg+=y[i]*g; gg+=g*g;}
+      const B=gg>0?sg/gg:0;
+      let ssr=0;
+      for(let i=0;i<t.length;i++){const d=y[i]-B*Math.exp(-t[i]/tau); ssr+=d*d;}
+      if(ssr<best.ssr) best={ssr,tau,B};
+    }
+    return best;
+  }
+
+  function build(){
+    const p=P();
+    const nz=norm.checked;
+    const k1=nz?(p.a1>0?1/p.a1:0):1;
+    const k2=nz?(p.a2>0?1/p.a2:0):1;
+    const s0=p.a1+p.a2;
+    const ks=nz?(s0>0?1/s0:0):1;
+    const tMax=5*Math.max(p.t1,p.t2);
+    const t=[],c1=[],c2=[],s=[];
+    for(let i=0;i<=N;i++){
+      const x=tMax*i/N;
+      const e1=p.a1*Math.exp(-x/p.t1);
+      const e2=p.a2*Math.exp(-x/p.t2);
+      c1.push(k1*e1); c2.push(k2*e2); s.push(ks*(e1+e2)); t.push(x);
+    }
+    const fit=fitSingle(t,s);
+    const ff=[];
+    for(let i=0;i<=N;i++) ff.push(fit.B*Math.exp(-t[i]/fit.tau));
+    if(nz && ff[0]>0){ const f0=ff[0]; for(let i=0;i<=N;i++) ff[i]/=f0; }
+    const res=[];
+    const thr=0.01*s[0];
+    let maxErr=0, sq=0, cnt=0;
+    for(let i=0;i<=N;i++){
+      if(s[i]>thr){
+        const r=(ff[i]-s[i])/s[i]*100;
+        res.push(r);
+        const a=Math.abs(r); if(a>maxErr)maxErr=a; sq+=r*r; cnt++;
+      } else res.push(null);
+    }
+    const rms=cnt>0?Math.sqrt(sq/cnt):0;
+    const yline=s[0]/Math.E;
+    const eline=new Array(N+1).fill(yline);
+    return {t,c1,c2,s,ff,res,fit,maxErr,rms,eline,yline,p};
+  }
+
+  function datasets(d){
+    return [
+      {label:'probe 1',data:d.c1,borderColor:blue,borderDash:[6,4],borderWidth:2,pointRadius:0,tension:.1},
+      {label:'probe 2',data:d.c2,borderColor:green,borderDash:[2,3],borderWidth:2,pointRadius:0,tension:.1},
+      {label:'sum',data:d.s,borderColor:red,borderWidth:3,pointRadius:0,tension:.1},
+      {label:'single-exp fit',data:d.ff,borderColor:purple,borderWidth:2,pointRadius:0,tension:.1},
+      {label:'1/e reference',data:d.eline,borderColor:'#9a988f',borderDash:[3,3],borderWidth:1.5,pointRadius:0,tension:0}
+    ];
+  }
+  function opts(log){
+    return {responsive:true,maintainAspectRatio:false,animation:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        title:it=>'t = '+(+it[0].label).toFixed(1)+' ns',
+        label:c=>c.dataset.label+': '+c.parsed.y.toFixed(4)}}},
+      scales:{
+        x:{type:'linear',title:{display:true,text:'time (ns)',color:muted,font:{size:11}},
+           ticks:{color:muted,maxTicksLimit:8,callback:v=>(+v).toFixed(0)},grid:{color:grid}},
+        y: log
+          ?{type:'logarithmic',min:0.001,title:{display:true,text:'intensity (log)',color:muted,font:{size:11}},ticks:{color:muted},grid:{color:grid}}
+          :{type:'linear',min:0,title:{display:true,text:'intensity',color:muted,font:{size:11}},ticks:{color:muted},grid:{color:grid}}
+      }};
+  }
+  function resOpts(){
+    return {responsive:true,maintainAspectRatio:false,animation:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{callbacks:{
+        title:it=>'t = '+(+it[0].label).toFixed(1)+' ns',
+        label:c=>'relative error: '+(c.parsed.y==null?'—':c.parsed.y.toFixed(1)+' %')}}},
+      scales:{
+        x:{type:'linear',title:{display:true,text:'time (ns)',color:muted,font:{size:11}},
+           ticks:{color:muted,maxTicksLimit:8,callback:v=>(+v).toFixed(0)},grid:{color:grid}},
+        y:{type:'linear',title:{display:true,text:'error (%)',color:muted,font:{size:11}},ticks:{color:muted},grid:{color:grid}}
+      }};
+  }
+
+  const d0=build();
+  const lin=new Chart(document.getElementById('linChart'),{type:'line',data:{labels:d0.t,datasets:datasets(d0)},options:opts(false)});
+  const log=new Chart(document.getElementById('logChart'),{type:'line',data:{labels:d0.t,datasets:datasets(d0)},options:opts(true)});
+  const res=new Chart(document.getElementById('resChart'),{type:'line',
+    data:{labels:d0.t,datasets:[{label:'relative error',data:d0.res,borderColor:purple,borderWidth:2,pointRadius:0,spanGaps:false,
+      fill:true,backgroundColor:'rgba(127,119,221,0.12)'}]},options:resOpts()});
+
+  function refresh(){
+    const p=P();
+    document.getElementById('a1o').textContent=p.a1.toFixed(2);
+    document.getElementById('t1o').textContent=p.t1.toFixed(1);
+    document.getElementById('a2o').textContent=p.a2.toFixed(2);
+    document.getElementById('t2o').textContent=p.t2.toFixed(1);
+    const d=build();
+    const wf=showfit.checked;
+    const denom=p.a1+p.a2;
+    const tauAmp=denom>0?(p.a1*p.t1+p.a2*p.t2)/denom:0;
+    const tauErr=tauAmp>0?(d.fit.tau-tauAmp)/tauAmp*100:0;
+    document.getElementById('ratio').textContent=(p.t2/p.t1).toFixed(2);
+    document.getElementById('tauAmp').textContent=tauAmp.toFixed(2)+' ns';
+    document.getElementById('tauFit').textContent=wf?d.fit.tau.toFixed(2)+' ns':'—';
+    document.getElementById('tauErr').textContent=wf?(tauErr>=0?'+':'')+tauErr.toFixed(1)+' %':'—';
+    document.getElementById('maxErr').textContent=wf?d.maxErr.toFixed(1)+' %':'—';
+    document.getElementById('rmsErr').textContent=wf?d.rms.toFixed(1)+' %':'—';
+
+    [lin,log].forEach(ch=>{
+      ch.data.labels=d.t;
+      ch.data.datasets[0].data=d.c1;
+      ch.data.datasets[1].data=d.c2;
+      ch.data.datasets[2].data=d.s;
+      ch.data.datasets[3].data=wf?d.ff:[];
+      ch.data.datasets[3].hidden=!wf;
+      ch.data.datasets[4].data=d.eline;
+      ch.update('none');
+    });
+    res.data.labels=d.t;
+    res.data.datasets[0].data=wf?d.res:[];
+    res.update('none');
+  }
+  ids.forEach(i=>el[i].addEventListener('input',refresh));
+  norm.addEventListener('change',refresh);
+  showfit.addEventListener('change',refresh);
+  document.getElementById('reset').addEventListener('click',()=>{
+    ids.forEach(i=>el[i].value=defaults[i]); norm.checked=false; showfit.checked=true; refresh();
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
